@@ -4,8 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aditya Print Lab</title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
-
+        /* Style for product cards */
         .product-card {
             border: 1px solid #ccc;
             border-radius: 5px;
@@ -40,40 +42,33 @@
         }
 
         .product-card button:hover {
-            background-color: rgb(55, 140, 214);
+            background-color: #45a049;
         }
-
-        .contact-details {
+        
+        /* Style for cart icon */
+        .cart-icon {
             float: right;
-            margin-top: 10px;
-            padding: 10px;
-            background-color: #f2f2f2;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            width: 250px;
-        }
-
-        .contact-details h2 {
-            margin-top: 0;
-        }
-
-        .contact-details p {
-            margin-bottom: 5px;
+            margin-top: 30px;
+            margin-right: 20px;
+            color: #099ed8;
+            font-size: 24px;
+            cursor: pointer;
         }
     </style>
 </head>
 <body>
-    <div style="overflow: hidden;">
-        <h1 style="float: left;">Aditya Print Lab</h1>
-        <div class="contact-details">
-            <h2>Contact Details</h2>
-            <p>Phone: +1234567890</p>
-            <p>Email: abc@gmail.com</p>
-            <p>Address: Aditya Stationary, Beed Bypass, Aurangabad-430012, Maharashtra, India</p>
-        </div>
-    </div>
+    <!-- Website name with cart icon -->
+    <h1>Aditya Print Lab <i class="fas fa-shopping-cart cart-icon"></i></h1>
+    
+    <!-- Contact details -->
+    <p>Contact Details:</p>
+    <p>Phone: +1234567890</p>
+    <p>Email: example@example.com</p>
+    <p>Address: 123 Stationary Street, City, Country</p>
 
+    <!-- Section for product cards -->
     <div id="product-section">
+        <!-- Sample Product Card -->
         <div class="product-card">
             <h2>Product 1</h2>
             <p>Description of Product 1</p>
@@ -81,6 +76,7 @@
             <button>Add to Cart</button>
         </div>
 
+        <!-- Sample Product Card -->
         <div class="product-card">
             <h2>Product 2</h2>
             <p>Description of Product 2</p>
@@ -88,19 +84,10 @@
             <button>Add to Cart</button>
         </div>
 
-        <div class="product-card">
-            <h2>Product 3</h2>
-            <p>Description of Product 3</p>
-            <p>Price: ₹ 20.00</p>
-            <button>Add to Cart</button>
-        </div>
-
-        <div class="product-card">
-            <h2>Product 2</h2>
-            <p>Description of Product 2</p>
-            <p>Price: ₹ 25.00</p>
-            <button>Add to Cart</button>
-        </div>
+        <!-- Add more product cards here as needed -->
     </div>
+
+    <!-- Script to include Font Awesome icons -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"></script>
 </body>
 </html>
