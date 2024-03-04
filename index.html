@@ -46,7 +46,7 @@
         /* Style for contact details */
         .contact-details {
             float: right;
-            margin-top: 30px;
+            margin-top: 10px; /* Adjusted margin-top */
             padding: 10px;
             background-color: #f2f2f2;
             border: 1px solid #ccc;
@@ -65,7 +65,16 @@
 </head>
 <body>
     <!-- Website name -->
-    <h1>Aditya Print Lab</h1>
+    <div style="overflow: hidden;">
+        <h1 style="float: left;">Aditya Print Lab</h1>
+        <!-- Contact details section -->
+        <div class="contact-details">
+            <h2>Contact Details</h2>
+            <p>Phone: +1234567890</p>
+            <p>Email: abc@gmail.com</p>
+            <p>Address: Aditya Stationary, Beed Bypass, Aurangabad-430012, Maharashtra, India</p>
+        </div>
+    </div>
 
     <!-- Section for product cards -->
     <div id="product-section">
@@ -86,14 +95,6 @@
         </div>
 
         <!-- Add more product cards here as needed -->
-    </div>
-
-    <!-- Contact details section -->
-    <div class="contact-details">
-        <h2>Contact Details</h2>
-        <p>Phone: +1234567890</p>
-        <p>Email: abc@gmail.com</p>
-        <p>Address: Aditya Stationary, Beed Bypass, Aurangabad-430012, Maharashtra, India</p>
     </div>
 </body>
 </html>
