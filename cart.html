@@ -55,11 +55,6 @@
 <body>
     <div class="container">
         <h2>Shopping Cart</h2>
-        <div class="empty-cart">
-            <img src="empty-cart.jpg" alt="Empty Cart">
-            <p>Your cart is currently empty.</p>
-        </div>
-        <!-- Cart items will be dynamically added here -->
         <div id="cart-items"></div>
         <a href="shop.html" class="checkout-btn">Add items to Cart</a>
     </div>
@@ -67,10 +62,40 @@
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             var cartItem = localStorage.getItem('cartItem');
+            var cartItemsDiv = document.getElementById("cart-items");
+            
             if (cartItem) {
-                document.getElementById("cart-items").innerHTML = cartItem;
+                // If there's a product in the cart, display it
+                cartItemsDiv.innerHTML = cartItem;
+            } else {
+                // If the cart is empty, display the "Empty Cart" content
+                displayEmptyCart();
             }
         });
+
+        function addToCart(button) {
+            // Get the product card element
+            var productCard = button.parentNode;
+
+            // Clone the product card
+            var clonedProductCard = productCard.cloneNode(true);
+
+            // Append the cloned product card to the Cart page
+            localStorage.setItem('cartItem', clonedProductCard.outerHTML);
+
+            // Update the cart content
+            document.getElementById("cart-items").innerHTML = clonedProductCard.outerHTML;
+        }
+
+        function displayEmptyCart() {
+            var emptyCartDiv = document.createElement("div");
+            emptyCartDiv.classList.add("empty-cart");
+            emptyCartDiv.innerHTML = `
+                <img src="empty-cart.jpg" alt="Empty Cart">
+                <p>Your cart is currently empty.</p>
+            `;
+            document.getElementById("cart-items").appendChild(emptyCartDiv);
+        }
     </script>
 </body>
 </html>
