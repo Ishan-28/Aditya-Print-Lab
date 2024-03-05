@@ -54,7 +54,7 @@
             <h2>Product 1</h2>
             <p>Description of Product 1</p>
             <p>Price: ₹ 10.00</p>
-            <button>Add to Cart</button>
+            <button onclick="addToCart(this)">Add to Cart</button>
         </div>
 
         <!-- Product Card 2 -->
@@ -62,7 +62,7 @@
             <h2>Product 2</h2>
             <p>Description of Product 2</p>
             <p>Price: ₹ 15.00</p>
-            <button>Add to Cart</button>
+            <button onclick="addToCart(this)">Add to Cart</button>
         </div>
 
         <!-- Add more product cards here as needed -->
@@ -70,5 +70,18 @@
 
     <!-- Script to include Font Awesome icons -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"></script>
+    <script>
+        function addToCart(button) {
+            // Get the product card element
+            var productCard = button.parentNode;
+
+            // Clone the product card
+            var clonedProductCard = productCard.cloneNode(true);
+
+            // Append the cloned product card to the Cart page
+            localStorage.setItem('cartItem', clonedProductCard.outerHTML);
+            window.location.href = "cart.html";
+        }
+    </script>
 </body>
 </html>

@@ -59,7 +59,18 @@
             <img src="empty-cart.jpg" alt="Empty Cart">
             <p>Your cart is currently empty.</p>
         </div>
+        <!-- Cart items will be dynamically added here -->
+        <div id="cart-items"></div>
         <a href="shop.html" class="checkout-btn">Add items to Cart</a>
     </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var cartItem = localStorage.getItem('cartItem');
+            if (cartItem) {
+                document.getElementById("cart-items").innerHTML = cartItem;
+            }
+        });
+    </script>
 </body>
 </html>
