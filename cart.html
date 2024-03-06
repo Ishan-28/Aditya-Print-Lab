@@ -3,63 +3,175 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shopping Cart</title>
+    <title>Cart</title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        .container {
-            max-width: 800px;
-            margin: 20px auto;
-            padding: 20px;
-            background-color: #fff;
+        /* Style for cart items */
+        .cart-item {
+            border: 1px solid #ccc;
             border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 10px;
+            margin: 10px;
+            background-color: #f9f9f9;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
-        h2 {
-            text-align: center;
+
+        .cart-item h2 {
+            margin-top: 0;
         }
-        .empty-cart {
-            text-align: center;
-            margin-top: 50px;
-            font-size: 20px;
-            color: #777;
+
+        .cart-item p {
+            margin-bottom: 5px;
         }
-        .empty-cart img {
-            width: 200px;
-            height: auto;
-            margin-bottom: 20px;
-        }
-        .add-to-cart-btn {
-            display: block;
-            margin: 20px auto;
-            padding: 10px 20px;
-            background-color: #28a745;
+
+        .remove-btn {
+            background-color: #ff6347;
             color: white;
             border: none;
-            border-radius: 5px;
-            cursor: pointer;
+            padding: 5px 10px;
             text-align: center;
             text-decoration: none;
-            font-size: 16px;
+            display: inline-block;
+            font-size: 14px;
+            margin-right: 10px;
+            cursor: pointer;
+            border-radius: 5px;
         }
-        .add-to-cart-btn:hover {
-            background-color: #218838;
+
+        .remove-btn:hover {
+            background-color: #ff4136;
+        }
+
+        /* Style for empty cart image */
+        .empty-cart {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .empty-cart img {
+            width: 150px;
+            height: auto;
+        }
+
+        .empty-cart p {
+            margin-top: 10px;
+        }
+
+        .empty-cart .add-to-cart-btn {
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin-top: 10px;
+            border-radius: 5px;
+        }
+
+        .empty-cart .add-to-cart-btn:hover {
+            background-color: #45a049;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h2>Shopping Cart</h2>
-        <div class="empty-cart">
-            <img src="empty-cart.jpg" alt="Empty Cart">
-            <p>Your cart is currently empty.</p>
-            <a href="shop.html" class="add-to-cart-btn">Add items to the Cart</a>
-        </div>
+    <!-- Cart items section -->
+    <div id="cart-items">
+        <!-- Existing elements in the cart page -->
+        <h1>Shopping Cart</h1>
+        <!-- Cart items will be dynamically added here -->
     </div>
+
+    <!-- Empty cart section -->
+    <div class="empty-cart" id="empty-cart">
+        <img src="empty-cart.jpg" alt="Empty Cart">
+        <p>Your cart is currently empty.</p>
+        <a href="shop.html" class="add-to-cart-btn">Add items to the Cart</a>
+    </div>
+
+    <!-- Script to include Font Awesome icons -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"></script>
+    <script>
+        // Get the cart container element
+        var cartContainer = document.getElementById('cart-items');
+        // Get the empty cart element
+        var emptyCart = document.getElementById('empty-cart');
+
+        // Function to render cart items
+        function renderCartItems() {
+            // Clear the contents of the cart container
+            cartContainer.innerHTML = '';
+
+            // Check if there are items in the cart
+            var cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+
+            if (cartItems.length === 0) {
+                // Show empty cart
+                emptyCart.style.display = 'block';
+            } else {
+                // Hide empty cart
+                emptyCart.style.display = 'none';
+
+                // Loop through the cart items and append them to the cart container
+                cartItems.forEach(function(item, index) {
+                    var cartItem = document.createElement('div');
+                    cartItem.classList.add('cart-item');
+                    cartItem.innerHTML = item;
+
+                    // Create a remove button for each item
+                    var removeButton = document.createElement('button');
+                    removeButton.classList.add('remove-btn');
+                    removeButton.innerText = 'Remove from Cart';
+                    removeButton.onclick = function() {
+                        removeCartItem(index);
+                    };
+                    cartItem.appendChild(removeButton);
+
+                    cartContainer.appendChild(cartItem);
+                });
+            }
+        }
+
+        // Render cart items when the page loads
+        renderCartItems();
+
+        // Function to add product to cart
+        function addToCart(button) {
+            // Get the product card element
+            var productCard = button.parentNode;
+
+            // Clone the product card
+            var clonedProductCard = productCard.cloneNode(true);
+
+            // Get the cart items from local storage
+            var cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+
+            // Add the cloned product card to the cart items array
+            cartItems.push(clonedProductCard.outerHTML);
+
+            // Save the updated cart items back to local storage
+            localStorage.setItem('cartItems', JSON.stringify(cartItems));
+
+            // Render cart items
+            renderCartItems();
+        }
+
+        // Function to remove item from cart
+        function removeCartItem(index) {
+            // Get the cart items from local storage
+            var cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+
+            // Remove the item from the cartItems array
+            cartItems.splice(index, 1);
+
+            // Save the updated cart items back to local storage
+            localStorage.setItem('cartItems', JSON.stringify(cartItems));
+
+            // Render cart items again
+            renderCartItems();
+        }
+    </script>
 </body>
 </html>

@@ -95,16 +95,25 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"></script>
     <script>
         function addToCart(button) {
-            // Get the product card element
-            var productCard = button.parentNode;
+    // Get the product card element
+    var productCard = button.parentNode;
 
-            // Clone the product card
-            var clonedProductCard = productCard.cloneNode(true);
+    // Check if there are already items in the cart
+    var cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
 
-            // Append the cloned product card to the Cart page
-            localStorage.setItem('cartItem', clonedProductCard.outerHTML);
-            window.location.href = "cart.html";
-        }
+    // Clone the product card
+    var clonedProductCard = productCard.cloneNode(true);
+
+    // Add the cloned product card to the cart items array
+    cartItems.push(clonedProductCard.outerHTML);
+
+    // Save the updated cart items back to local storage
+    localStorage.setItem('cartItems', JSON.stringify(cartItems));
+
+    // Redirect to the cart page
+    window.location.href = "cart.html";
+}
+
     </script>
 </body>
 </html>
