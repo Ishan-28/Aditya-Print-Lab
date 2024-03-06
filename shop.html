@@ -7,6 +7,26 @@
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
+        
+        .home-link {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            font-size: 20px;
+            text-decoration: none;
+            color: #099ed8;
+            font-weight: bold;
+            border: 2px solid #099ed8;
+            padding: 5px 10px;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+
+        .home-link:hover {
+            background-color: #099ed8;
+            color: white;
+        }
+
         /* Style for product cards */
         .product-card {
             border: 1px solid #ccc;
@@ -47,6 +67,8 @@
     </style>
 </head>
 <body>
+    <a href="index.html" class="home-link" id="home-link">Home</a>
+    
     <!-- Product cards section -->
     <div id="product-section">
         <!-- Product Card 1 -->

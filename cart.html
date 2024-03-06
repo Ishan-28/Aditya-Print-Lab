@@ -7,6 +7,25 @@
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
+
+        .home-link {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            font-size: 20px;
+            text-decoration: none;
+            color: #099ed8;
+            font-weight: bold;
+            border: 2px solid #099ed8;
+            padding: 5px 10px;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+
+        .home-link:hover {
+            background-color: #099ed8;
+            color: white;
+        }
         /* Style for cart items */
         .cart-item {
             border: 1px solid #ccc;
@@ -74,13 +93,22 @@
         .empty-cart .add-to-cart-btn:hover {
             background-color: #45a049;
         }
+
+        /* Style for shopping cart title */
+        .shopping-cart-title {
+            text-align: center;
+            margin-top: 20px;
+        }
     </style>
 </head>
 <body>
+    <a href="index.html" class="home-link">Home</a>
+    <!-- Shopping Cart title -->
+    <h1 class="shopping-cart-title">Shopping Cart</h1>
+
     <!-- Cart items section -->
     <div id="cart-items">
         <!-- Existing elements in the cart page -->
-        <h1>Shopping Cart</h1>
         <!-- Cart items will be dynamically added here -->
     </div>
 
