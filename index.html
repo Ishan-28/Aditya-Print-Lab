@@ -15,10 +15,12 @@
         .topnav {
             overflow: hidden;
             background-color: #333;
+            text-align: center; /* Center-align the menu items */
         }
 
         .topnav a {
-            float: left;
+            float: none; /* Remove float to center the items */
+            display: inline-block; /* Add this line to make the items display inline */
             color: #f2f2f2;
             text-align: center;
             padding: 14px 16px;
@@ -34,6 +36,7 @@
         .topnav a.active {
             background-color: #04AA6D;
             color: white;
+            background-color: rgb(37, 150, 190);
         }
         /* Style for cart icon */
         .cart-icon {
@@ -130,7 +133,7 @@
         }
 
         .user-support:hover {
-            color: #218838;
+            color: rgb(37, 150, 190);
         }
 
         /* Style for modal */
@@ -177,7 +180,7 @@
         <a href="#news">Shop</a>
         <a href="#contact">Contact Us</a>
         <a href="#about">About</a>
-      </div>
+    </div>
 
     <!-- Website name with icons -->
     <h1>Aditya Print Lab  
