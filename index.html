@@ -15,7 +15,7 @@
         .topnav {
             overflow: hidden;
             background-color: #333;
-            text-align: center; /* Center-align the menu items */
+            text-align: center;
         }
 
         .topnav a {
@@ -58,25 +58,21 @@
             cursor: pointer;
         }
 
-        /* Style for shop button */
         .shop-btn {
             margin-top: 10px;
-            background-color: #28a745;
-            color: white;
-            padding: 10px 20px;
+            background-color: transparent;
+            color: #f2f2f2;
+            padding: 14px 16px;
             border: none;
-            border-radius: 5px;
             cursor: pointer;
             text-decoration: none;
-            font-size: 16px;
+            font-size: 17px;
+            float: right;
         }
 
         .shop-btn:hover {
-            background-color: #218838;
-        }
-        p {
-            font-size: 13px;
-            font-style: oblique;
+            background-color: #ddd;
+            color: black;
         }
 
         .line {
@@ -84,7 +80,6 @@
             margin-bottom: 20px;
         }
 
-        /* Style for contact details */
         .contact-details {
             display: none;
             padding: 10px;
@@ -122,7 +117,6 @@
             background-color: #f9f9f9;
         }
 
-        /* Style for user support icon */
         .user-support {
             position: fixed;
             bottom: 20px;
@@ -133,10 +127,9 @@
         }
 
         .user-support:hover {
-            color: rgb(37, 150, 190);
+            color: #218838;
         }
 
-        /* Style for modal */
         .modal {
             display: none;
             position: fixed;
@@ -177,8 +170,9 @@
 <body>
     <div class="topnav">
         <a class="active" href="#home">Home</a>
-        <a href="#news">Shop</a>
+        <a href="shopping.html">Shop</a> <!-- Link to Shopping page -->
         <a href="#contact">Contact Us</a>
+        <a href="#about">About</a>
         <a href="#about">About</a>
     </div>
 
@@ -188,20 +182,7 @@
         <a href="cart.html" class="cart-icon"><i class="fas fa-shopping-cart"></i></a>
     </h1>
 
-    <!-- Contact button -->
-    <button class="contact-btn" onclick="toggleContact()">Contact Us</button>
-    
-    <!-- Contact details -->
-    <div class="contact-details" id="contactDetails">
-        <p>Contact Details:</p>
-        <p>Phone: 9673399909</p>
-        <p>Email: adityaprintlab38@gmail.com</p>
-        <p>Address: S.NO 48, H.No. 38, Jai Gajanan Nagar, <br> Garkheda area, Chh.Sambhaji Nagar-431005</p>
-    </div>
     <h1 class="line"></h1>
-
-    <!-- Shop button linked to shop page -->
-    <a href="shop.html" class="shop-btn">Shop Now</a>
 
     <!-- User support icon -->
     <div class="user-support" onclick="openSupport()">
@@ -223,6 +204,14 @@
             <br>
             <button onclick="sendMessage()">Send</button>
         </div>
+    </div>
+
+    <!-- Contact details (moved to the bottom) -->
+    <div class="contact-details" id="contactDetails">
+        <p>Contact Details:</p>
+        <p>Phone: 9673399909</p>
+        <p>Email: adityaprintlab38@gmail.com</p>
+        <p>Address: S.NO 48, H.No. 38, Jai Gajanan Nagar, <br> Garkheda area, Chh.Sambhaji Nagar-431005</p>
     </div>
 
     <!-- Script to include Font Awesome icons -->
