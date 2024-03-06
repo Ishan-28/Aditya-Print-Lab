@@ -20,6 +20,9 @@
             padding: 5px 10px;
             border-radius: 5px;
             transition: all 0.3s ease;
+            border-bottom: 2px solid #099ed8; /* Add a bottom border */
+            display: inline-block; /* Ensure the link behaves like a block element */
+            padding-bottom: 5px; /* Adjust the spacing between the text and the border */
         }
 
         .home-link:hover {
@@ -39,6 +42,9 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
 
+        .product-section {
+            margin-top: 50px; /* Add some top margin to create space between the Home button and the product cards */
+        }
         .product-card h2 {
             margin-top: 0;
         }
@@ -70,7 +76,7 @@
     <a href="index.html" class="home-link" id="home-link">Home</a>
     
     <!-- Product cards section -->
-    <div id="product-section">
+    <div id="product-section" class="product-section">
         <!-- Product Card 1 -->
         <div class="product-card">
             <h2>QR Sticker</h2>
