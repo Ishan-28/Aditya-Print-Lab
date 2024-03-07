@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 0 20px;
+        }
+        h1 {
+            text-align: center;
+        }
+        .product {
+            margin-bottom: 20px;
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 20px;
+        }
+        .product h3 {
+            margin-top: 0;
+        }
+        .options {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .checkout-btn {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            margin-top: 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-align: center;
+            text-decoration: none;
+        }
+        .checkout-btn:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <h2>Product Details</h2>
+    <p id="productName"></p>
+    <p id="productPrice"></p>
+    <div class="container">
+        <h1>Checkout</h1>
+        <!-- Product information -->
+        <div class="product">
+            <h3>Product Name</h3>
+            <p>Price: $X.XX</p>
+        </div>
+        <!-- Payment options -->
+        <div class="options">
+            <h2>Payment Options</h2>
+            <input type="radio" id="pay-on-delivery" name="payment" value="pay-on-delivery">
+            <label for="pay-on-delivery">Pay on Delivery</label><br>
+            <input type="radio" id="pay-online" name="payment" value="pay-online">
+            <label for="pay-online">Pay Online</label>
+        </div>
+        <!-- Checkout button -->
+        <button class="checkout-btn" onclick="proceedToPayment()">Proceed to Payment</button>
+    </div>
+
+    <!-- Script for handling checkout -->
+    <script>
+        function proceedToPayment() {
+            var selectedPayment = document.querySelector('input[name="payment"]:checked');
+            if (selectedPayment) {
+                var paymentMethod = selectedPayment.value;
+                // Redirect to payment page based on selected payment method
+                if (paymentMethod === "pay-on-delivery") {
+                    // Redirect to pay on delivery page
+                    window.location.href = "pay-on-delivery.html";
+                } else if (paymentMethod === "pay-online") {
+                    // Redirect to pay online page
+                    window.location.href = "pay-online.html";
+                }
+            } else {
+                alert("Please select a payment option.");
+            }
+        }
+        var productDetails = JSON.parse(localStorage.getItem('productDetails'));
+
+        // Display product details on the checkout page
+        document.getElementById('productName').innerText = "Product Name: " + productDetails.name;
+        document.getElementById('productPrice').innerText = "Price: " + productDetails.price;
+    </script>
+</body>
+</html>
