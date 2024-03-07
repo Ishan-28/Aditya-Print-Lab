@@ -120,14 +120,14 @@
 
         <div class="product-card">
             <h2>Book Printing</h2>
-            <p>Print Books.<br><br<br><br<br><br></p>
+            <p>Print Books.<br><br<br><br><br></p>
             <p>Price: ₹ 30.00</p>
             <button onclick="addToCart(this)">Add to Cart</button>
         </div>
 
         <div class="product-card">
             <h2>Flex Holding Board</h2>
-            <p>A boar that holds Flex</p>
+            <p>A board that holds Flex</p>
             <p>Price: ₹ 30.00</p>
             <button onclick="addToCart(this)">Add to Cart</button>
         </div>
@@ -139,25 +139,27 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"></script>
     <script>
         function addToCart(button) {
-    // Get the product card element
-    var productCard = button.parentNode;
+            // Get the product card element
+            var productCard = button.parentNode;
 
-    // Check if there are already items in the cart
-    var cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+            // Check if there are already items in the cart
+            var cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
 
-    // Clone the product card
-    var clonedProductCard = productCard.cloneNode(true);
+            // Clone the product card
+            var clonedProductCard = productCard.cloneNode(true);
 
-    // Add the cloned product card to the cart items array
-    cartItems.push(clonedProductCard.outerHTML);
+            // Add the cloned product card to the cart items array
+            cartItems.push(clonedProductCard.outerHTML);
 
-    // Save the updated cart items back to local storage
-    localStorage.setItem('cartItems', JSON.stringify(cartItems));
+            // Save the updated cart items back to local storage
+            localStorage.setItem('cartItems', JSON.stringify(cartItems));
 
-    // Redirect to the cart page
-    // window.location.href = "cart.html";
-}
+            // Show alert
+            alert("Added to Cart");
 
+            // Redirect to the cart page
+            // window.location.href = "cart.html";
+        }
     </script>
 </body>
 </html>

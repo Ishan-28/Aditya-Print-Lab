@@ -66,15 +66,17 @@
         .cart-item {
             border: 1px solid #ccc;
             border-radius: 5px;
-            padding: 20px;
-            margin: 20px;
+            margin-right: 50px;
+            margin-left: 50px;
+            margin-top: 50px;
+            padding: 50px 50px;
             background-color: #fff;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             transition: all 0.3s ease;
         }
 
         .cart-item h2 {
-            margin-top: 0;
+            margin-top: 1%;
             font-size: 20px;
             color: #333;
         }
@@ -88,12 +90,15 @@
             background-color: #ff6347;
             color: white;
             border: none;
-            padding: 5px 10px;
+            padding: 10px 10px;
             text-align: center;
             text-decoration: none;
             display: inline-block;
+            margin-left: 97%;
+            margin-right: 100px;
+            margin-top: 1px;
+            margin-bottom: 10px;
             font-size: 14px;
-            margin-right: 10px;
             cursor: pointer;
             border-radius: 5px;
             transition: background-color 0.3s ease;
@@ -206,7 +211,7 @@
                     // Create a remove button for each item
                     var removeButton = document.createElement('button');
                     removeButton.classList.add('remove-btn');
-                    removeButton.innerText = 'Remove from Cart';
+                    removeButton.innerText = 'Remove';
                     removeButton.onclick = function() {
                         removeCartItem(index);
                     };
