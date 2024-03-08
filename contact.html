@@ -5,6 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Us - Aditya Print Lab</title>
     <style>
+        .cart-icon {
+            float: right;
+            margin-top: 10px;
+            margin-right: 20px;
+            color: #099ed8;
+            font-size: 24px;
+            cursor: pointer;
+        }
+        
+        /* Style for login text */
+        .login-text {
+            float: right;
+            margin-top: 10px;
+            margin-right: 10px;
+            color: #099ed8;
+            font-size: 18px;
+            cursor: pointer;
+        }
+        .line {
+            border-bottom: 1px solid #ccc;
+            margin-bottom: 20px;
+        }
         body {
             margin: 0;
             font-family: Arial, Helvetica, sans-serif;
@@ -96,6 +118,12 @@
         <a href="#about">About</a>
         <!-- <a href="#faq">FAQs</a> -->
     </div>
+    <h1>
+        <a href="index.html">Aditya Print Lab</a>
+        <span class="login-text" onclick="window.location.href='login.html'">Login</span>
+        <a href="cart.html" class="cart-icon"><i class="fas fa-shopping-cart"></i></a>
+    </h1>
+    <h1 class="line"></h1>
     <!-- Contact details -->
     <div class="contact-details">
         <h1>Contact Details</h1>
@@ -103,5 +131,10 @@
         <p><strong>Email:</strong> <a href="mailto:adityaprintlab38@gmail.com">adityaprintlab38@gmail.com</a></p>
         <p><strong>Address:</strong> S.NO 48, H.No. 38, Jai Gajanan Nagar,<br>Garkheda area, Chh.Sambhaji Nagar-431005</p>
     </div>
+    <script>
+        document.querySelector('.login-text').addEventListener('click', function() {
+            window.location.href = 'login.html';
+        });
+    </script>
 </body>
 </html>
