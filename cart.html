@@ -7,6 +7,20 @@
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
+        /* Styling for logo */
+        .logo-text {
+            font-family: "Arial", sans-serif; /* Choose a suitable font family */
+            font-size: 28px; /* Adjust the font size as needed */
+            color: #1e7898; /* Choose a color that complements your design */
+            text-decoration: none; /* Remove underline */
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1); /* Add a subtle text shadow for depth */
+            letter-spacing: 1px; /* Adjust letter spacing for better readability */
+        }
+
+        .logo-text:hover {
+            color: #099ed8; /* Change color on hover for interactive effect */
+        }
+
         /* Style for header contents */
         h1 {
             margin-left: 10px;
@@ -194,7 +208,7 @@
     </div>
 
     <h1>
-        <a href="index.html">Aditya Print Lab</a>
+        <a href="index.html" class="logo-text">Aditya Print Lab</a>
         <span class="login-text" onclick="window.location.href='login.html'">Login</span>
     </h1>
 

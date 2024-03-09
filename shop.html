@@ -7,6 +7,19 @@
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
+        .logo-text {
+            font-family: "Arial", sans-serif; /* Choose a suitable font family */
+            font-size: 28px; /* Adjust the font size as needed */
+            color: #1e7898; /* Choose a color that complements your design */
+            text-decoration: none; /* Remove underline */
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1); /* Add a subtle text shadow for depth */
+            letter-spacing: 1px; /* Adjust letter spacing for better readability */
+        }
+
+        .logo-text:hover {
+            color: #099ed8; /* Change color on hover for interactive effect */
+        }
+
         h1 {
             margin-left: 10px;
             font-family: Arial, sans-serif;
@@ -51,7 +64,7 @@
         .login-text:hover {
             transform: scale(1.1); /* Scale up the button slightly on hover */
         }
-        
+
         .line {
             border-bottom: 1px solid #ccc;
             margin-bottom: 20px;
@@ -141,7 +154,7 @@
         <!-- <a href="#faq">FAQs</a> -->
     </div>
     <h1>
-        <a href="index.html">Aditya Print Lab</a>
+        <a href="index.html" class="logo-text">Aditya Print Lab</a>
         <span class="login-text" onclick="window.location.href='login.html'">Login</span>
         <a href="cart.html" class="cart-icon"><i class="fas fa-shopping-cart"></i></a>
     </h1>
