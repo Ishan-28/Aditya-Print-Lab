@@ -53,8 +53,23 @@
             color: #099ed8;
             font-size: 24px;
             cursor: pointer;
+            position: relative; /* Ensure relative positioning for the animation */
+            transition: color 0.3s ease; /* Smooth transition for color change */
         }
         
+        .cart-icon:hover::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 50px; /* Adjust the size of the circle as needed */
+            height: 50px; /* Adjust the size of the circle as needed */
+            background-color: rgba(0, 0, 0, 0.1); /* Darken the area */
+            border-radius: 50%; /* Create a circular shape */
+            z-index: -1; /* Ensure the circle is behind the icon */
+        }
+
         /* Style for login text */
         .login-text {
             float: right;
