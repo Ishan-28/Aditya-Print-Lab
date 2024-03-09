@@ -24,6 +24,11 @@
             color: #099ed8;
             font-size: 18px;
             cursor: pointer;
+            transition: transform 0.2s ease; /* Add transition for smooth animation */
+        }
+
+        .login-text:hover {
+            transform: scale(1.1); /* Scale up the button slightly on hover */
         }
 
         .line {
@@ -191,7 +196,6 @@
     <h1>
         <a href="index.html">Aditya Print Lab</a>
         <span class="login-text" onclick="window.location.href='login.html'">Login</span>
-        <a href="cart.html" class="cart-icon"><i class="fas fa-shopping-cart"></i></a>
     </h1>
 
     <h1 class="line"></h1>
