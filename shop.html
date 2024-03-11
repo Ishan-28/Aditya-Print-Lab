@@ -148,22 +148,36 @@
             border-radius: 5px;
             padding: 10px;
             margin: 10px;
-            width: 200px;
-            float: left;
+            width: 1000px; /* Adjust the width as needed */
             background-color: #f9f9f9;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden; /* Ensure the card contents don't overflow */
+        }
+
+        .product-card img {
+            background-color: #f9f9f9;
+            float: left; /* Float the image to the left */
+            float: left; /* Float the image to the left */
+            margin-right: 10px; /* Add some margin to separate the image from text */
+            width: 170px; /* Adjust the width of the image */
+            height: auto; /* Maintain aspect ratio */
         }
 
         .product-section {
             margin-top: 50px; /* Add some top margin to create space between the Home button and the product cards */
         }
 
+        .product-card .product-details {
+            overflow: hidden; /* Ensure the text doesn't overflow */
+        }
+
         .product-card h2 {
             margin-top: 0;
+            margin-bottom: 5px; /* Add some space between the heading and other text */
         }
 
         .product-card p {
-            margin-bottom: 5px;
+            margin: 5px 0; /* Add some margin to the paragraphs */
         }
 
         .product-card button {
@@ -171,13 +185,15 @@
             color: white;
             border: none;
             padding: 5px 10px;
-            text-align: center;
             text-decoration: none;
             display: inline-block;
             font-size: 14px;
             margin: 4px 2px;
             cursor: pointer;
             border-radius: 5px;
+            display: inline-block;
+            display: inline-block;
+            float: right;
         }
 
         .product-card button:hover {
@@ -204,14 +220,27 @@
     <div id="product-section" class="product-section">
         <!-- Product Card 1 -->
         <div class="product-card">
-            <h2>QR Sticker</h2>
-            <p>A customised QR Code sticker which stores data</p>
-            <p>Price: ₹ 100.00</p>
+            <img src="qr.png" alt="Product Image"> <!-- Move this line before the product details -->
+            <div class="product-details"> <!-- Add this div for product details -->
+                <h2>QR Sticker</h2>
+                <p>A customised QR Code sticker which stores data</p>
+                <p>Price: ₹ 100.00</p>
+                <button onclick="addToCart(this)">Add to Cart</button>
+            </div>
+        </div>
+
+
+        <div class="product-card">
+            <img src="flex-board-holder.webp" alt="Product Image">
+            <h2>Flex Holding Board</h2>
+            <p>A board that holds Flex</p>
+            <p>Price: ₹ 30.00</p>
             <button onclick="addToCart(this)">Add to Cart</button>
         </div>
 
         <!-- Product Card 2 -->
         <div class="product-card">
+            <img src="poster.jpeg" alt="Product Image">
             <h2>Poster</h2>
             <p>A customised poster according to you.</p>
             <p>Price: ₹ 150.00</p>
@@ -221,6 +250,7 @@
         <!-- Add more product cards here as needed -->
 
         <div class="product-card">
+            <img src="wax-ribbon.webp" alt="Product Image">
             <h2>Wax Ribbon</h2>
             <p>A ribbon made using wax.<br><br></p>
             <p>Price: ₹ 25.00</p>
@@ -228,18 +258,13 @@
         </div>
 
         <div class="product-card">
+            <img src="book-printing.jpeg" alt="Product Image">
             <h2>Book Printing</h2>
             <p>Print Books.<br><br></p>
             <p>Price: ₹ 30.00</p>
             <button onclick="addToCart(this)">Add to Cart</button>
         </div>
 
-        <div class="product-card">
-            <h2>Flex Holding Board</h2>
-            <p>A board that holds Flex</p>
-            <p>Price: ₹ 30.00</p>
-            <button onclick="addToCart(this)">Add to Cart</button>
-        </div>
 
         <div id="popup" class="popup">
             <h2>Added to Cart</h2>
