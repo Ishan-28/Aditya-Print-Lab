@@ -193,7 +193,7 @@
             border-radius: 5px;
             display: inline-block;
             display: inline-block;
-            float: right;
+            /* float: right; */
         }
 
         .product-card button:hover {
@@ -248,7 +248,6 @@
         </div>
 
         <!-- Add more product cards here as needed -->
-
         <div class="product-card">
             <img src="wax-ribbon.webp" alt="Product Image">
             <h2>Wax Ribbon</h2>
@@ -264,7 +263,6 @@
             <p>Price: ₹ 30.00</p>
             <button onclick="addToCart(this)">Add to Cart</button>
         </div>
-
 
         <div id="popup" class="popup">
             <h2>Added to Cart</h2>
@@ -298,14 +296,7 @@
             setTimeout(function() {
                 popup.style.display = 'none';
             }, 3000);
-
-            // Show alert
-            // alert("Added to Cart");
-
-            // Redirect to the cart page
-            // window.location.href = "cart.html";
         }
-
         function redirectToCart() {
             window.location.href = "cart.html";
         }
