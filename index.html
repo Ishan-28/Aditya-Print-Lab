@@ -39,10 +39,11 @@
         }
 
         .topnav a {
+            float: none; /* Remove float to center the items */
             display: inline-block; /* Add this line to make the items display inline */
             color: #f2f2f2;
             text-align: center;
-            padding: 14px 36px;
+            padding: 14px 16px;
             text-decoration: none;
             font-size: 17px;
         }
@@ -159,33 +160,16 @@
             text-decoration: none;
             cursor: pointer;
         }
-
-        /* Style for primary menu container */
-        .primary-menu-container {
-            overflow-x: auto;
-            white-space: nowrap;
-        }
-
-        /* Style for primary menu items */
-        .primary-menu-item {
-            display: inline-block;
-            padding: 14px 16px;
-            text-decoration: none;
-            font-size: 17px;
-        }
     </style>
 </head>
 <body>
     <div class="topnav">
-        <!-- Add a wrapper div for primary menu items -->
-        <div class="primary-menu-container">
-            <a class="active primary-menu-item" href="index.html">Home</a>
-            <a class="primary-menu-item" href="shop.html">Shop</a> <!-- Link to Shopping page -->
-            <!-- <a class="primary-menu-item" href="cart.html">Cart</a> -->
-            <a class="primary-menu-item" href="contact.html">Contact Us</a>
-            <a class="primary-menu-item" href="#about">About</a>
-            <!-- <a class="primary-menu-item" href="#faq">FAQs</a> -->
-        </div>
+        <a class="active" href="index.html">Home</a>
+        <a href="shop.html">Shop</a> <!-- Link to Shopping page -->
+        <!-- <a href="cart.html">Cart</a> -->
+        <a href="contact.html">Contact Us</a>
+        <a href="#about">About</a>
+        <!-- <a href="#faq">FAQs</a> -->
     </div>
 
     <!-- Website name with icons -->
