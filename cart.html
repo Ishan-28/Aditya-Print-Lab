@@ -267,21 +267,27 @@
                 emptyCart.style.display = 'none';
 
                 // Loop through the cart items and append them to the cart container
-                cartItems.forEach(function(item, index) {
-                    var cartItem = document.createElement('div');
-                    cartItem.classList.add('cart-item');
-                    cartItem.innerHTML = item;
+                cartItems.forEach(function(itemHTML, index) {
+                    // Parse the HTML string to create a DOM element
+                    var itemElement = new DOMParser().parseFromString(itemHTML, 'text/html').body.firstChild;
 
-                    // Create a remove button for each item
+                    // Remove unwanted elements
+                    var description = itemElement.querySelector('p');
+                    if (description) description.remove(); // Remove description
+                    var button = itemElement.querySelector('button');
+                    if (button) button.remove(); // Remove add to cart button
+
+                    // Create and append the remove button
                     var removeButton = document.createElement('button');
                     removeButton.classList.add('remove-btn');
                     removeButton.innerText = 'Remove';
                     removeButton.onclick = function() {
                         removeCartItem(index);
                     };
-                    cartItem.appendChild(removeButton);
+                    itemElement.appendChild(removeButton);
 
-                    cartContainer.appendChild(cartItem);
+                    // Append the modified item element to the cart container
+                    cartContainer.appendChild(itemElement);
                 });
             }
         }
