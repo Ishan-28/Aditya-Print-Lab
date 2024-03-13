@@ -7,7 +7,6 @@
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
-        /* Styling for product card's clone */
 
         /* Style for cart items */
         .cart-item {
@@ -25,7 +24,7 @@
         }
 
         .cart-item img {
-            width: 100px; /* Adjust image width as needed */
+            width: 25%; /* Adjust image width as needed */
             height: auto; /* Maintain aspect ratio */
             margin-right: 20px; /* Add spacing between image and text */
         }
@@ -38,7 +37,6 @@
         .cart-item p:last-child {
             margin-top: 10px; /* Add spacing between price and other elements */
         }
-
         
         .notification {
             position: fixed;
@@ -275,6 +273,7 @@
         <p>Your cart is currently empty.</p>
         <a href="shop.html" class="add-to-cart-btn">Add items to the Cart</a>
     </div>
+    
 
     <!-- Script to include Font Awesome icons -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"></script>
@@ -284,9 +283,6 @@
         // Get the empty cart element
         var emptyCart = document.getElementById('empty-cart');
 
-        // Function to render cart items
-        // Function to render cart items
-        // Function to render cart items
        // Function to render cart items
         // Function to render cart items
         // Function to render cart items
@@ -304,38 +300,37 @@
                 // Hide empty cart
                 emptyCart.style.display = 'none';
 
-                // Loop through the cart items and extract name, price, and image
-                cartItems.forEach(function(item, index) {
-                    // Extract name, price, and image URL from the item HTML
-                    var parser = new DOMParser();
-                    var doc = parser.parseFromString(item, 'text/html');
+                // Loop through the cart items and append them to the cart container
+                cartItems.forEach(function(itemHTML, index) {
+                    var cartItem = document.createElement('div');
+                    cartItem.classList.add('cart-item');
 
-                    var productName = doc.querySelector('h2').textContent;
-                    var productPrice = doc.querySelectorAll('p')[1].textContent;
-                    var productImageSrc = doc.querySelector('img').getAttribute('src');
+                    // Extract product name and price from the item HTML
+                    var tempDiv = document.createElement('div');
+                    tempDiv.innerHTML = itemHTML;
+                    var productName = tempDiv.querySelector('h2').innerText;
+                    var productPrice = tempDiv.querySelector('p').innerText;
 
-                    // Create elements to display the product's name, price, and image
-                    var productNameElement = document.createElement('h2');
-                    productNameElement.textContent = productName;
+                    // Create elements for product name and price
+                    var productNameElem = document.createElement('h2');
+                    productNameElem.innerText = productName;
+                    var productPriceElem = document.createElement('p');
+                    productPriceElem.innerText = productPrice;
 
-                    var productPriceElement = document.createElement('p');
-                    productPriceElement.textContent = productPrice;
+                    // Create a remove button for each item
+                    var removeButton = document.createElement('button');
+                    removeButton.classList.add('remove-btn');
+                    removeButton.innerText = 'Remove';
+                    removeButton.onclick = function() {
+                        removeCartItem(index);
+                    };
 
-                    var productImageElement = document.createElement('img');
-                    productImageElement.setAttribute('src', productImageSrc);
-                    productImageElement.setAttribute('alt', 'Product Image');
+                    // Append elements to the cart item
+                    cartItem.appendChild(productNameElem);
+                    cartItem.appendChild(productPriceElem);
+                    cartItem.appendChild(removeButton);
 
-                    // Create a container for the product details
-                    var productDetailsContainer = document.createElement('div');
-                    productDetailsContainer.classList.add('cart-item');
-
-                    // Append the product details to the container
-                    productDetailsContainer.appendChild(productImageElement);
-                    productDetailsContainer.appendChild(productNameElement);
-                    productDetailsContainer.appendChild(productPriceElement);
-
-                    // Append the container to the cart container
-                    cartContainer.appendChild(productDetailsContainer);
+                    cartContainer.appendChild(cartItem);
                 });
             }
         }
@@ -395,38 +390,38 @@
         var productDetails = JSON.parse(localStorage.getItem('productDetails'));
 
         // Function to create and show a notification
-function showNotification(message) {
-    // Create a notification element
-    var notification = document.createElement('div');
-    notification.classList.add('notification');
-    notification.innerText = message;
+        function showNotification(message) {
+            // Create a notification element
+            var notification = document.createElement('div');
+            notification.classList.add('notification');
+            notification.innerText = message;
 
-    // Append the notification to the body
-    document.body.appendChild(notification);
+            // Append the notification to the body
+            document.body.appendChild(notification);
 
-    // Set a timeout to remove the notification after 2 seconds
-    setTimeout(function() {
-        notification.remove();
-    }, 2000);
-}
+            // Set a timeout to remove the notification after 2 seconds
+            setTimeout(function() {
+                notification.remove();
+            }, 2000);
+        }
 
-// Function to remove item from cart
-function removeCartItem(index) {
-    // Get the cart items from local storage
-    var cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+        // Function to remove item from cart
+        function removeCartItem(index) {
+            // Get the cart items from local storage
+            var cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
 
-    // Remove the item from the cartItems array
-    cartItems.splice(index, 1);
+            // Remove the item from the cartItems array
+            cartItems.splice(index, 1);
 
-    // Save the updated cart items back to local storage
-    localStorage.setItem('cartItems', JSON.stringify(cartItems));
+            // Save the updated cart items back to local storage
+            localStorage.setItem('cartItems', JSON.stringify(cartItems));
 
-    // Render cart items again
-    renderCartItems();
+            // Render cart items again
+            renderCartItems();
 
-    // Show notification
-    showNotification('Product removed');
-}
+            // Show notification
+            showNotification('Product removed');
+        }
 
 
     </script>
