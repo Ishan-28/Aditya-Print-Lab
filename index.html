@@ -394,6 +394,10 @@
         dots[slideIndex-1].className += " active";
         }
 
+        setInterval(function() {
+            plusSlides(1); // Call the plusSlides function with an argument of 1 to move to the next slide
+        }, 5000); // Change slides every 5 seconds (5000 milliseconds)
+
         function refreshHomePage() {
             location.reload();
         }
