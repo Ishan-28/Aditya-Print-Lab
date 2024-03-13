@@ -120,27 +120,39 @@
         }
 
         /* Style for cart items */
-        .cart-item {
+        .product-card {
+            display: flex;
+            flex-direction: column; /* Adjust to arrange image below other content */
             border: 1px solid #ccc;
             border-radius: 5px;
             margin-right: 50px;
             margin-left: 50px;
             margin-top: 50px;
-            padding: 50px 50px;
+            padding: 20px;
             background-color: #fff;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             transition: all 0.3s ease;
             position: relative; /* Ensure relative positioning for the "Remove" button */
         }
 
-        .cart-item h2 {
-            margin-top: 1%;
+        .product-image {
+            width: 100%; /* Set image width to 100% to fit container */
+            max-height: 200px; /* Adjust max height as needed */
+            margin-bottom: 20px; /* Add margin below image */
+        }
+
+        .product-details {
+            flex: 1;
+        }
+
+        .product-title {
+            margin-top: 0;
             font-size: 20px;
             color: #333;
         }
 
-        .cart-item p {
-            margin-bottom: 5px;
+        .product-price {
+            margin-bottom: 10px;
             color: #666;
         }
 
@@ -148,19 +160,17 @@
             background-color: #ff6347;
             color: white;
             border: none;
-            padding: 10px 15px;
+            padding: 8px 12px;
             text-decoration: none;
             display: inline-block;
             position: absolute;
-            top: 86%; /* Move the button 50% down from the top */
-            transform: translateY(-50%); /* Adjust vertically by moving it up 50% of its own height */
+            bottom: 10px; /* Move the button 10px up from the bottom */
             right: 10px; /* Adjust the position as needed */
             font-size: 14px;
             cursor: pointer;
             border-radius: 5px;
             transition: background-color 0.3s ease;
         }
-
 
         .remove-btn:hover {
             background-color: #ff4136;
@@ -339,42 +349,39 @@
         var productDetails = JSON.parse(localStorage.getItem('productDetails'));
 
         // Function to create and show a notification
-function showNotification(message) {
-    // Create a notification element
-    var notification = document.createElement('div');
-    notification.classList.add('notification');
-    notification.innerText = message;
+        function showNotification(message) {
+            // Create a notification element
+            var notification = document.createElement('div');
+            notification.classList.add('notification');
+            notification.innerText = message;
 
-    // Append the notification to the body
-    document.body.appendChild(notification);
+            // Append the notification to the body
+            document.body.appendChild(notification);
 
-    // Set a timeout to remove the notification after 2 seconds
-    setTimeout(function() {
-        notification.remove();
-    }, 2000);
-}
+            // Set a timeout to remove the notification after 2 seconds
+            setTimeout(function() {
+                notification.remove();
+            }, 2000);
+        }
 
-// Function to remove item from cart
-function removeCartItem(index) {
-    // Get the cart items from local storage
-    var cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+        // Function to remove item from cart
+        function removeCartItem(index) {
+            // Get the cart items from local storage
+            var cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
 
-    // Remove the item from the cartItems array
-    cartItems.splice(index, 1);
+            // Remove the item from the cartItems array
+            cartItems.splice(index, 1);
 
-    // Save the updated cart items back to local storage
-    localStorage.setItem('cartItems', JSON.stringify(cartItems));
+            // Save the updated cart items back to local storage
+            localStorage.setItem('cartItems', JSON.stringify(cartItems));
 
-    // Render cart items again
-    renderCartItems();
+            // Render cart items again
+            renderCartItems();
 
-    // Show notification
-    showNotification('Product removed');
-}
-
-
+            // Show notification
+            showNotification('Product removed');
+        }
     </script>
     <a href="checkout.html" class="checkout-button">Checkout</a>
 </body>
 </html>
-
