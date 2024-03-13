@@ -7,6 +7,39 @@
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
+        /* Styling for product card's clone */
+
+        /* Style for cart items */
+        .cart-item {
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-right: 50px;
+            margin-left: 50px;
+            margin-top: 50px;
+            padding: 20px; /* Adjust padding as needed */
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            display: flex; /* Use flexbox for layout */
+            align-items: center; /* Center align items vertically */
+        }
+
+        .cart-item img {
+            width: 100px; /* Adjust image width as needed */
+            height: auto; /* Maintain aspect ratio */
+            margin-right: 20px; /* Add spacing between image and text */
+        }
+
+        .cart-item h2,
+        .cart-item p {
+            margin: 0; /* Remove default margin */
+        }
+
+        .cart-item p:last-child {
+            margin-top: 10px; /* Add spacing between price and other elements */
+        }
+
+        
         .notification {
             position: fixed;
             bottom: 8%; /* Adjust the distance from the bottom as needed */
@@ -252,6 +285,11 @@
         var emptyCart = document.getElementById('empty-cart');
 
         // Function to render cart items
+        // Function to render cart items
+        // Function to render cart items
+       // Function to render cart items
+        // Function to render cart items
+        // Function to render cart items
         function renderCartItems() {
             // Clear the contents of the cart container
             cartContainer.innerHTML = '';
@@ -266,42 +304,66 @@
                 // Hide empty cart
                 emptyCart.style.display = 'none';
 
-                // Loop through the cart items and append them to the cart container
+                // Loop through the cart items and extract name, price, and image
                 cartItems.forEach(function(item, index) {
-                    var cartItem = document.createElement('div');
-                    cartItem.classList.add('cart-item');
-                    cartItem.innerHTML = item;
+                    // Extract name, price, and image URL from the item HTML
+                    var parser = new DOMParser();
+                    var doc = parser.parseFromString(item, 'text/html');
 
-                    // Create a remove button for each item
-                    var removeButton = document.createElement('button');
-                    removeButton.classList.add('remove-btn');
-                    removeButton.innerText = 'Remove';
-                    removeButton.onclick = function() {
-                        removeCartItem(index);
-                    };
-                    cartItem.appendChild(removeButton);
+                    var productName = doc.querySelector('h2').textContent;
+                    var productPrice = doc.querySelectorAll('p')[1].textContent;
+                    var productImageSrc = doc.querySelector('img').getAttribute('src');
 
-                    cartContainer.appendChild(cartItem);
+                    // Create elements to display the product's name, price, and image
+                    var productNameElement = document.createElement('h2');
+                    productNameElement.textContent = productName;
+
+                    var productPriceElement = document.createElement('p');
+                    productPriceElement.textContent = productPrice;
+
+                    var productImageElement = document.createElement('img');
+                    productImageElement.setAttribute('src', productImageSrc);
+                    productImageElement.setAttribute('alt', 'Product Image');
+
+                    // Create a container for the product details
+                    var productDetailsContainer = document.createElement('div');
+                    productDetailsContainer.classList.add('cart-item');
+
+                    // Append the product details to the container
+                    productDetailsContainer.appendChild(productImageElement);
+                    productDetailsContainer.appendChild(productNameElement);
+                    productDetailsContainer.appendChild(productPriceElement);
+
+                    // Append the container to the cart container
+                    cartContainer.appendChild(productDetailsContainer);
                 });
             }
         }
+
+
+
 
         // Render cart items when the page loads
         renderCartItems();
 
         // Function to add product to cart
+        // Function to add product to cart
         function addToCart(button) {
             // Get the product card element
             var productCard = button.parentNode;
 
-            // Clone the product card
-            var clonedProductCard = productCard.cloneNode(true);
+            // Get the product details from the product card
+            var productName = productCard.querySelector('h2').innerText;
+            var productPrice = productCard.querySelector('p').innerText;
+
+            // Construct the item to be added to the cart
+            var item = productName + '<br>' + productPrice;
 
             // Get the cart items from local storage
             var cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
 
-            // Add the cloned product card to the cart items array
-            cartItems.push(clonedProductCard.outerHTML);
+            // Add the item to the cart items array
+            cartItems.push(item);
 
             // Save the updated cart items back to local storage
             localStorage.setItem('cartItems', JSON.stringify(cartItems));
@@ -309,6 +371,7 @@
             // Render cart items
             renderCartItems();
         }
+
 
         // Function to remove item from cart
         function removeCartItem(index) {
