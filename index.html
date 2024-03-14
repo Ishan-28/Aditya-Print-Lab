@@ -8,6 +8,27 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
 
+        .mySlides:hover img {
+                    filter: brightness(55%);
+                }
+
+        /* Text overlay */
+        .text-overlay {
+            position: absolute;
+            bottom: 10px; /* Adjust as needed */
+            left: 10px; /* Adjust as needed */
+            color: white;
+            padding: 5px 10px; /* Adjust as needed */
+            border-radius: 5px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            font-size: 60px; /* Adjust as needed */
+        }
+
+        .mySlides:hover .text-overlay {
+            opacity: 1;
+        }
+
         * {box-sizing: border-box}
         body {font-family: Verdana, sans-serif; margin:0}
         .mySlides {display: none}
@@ -30,7 +51,7 @@
         margin-top: -22px;
         color: white;
         font-weight: bold;
-        font-size: 18px;
+        font-size: 30px;
         transition: 0.6s ease;
         border-radius: 0 3px 3px 0;
         user-select: none;
@@ -276,28 +297,33 @@
     <div class="slideshow-container">
 
         <div class="mySlides fade">
-          <div class="numbertext">1 / 3</div>
-          <img src="cover-printer.jpeg" style="width:100%">
+          <div class="numbertext">1 / 5</div>
+          <img src="src/image-1.jpeg" style="width:100%">
+          <div class="text-overlay">Say goodbye to generic covers and hello to tailor-made perfection with our comprehensive printing services.</div>
         </div>
         
         <div class="mySlides fade">
-          <div class="numbertext">2 / 3</div>
-          <img src="flex-boards.jpeg" style="width:100%">
+          <div class="numbertext">2 / 5</div>
+          <img src="src/image-2.jpeg" style="width:100%">
+          <div class="text-overlay">Our state-of-the-art equipment ensures sharp detail, vibrant colors, and consistent results with every print.</div>
         </div>
         
         <div class="mySlides fade">
-          <div class="numbertext">3 / 3</div>
-          <img src="stationary-shop.jpeg" style="width:100%">
+          <div class="numbertext">3 / 5</div>
+          <img src="src/image-3.jpeg" style="width:100%">
+          <div class="text-overlay">From marketing campaigns to contactless transactions, our QR codes empower you to engage with your audience like never before.</div>
         </div>
 
         <div class="mySlides fade">
-            <div class="numbertext">3 / 3</div>
-            <img src="wax-ribbon-hp.webp" style="width:100%">
+            <div class="numbertext">4 / 5</div>
+            <img src="src/image-4.jpeg" style="width:100%">
+            <div class="text-overlay">From product labeling to asset tracking, we provide precision and reliability in every barcode produced.</div>
         </div>
 
         <div class="mySlides fade">
-            <div class="numbertext">3 / 3</div>
-            <img src="poster-making.jpeg" style="width:100%">
+            <div class="numbertext">5 / 5</div>
+            <img src="src/image-5.jpeg" style="width:100%">
+            <div class="text-overlay"> With a range of sizes, finishes, and customization options available, we cater to every need and budget.</div>
         </div>
         
         <a class="prev" onclick="plusSlides(-1)">❮</a>
@@ -310,6 +336,8 @@
           <span class="dot" onclick="currentSlide(1)"></span> 
           <span class="dot" onclick="currentSlide(2)"></span> 
           <span class="dot" onclick="currentSlide(3)"></span> 
+          <span class="dot" onclick="currentSlide(4)"></span> 
+          <span class="dot" onclick="currentSlide(5)"></span> 
         </div>
         
 
