@@ -22,7 +22,13 @@
             border-radius: 5px;
             opacity: 0;
             transition: opacity 0.3s ease;
-            font-size: 60px; /* Adjust as needed */
+            font-size: 30px; /* Default font size */
+        }
+
+        @media only screen and (max-width: 600px) {
+            .text-overlay {
+                font-size: 20px; /* Adjust font size for smaller screens */
+            }
         }
 
         .mySlides:hover .text-overlay {
