@@ -65,25 +65,26 @@
         /* Style for the checkout button */
         .checkout-button {
             position: fixed;
-            bottom: 20px;
-            /* right: 10px; */
-            left: 70%;
+            bottom: 0;
+            left: 0;
+            width: 100%; /* Make the button cover the full width */
             z-index: 999; /* Ensure the button stays above other content */
             background-color: #2596be;
             color: white;
-            padding: 10px 20px;
+            padding: 15px 0; /* Increase padding for better appearance */
             border: none;
-            border-radius: 6px;
+            border-radius: 0; /* Remove border-radius for full width */
             cursor: pointer;
             font-size: 16px;
             text-align: center;
             text-decoration: none;
-            margin-right: 50px;
+            transition: background-color 0.3s ease;
         }
 
         .checkout-button:hover {
             background-color: #1a6985;
         }
+
 
         body {
             margin: 0;
@@ -120,61 +121,77 @@
         }
 
         /* Style for cart items */
-        .product-card {
-            display: flex;
-            flex-direction: column; /* Adjust to arrange image below other content */
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            margin-right: 50px;
-            margin-left: 50px;
-            margin-top: 50px;
-            padding: 20px;
-            background-color: #fff;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
-            position: relative; /* Ensure relative positioning for the "Remove" button */
-        }
+        /* For mobile devices */
+@media only screen and (max-width: 767px) {
+    .product-card {
+        margin-right: 50px;
+        margin-left: 50px;
+    }
+}
 
-        .product-image {
-            width: 100%; /* Set image width to 100% to fit container */
-            max-height: 200px; /* Adjust max height as needed */
-            margin-bottom: 20px; /* Add margin below image */
-        }
+/* For desktop devices */
+@media only screen and (min-width: 768px) {
+    .product-card {
+        margin-right: 500px;
+        margin-left: 500px;
+    }
+}
 
-        .product-details {
-            flex: 1;
-        }
+.product-card {
+    display: flex;
+    flex-direction: column; /* Adjust to arrange image below other content */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-top: 50px;
+    margin-bottom: 60px;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    position: relative; /* Ensure relative positioning for the "Remove" button */
+}
 
-        .product-title {
-            margin-top: 0;
-            font-size: 20px;
-            color: #333;
-        }
+.product-image {
+    width: 100px; /* Set image width to 100% to fit container */
+    max-height: auto; /* Adjust max height as needed */
+    margin-bottom: 20px; /* Add margin below image */
+}
 
-        .product-price {
-            margin-bottom: 10px;
-            color: #666;
-        }
+.product-details {
+    flex: 1;
+}
 
-        .remove-btn {
-            background-color: #ff6347;
-            color: white;
-            border: none;
-            padding: 8px 12px;
-            text-decoration: none;
-            display: inline-block;
-            position: absolute;
-            bottom: 10px; /* Move the button 10px up from the bottom */
-            right: 10px; /* Adjust the position as needed */
-            font-size: 14px;
-            cursor: pointer;
-            border-radius: 5px;
-            transition: background-color 0.3s ease;
-        }
+.product-title {
+    margin-top: 0;
+    font-size: 20px;
+    color: #333;
+}
 
-        .remove-btn:hover {
-            background-color: #ff4136;
-        }
+.product-price {
+    margin-bottom: 10px;
+    color: #666;
+}
+
+.remove-btn {
+    background-color: #ff6347;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    text-decoration: none;
+    display: inline-block;
+    position: absolute;
+    bottom: 10px; /* Move the button 10px up from the bottom */
+    right: 10px; /* Adjust the position as needed */
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.remove-btn:hover {
+    background-color: #ff4136;
+}
+
 
         /* Style for empty cart */
         .empty-cart {
@@ -225,7 +242,6 @@
     <div class="topnav">
         <a href="index.html">Home</a>
         <a href="shop.html">Shop</a>
-        <!-- <a class="active" href="cart.html">Cart</a> -->
         <a href="contact.html">Contact Us</a>
         <a href="about.html">About</a>
         <!-- <a href="#faq">FAQs</a> -->
