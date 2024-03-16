@@ -229,52 +229,7 @@
         <a href="cart.html" class="cart-icon"><i class="fas fa-shopping-cart"></i></a>
     </h1>
     <h1 class="line"></h1>
-    <!-- Product cards section -->
     <div id="product-section" class="product-section">
-        <!-- Product Card 1 -->
-        <div class="product-card">
-            <img src="qr.png" alt="Product Image"> <!-- Move this line before the product details -->
-            <h2>QR Sticker</h2>
-            <p>A customised QR Code sticker which stores data</p>
-            <p>Price: ₹ 100.00</p>
-            <button onclick="addToCart(this)">Add to Cart</button>
-        </div>
-
-
-        <div class="product-card">
-            <img src="flex-board-holder.webp" alt="Product Image">
-            <h2>Flex Holding Board</h2>
-            <p>A board that holds Flex</p>
-            <p>Price: ₹ 30.00</p>
-            <button onclick="addToCart(this)">Add to Cart</button>
-        </div>
-
-        <!-- Product Card 2 -->
-        <div class="product-card">
-            <img src="poster.jpeg" alt="Product Image">
-            <h2>Poster</h2>
-            <p>A customised poster according to you.</p>
-            <p>Price: ₹ 150.00</p>
-            <button onclick="addToCart(this)">Add to Cart</button>
-        </div>
-
-        <!-- Add more product cards here as needed -->
-        <div class="product-card">
-            <img src="wax-ribbon.webp" alt="Product Image">
-            <h2>Wax Ribbon</h2>
-            <p>A ribbon made using wax.<br><br></p>
-            <p>Price: ₹ 25.00</p>
-            <button onclick="addToCart(this)">Add to Cart</button>
-        </div>
-
-        <div class="product-card">
-            <img src="book-printing.jpeg" alt="Product Image">
-            <h2>Book Printing</h2>
-            <p>Print Books.<br><br></p>
-            <p>Price: ₹ 30.00</p>
-            <button onclick="addToCart(this)">Add to Cart</button>
-        </div>
-
         <div id="popup" class="popup">
             <h2>Added to Cart</h2>
             <button onclick="redirectToCart()">View Cart</button>
@@ -311,6 +266,88 @@
         function redirectToCart() {
             window.location.href = "cart.html";
         }
+
+        // code1 data with image URLs
+    const products = {
+        1: {
+            Name: "QR Sticker",
+            Price: 20,
+            Description: "A customised QR Code sticker which stores data",
+            Image: "qr.png"
+        },
+        2: {
+            Name: "Flex Board Holder",
+            Price: 1500,
+            Description: "A board that holds Flex",
+            Image: "flex-board-holder.webp"
+        },
+        3: {
+            Name: "Poster",
+            Price: 250,
+            Description: "A customised poster according to you",
+            Image: "poster.jpeg"
+        },
+        4: {
+            Name: "Wax Ribbon",
+            Price: 130,
+            Description: "A ribbon made using wax",
+            Image: "wax-ribbon.webp"
+        },
+        5: {
+            Name: "Book Printing",
+            Price: 500,
+            Description: "Printing of books",
+            Image: "book-printing.jpeg"
+        }
+    };
+
+    // Function to dynamically generate product cards
+    function generateProductCards() {
+        const productSection = document.getElementById("product-section");
+
+        // Loop through each product in products object
+        for (const productId in products) {
+            if (products.hasOwnProperty(productId)) {
+                const product = products[productId];
+
+                // Create product card elements
+                const productCard = document.createElement("div");
+                productCard.classList.add("product-card");
+
+                const productImage = document.createElement("img");
+                productImage.src = product.Image;
+                productImage.alt = "Product Image";
+                productCard.appendChild(productImage);
+
+                const productName = document.createElement("h2");
+                productName.textContent = product.Name;
+
+                const productDescription = document.createElement("p");
+                productDescription.textContent = product.Description;
+
+                const productPrice = document.createElement("p");
+                productPrice.textContent = "Price: ₹ " + product.Price.toFixed(2);
+
+                const addToCartButton = document.createElement("button");
+                addToCartButton.textContent = "Add to Cart";
+                addToCartButton.onclick = function () {
+                    addToCart(this);
+                };
+
+                // Append elements to product card
+                productCard.appendChild(productName);
+                productCard.appendChild(productDescription);
+                productCard.appendChild(productPrice);
+                productCard.appendChild(addToCartButton);
+
+                // Append product card to product section
+                productSection.appendChild(productCard);
+            }
+        }
+    }
+
+    // Call the function to generate product cards when the page loads
+    window.onload = generateProductCards;
     </script>
 </body>
 </html>
