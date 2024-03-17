@@ -1,9 +1,104 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Service Card</title>
+    <style>
+        /* Card container */
+        .service-card {
+            width: 300px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            overflow: hidden;
+            margin: 20px auto;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Image */
+        .service-image {
+            width: 100%;
+            height: auto; /* Adjust height as needed */
+            object-fit: cover;
+        }
+
+        /* Title */
+        .service-title {
+            font-size: 24px;
+            font-weight: bold;
+            margin: 10px 0;
+            text-align: center;
+        }
+
+        /* Description */
+        .service-description {
+            font-size: 16px;
+            margin: 0 20px 20px 20px;
+            text-align: justify;
+        }
+    </style>
+</head>
 <body>
+    <div class="service-card">
+        <!-- Image -->
+        <img src="/service-src/qr-service.jpeg" alt="Service Image" class="service-image">
+        
+        <!-- Title -->
+        <h2 class="service-title">QR Stickers</h2>
+        
+        <!-- Description -->
+        <p class="service-description">
+            Get your own QR stickers for your business. These stickers can be used for various purposes such as product packaging, business cards, and more.
+        </p>
+    </div>
 
-<h1>Work in progress</h1>
-<p>We'll be back soon!</p>
+    <div id="service-container"></div>
 
+    <script>
+        // Array of service objects with name and description
+        const services = [
+            { id: 1, name: "Book Printing", description: "abc" },
+            { id: 2, name: "Poster Designing", description: "abc" },
+            { id: 3, name: "Software", description: "abc" },
+            { id: 4, name: "Stationary Items", description: "abc" }
+        ];
+
+        // Function to generate service cards
+        function generateServiceCards() {
+            const container = document.getElementById("service-container");
+
+            services.forEach(service => {
+                // Create card div
+                const card = document.createElement("div");
+                card.classList.add("service-card");
+                card.id = `service-${service.id}`; // Add unique id to each card
+
+                // Create image element
+                const image = document.createElement("img");
+                image.src = "/service-src/qr-service.jpeg"; // Change image source accordingly
+                image.alt = "Service Image";
+                image.classList.add("service-image");
+                card.appendChild(image);
+
+                // Create title element
+                const title = document.createElement("h2");
+                title.classList.add("service-title");
+                title.textContent = service.name;
+                card.appendChild(title);
+
+                // Create description element
+                const description = document.createElement("p");
+                description.classList.add("service-description");
+                description.textContent = service.description;
+                card.appendChild(description);
+
+                // Append card to container
+                container.appendChild(card);
+            });
+        }
+
+        // Call the function to generate service cards
+        generateServiceCards();
+    </script>
 </body>
 </html>
