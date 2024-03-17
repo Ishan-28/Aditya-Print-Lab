@@ -1,10 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Us - Aditya Print Lab</title>
     <style>
+        /* Footer styles */
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            position: relative; /* Change position to relative */
+            bottom: 0;
+            width: 100%;
+            z-index: 999; /* Ensure footer stays above other content */
+        }
+
+        @media only screen and (min-width: 600px) {
+            footer {
+                position: relative;
+                bottom: auto;
+                width: auto;
+            }
+        }
+
+        .footer a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 10px; /* Add margin between links */
+        }
+
+        .footer-nav {
+            margin-bottom: 20px; /* Add some space between sections */
+            padding-top: 50px;
+        }
+
+        .footer-section {
+            margin-bottom: 10px; /* Add some space between sections */
+            padding-top: 20px;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            color: #099ed8;
+        }
+
+        .social-media {
+            margin-bottom: 20px;
+        }
+
+        .social-icon {
+            font-size: 24px;
+            color: white;
+            margin: 0 10px;
+            transition: color 0.3s ease;
+        }
+
+        .social-icon:hover {
+            color: #1e7898;
+        }
+
         .logo-text {
             font-family: "Arial", sans-serif; /* Choose a suitable font family */
             font-size: 28px; /* Adjust the font size as needed */
@@ -154,6 +217,48 @@
         <p><strong>Email:</strong> <a href="mailto:adityaprintlab38@gmail.com">adityaprintlab38@gmail.com</a></p>
         <p><strong>Address:</strong><br></strong> S.NO 48, H.No. 38, Jai Gajanan Nagar,<br>Garkheda area, Chh.Sambhaji Nagar-431005</p>
     </div>
+    <footer class="footer">
+        <!-- Social media icons -->
+        <div class="social-icons">
+            <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-linkedin"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-facebook"></i></a>
+        </div>
+
+        <!-- Navigation links -->
+        <div class="footer-nav">
+            <nav>
+                <a href="#">Home</a> |
+                <a href="#">About Us</a> |
+                <a href="#">Services</a> |
+                <a href="#">Products</a> |
+                <a href="#">Blog</a> |
+                <a href="#">Contact Us</a>
+            </nav>
+        </div>
+
+        <!-- Information links -->
+        <div class="footer-section">
+            <a href="#">Terms of Service</a> |
+            <a href="#">Privacy Policy</a> |
+            <a href="#">Customer Support</a>
+        </div>
+
+        <!-- Google Maps location link -->
+        <div class="footer-section">
+            <a href="https://www.google.com/maps/place/Your+Company+Name+Main+Office+Location" target="_blank">
+                <i class="fas fa-map-marker-alt"></i> Visit Our Main Office
+            </a>
+        </div>
+
+        <!-- Copyright notice -->
+        <div class="footer-copyright">
+            <p>&copy; 2024 Aditya Print Lab. All rights reserved.</p>
+        </div>
+    </footer>
+
     <script>
         document.querySelector('.login-text').addEventListener('click', function() {
             window.location.href = 'login.html';
