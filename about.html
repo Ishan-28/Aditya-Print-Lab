@@ -3,8 +3,168 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <title>Service Card</title>
     <style>
+        .logo-text {
+            font-family: "Arial", sans-serif; /* Choose a suitable font family */
+            font-size: 28px; /* Adjust the font size as needed */
+            color: #1e7898; /* Choose a color that complements your design */
+            text-decoration: none; /* Remove underline */
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1); /* Add a subtle text shadow for depth */
+            letter-spacing: 1px; /* Adjust letter spacing for better readability */
+        }
+
+        .logo-text:hover {
+            color: #099ed8; /* Change color on hover for interactive effect */
+        }
+
+        h1 {
+            margin-left: 10px;
+            font-family: Arial, sans-serif;
+            color: #333;
+            border-radius: 5px;
+        }
+
+        .cart-icon {
+            float: right;
+            margin-top: 10px;
+            margin-right: 20px;
+            color: #099ed8;
+            font-size: 24px;
+            cursor: pointer;
+            position: relative; /* Ensure relative positioning for the animation */
+            transition: color 0.3s ease; /* Smooth transition for color change */
+        }
+
+        .cart-icon:hover::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 50px; /* Adjust the size of the circle as needed */
+            height: 50px; /* Adjust the size of the circle as needed */
+            background-color: rgba(0, 0, 0, 0.1); /* Darken the area */
+            border-radius: 50%; /* Create a circular shape */
+            z-index: -1; /* Ensure the circle is behind the icon */
+        }
+
+        /* Style for login text */
+        .login-text {
+            float: right;
+            margin-top: 10px;
+            margin-right: 10px;
+            color: #099ed8;
+            font-size: 18px;
+            cursor: pointer;
+            transition: transform 0.2s ease; /* Add transition for smooth animation */
+        }
+
+        .login-text:hover {
+            transform: scale(1.1); /* Scale up the button slightly on hover */
+        }
+
+        .line {
+            border-bottom: 1px solid #ccc;
+            margin-bottom: 20px;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #f9f9f9;
+        }
+
+        .topnav {
+            overflow: hidden;
+            background-color: #333;
+            text-align: center;
+        }
+
+        .topnav a {
+            float: none; /* Remove float to center the items */
+            display: inline-block; /* Add this line to make the items display inline */
+            color: #f2f2f2;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            font-size: 17px;
+        }
+
+        .topnav a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+
+        .topnav a.active {
+            background-color: #1e7898;
+            color: white;
+            background-color: rgb(37, 150, 190);
+        }
+        
+        /* Footer styles */
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            position: relative; /* Change position to relative */
+            bottom: 0;
+            width: 100%;
+            z-index: 999; /* Ensure footer stays above other content */
+        }
+
+        @media only screen and (min-width: 600px) {
+            footer {
+                position: relative;
+                bottom: auto;
+                width: auto;
+            }
+        }
+
+        .footer a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 10px; /* Add margin between links */
+        }
+
+        .footer-nav {
+            margin-bottom: 20px; /* Add some space between sections */
+            padding-top: 50px;
+        }
+
+        .footer-section {
+            margin-bottom: 10px; /* Add some space between sections */
+            padding-top: 20px;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            color: #099ed8;
+        }
+
+        .social-media {
+            margin-bottom: 20px;
+        }
+
+        .social-icon {
+            font-size: 24px;
+            color: white;
+            margin: 0 10px;
+            transition: color 0.3s ease;
+        }
+
+        .social-icon:hover {
+            color: #1e7898;
+        }
+
         /* Card container */
         .service-card {
             width: 300px;
@@ -13,6 +173,7 @@
             overflow: hidden;
             margin: 20px auto;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
         }
 
         /* Image */
@@ -35,10 +196,37 @@
             font-size: 16px;
             margin: 0 20px 20px 20px;
             text-align: justify;
+            height: 60px; /* Set a max-height for description */
+            overflow: hidden;
+            transition: height 0.3s ease;
+        }
+
+        /* Expand description on hover */
+        .service-card:hover .service-description {
+            height: auto;
+        }
+
+        /* Expand card on hover */
+        .service-card:hover {
+            width: 320px;
         }
     </style>
 </head>
 <body>
+    <div class="topnav">
+        <a href="index.html">Home</a>
+        <a href="shop.html">Shop</a>
+        <a href="contact.html">Contact Us</a>
+        <a class="active" href="about.html">About</a>
+        <!-- <a href="#faq">FAQs</a> -->
+    </div>
+    <h1>
+        <a href="index.html" class="logo-text">Aditya Print Lab</a>
+        <span class="login-text" onclick="window.location.href='login.html'">Login</span>
+        <a href="cart.html" class="cart-icon"><i class="fas fa-shopping-cart"></i></a>
+    </h1>
+    <h1 class="line"></h1>
+    <h1 class="service-title">Our Services</h1>
     <div class="service-card">
         <!-- Image -->
         <img src="/service-src/qr-service.jpeg" alt="Service Image" class="service-image">
@@ -54,13 +242,56 @@
 
     <div id="service-container"></div>
 
+
+    <footer class="footer">
+        <!-- Social media icons -->
+        <div class="social-icons">
+            <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-linkedin"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-facebook"></i></a>
+        </div>
+
+        <!-- Navigation links -->
+        <div class="footer-nav">
+            <nav>
+                <a href="#">Home</a> |
+                <a href="#">About Us</a> |
+                <a href="#">Services</a> |
+                <a href="#">Products</a> |
+                <a href="#">Blog</a> |
+                <a href="#">Contact Us</a>
+            </nav>
+        </div>
+
+        <!-- Information links -->
+        <div class="footer-section">
+            <a href="#">Terms of Service</a> |
+            <a href="#">Privacy Policy</a> |
+            <a href="#">Customer Support</a>
+        </div>
+
+        <!-- Google Maps location link -->
+        <div class="footer-section">
+            <a href="https://www.google.com/maps/place/Your+Company+Name+Main+Office+Location" target="_blank">
+                <i class="fas fa-map-marker-alt"></i> Visit Our Main Office
+            </a>
+        </div>
+
+        <!-- Copyright notice -->
+        <div class="footer-copyright">
+            <p>&copy; 2024 Aditya Print Lab. All rights reserved.</p>
+        </div>
+    </footer>
+
     <script>
-        // Array of service objects with name and description
+        // Array of service objects with name, description, and image URL
         const services = [
-            { id: 1, name: "Book Printing", description: "abc" },
-            { id: 2, name: "Poster Designing", description: "abc" },
-            { id: 3, name: "Software", description: "abc" },
-            { id: 4, name: "Stationary Items", description: "abc" }
+            { id: 1, name: "Book Printing", description: "Get book printing service tailored to bring your words to life with precision and professionalism.", imageUrl: "/service-src/book-service.jpeg" },
+            { id: 2, name: "Poster Designing", description: "Elevate your message with captivating poster designs that stand out and leave a lasting impression.", imageUrl: "/service-src/poster-service.webp" },
+            { id: 3, name: "Software", description: "Unlock your business's full potential with custom software solutions tailored to your unique needs and objectives.", imageUrl: "/service-src/software-service.webp" },
+            { id: 4, name: "Stationary Items", description: "Enhance your workspace with our wide selection of high-quality stationary items, perfect for boosting productivity and organization.", imageUrl: "/service-src/stationary-service.jpeg" }
         ];
 
         // Function to generate service cards
@@ -75,7 +306,7 @@
 
                 // Create image element
                 const image = document.createElement("img");
-                image.src = "/service-src/qr-service.jpeg"; // Change image source accordingly
+                image.src = service.imageUrl; // Use service-specific image URL
                 image.alt = "Service Image";
                 image.classList.add("service-image");
                 card.appendChild(image);
