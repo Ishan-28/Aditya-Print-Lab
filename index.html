@@ -7,10 +7,71 @@
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
+        /* Footer styles */
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            position: relative; /* Change position to relative */
+            bottom: 0;
+            width: 100%;
+            z-index: 999; /* Ensure footer stays above other content */
+        }
+
+        @media only screen and (min-width: 600px) {
+            footer {
+                position: relative;
+                bottom: auto;
+                width: auto;
+            }
+        }
+
+        .footer a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 10px; /* Add margin between links */
+        }
+
+        .footer-nav {
+            margin-bottom: 20px; /* Add some space between sections */
+            padding-top: 50px;
+        }
+
+        .footer-section {
+            margin-bottom: 10px; /* Add some space between sections */
+            padding-top: 20px;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            color: #099ed8;
+        }
+
+        .social-media {
+            margin-bottom: 20px;
+        }
+
+        .social-icon {
+            font-size: 24px;
+            color: white;
+            margin: 0 10px;
+            transition: color 0.3s ease;
+        }
+
+        .social-icon:hover {
+            color: #1e7898;
+        }
 
         .mySlides:hover img {
-                    filter: brightness(55%);
-                }
+            filter: brightness(55%);
+        }
 
         /* Text overlay */
         .text-overlay {
@@ -42,91 +103,106 @@
 
         /* Slideshow container */
         .slideshow-container {
-        max-width: 1000px;
-        position: relative;
-        margin: auto;
+            width: 80%;
+            height: 70%;
+            position: relative;
+            margin: auto;
+            overflow: hidden; /* Add overflow hidden to hide slides that are outside the container */
+        }
+
+        /* Sliding animation */
+        @keyframes slideIn {
+            from {
+                transform: translateX(100%);
+            }
+            to {
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideOut {
+            from {
+                transform: translateX(0);
+            }
+            to {
+                transform: translateX(-100%);
+            }
+        }
+
+        .fade {
+            animation-duration: 1s; /* Adjust animation duration as needed */
+        }
+
+        .fade-in {
+            animation-name: slideIn; /* Change animation name to slideIn */
+        }
+
+        .fade-out {
+            animation-name: slideOut; /* Change animation name to slideOut */
         }
 
         /* Next & previous buttons */
         .prev, .next {
-        cursor: pointer;
-        position: absolute;
-        top: 50%;
-        width: auto;
-        padding: 16px;
-        margin-top: -22px;
-        color: white;
-        font-weight: bold;
-        font-size: 30px;
-        transition: 0.6s ease;
-        border-radius: 0 3px 3px 0;
-        user-select: none;
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            width: auto;
+            padding: 16px;
+            margin-top: -22px;
+            color: white;
+            font-weight: bold;
+            font-size: 30px;
+            transition: 0.6s ease;
+            border-radius: 0 3px 3px 0;
+            user-select: none;
         }
 
         /* Position the "next button" to the right */
         .next {
-        right: 0;
-        border-radius: 3px 0 0 3px;
+            right: 0;
+            border-radius: 3px 0 0 3px;
         }
 
         /* On hover, add a black background color with a little bit see-through */
         .prev:hover, .next:hover {
-        background-color: rgba(0,0,0,0.8);
+            background-color: rgba(0,0,0,0.8);
         }
 
         /* Caption text */
         .text {
-        color: #f2f2f2;
-        font-size: 15px;
-        padding: 8px 12px;
-        position: absolute;
-        bottom: 8px;
-        width: 100%;
-        text-align: center;
+            color: #f2f2f2;
+            font-size: 15px;
+            padding: 8px 12px;
+            position: absolute;
+            bottom: 8px;
+            width: 100%;
+            text-align: center;
         }
-
-        /* Number text (1/3 etc) */
-        /* .numbertext {
-        color: #f2f2f2;
-        font-size: 12px;
-        padding: 8px 10px;
-        position: absolute;
-        top: 10px;
-        left: 10px;
-        background-color: #494848;
-        border-radius: 60px;
-        } */
 
         /* The dots/bullets/indicators */
         .dot {
-        cursor: pointer;
-        height: 15px;
-        width: 15px;
-        margin: 0 2px;
-        background-color: #bbb;
-        border-radius: 50%;
-        display: inline-block;
-        transition: background-color 0.6s ease;
+            cursor: pointer;
+            height: 15px;
+            width: 15px;
+            margin: 0 2px;
+            background-color: #bbb;
+            border-radius: 50%;
+            display: inline-block;
+            transition: background-color 0.6s ease;
         }
 
         .active, .dot:hover {
-        background-color: #717171;
+            background-color: #717171;
         }
 
         /* Fading animation */
         .fade {
-        animation-name: fade;
-        animation-duration: 1.5s;
-        }
-
-        @keyframes fade {
-        from {opacity: .4} 
-        to {opacity: 1}
+            animation-duration: 1s; /* Adjust animation duration as needed */
         }
 
         /* On smaller screens, decrease text size */
         @media only screen and (max-width: 300px) {
-        .prev, .next,.text {font-size: 11px}
+            .prev, .next,.text {font-size: 11px}
         }
 
         .logo-text {
@@ -148,6 +224,7 @@
             color: #333;
             border-radius: 5px;
         }
+
         body {
             margin: 0;
             font-family: Arial, Helvetica, sans-serif;
@@ -180,6 +257,7 @@
             color: white;
             background-color: rgb(37, 150, 190);
         }
+
         /* Style for cart icon */
         .cart-icon {
             float: right;
@@ -191,7 +269,7 @@
             position: relative; /* Ensure relative positioning for the animation */
             transition: color 0.3s ease; /* Smooth transition for color change */
         }
-        
+
         .cart-icon:hover::before {
             content: '';
             position: absolute;
@@ -282,13 +360,20 @@
             text-decoration: none;
             cursor: pointer;
         }
+
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden; /* Prevent horizontal scrolling */
+        }
+
     </style>
 </head>
 <body>
     <div class="topnav">
         <a class="active" href="index.html">Home</a>
         <a href="shop.html">Shop</a> <!-- Link to Shopping page -->
-        <!-- <a href="cart.html">Cart</a> -->
         <a href="contact.html">Contact Us</a>
         <a href="about.html">About</a>
         <!-- <a href="#faq">FAQs</a> -->
@@ -372,6 +457,49 @@
         </div>
     </div>
 
+    <footer class="footer">
+        <!-- Social media icons -->
+        <div class="social-icons">
+            <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-linkedin"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-facebook"></i></a>
+        </div>
+
+        <!-- Navigation links -->
+        <div class="footer-nav">
+            <nav>
+                <a href="#">Home</a> |
+                <a href="#">About Us</a> |
+                <a href="#">Services</a> |
+                <a href="#">Products</a> |
+                <a href="#">Blog</a> |
+                <a href="#">Contact Us</a>
+            </nav>
+        </div>
+
+        <!-- Information links -->
+        <div class="footer-section">
+            <a href="#">Terms of Service</a> |
+            <a href="#">Privacy Policy</a> |
+            <a href="#">Customer Support</a>
+        </div>
+
+        <!-- Google Maps location link -->
+        <div class="footer-section">
+            <a href="https://www.google.com/maps/place/Your+Company+Name+Main+Office+Location" target="_blank">
+                <i class="fas fa-map-marker-alt"></i> Visit Our Main Office
+            </a>
+        </div>
+
+        <!-- Copyright notice -->
+        <div class="footer-copyright">
+            <p>&copy; 2024 Aditya Print Lab. All rights reserved.</p>
+        </div>
+    </footer>
+    
+
     <!-- Script to include Font Awesome icons -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"></script>
     <script>
@@ -433,7 +561,7 @@
 
         setInterval(function() {
             plusSlides(1); // Call the plusSlides function with an argument of 1 to move to the next slide
-        }, 5000); // Change slides every 5 seconds (5000 milliseconds)
+        }, 9000); // Change slides every 5 seconds (5000 milliseconds)
 
         function refreshHomePage() {
             location.reload();
