@@ -297,32 +297,32 @@
         // Function to generate service cards
         function generateServiceCards() {
             const container = document.getElementById("service-container");
-
+        
             services.forEach(service => {
                 // Create card div
                 const card = document.createElement("div");
                 card.classList.add("service-card");
                 card.id = `service-${service.id}`; // Add unique id to each card
-
+        
                 // Create image element
                 const image = document.createElement("img");
                 image.src = service.imageUrl; // Use service-specific image URL
                 image.alt = "Service Image";
                 image.classList.add("service-image");
                 card.appendChild(image);
-
+        
                 // Create title element
                 const title = document.createElement("h2");
                 title.classList.add("service-title");
                 title.textContent = service.name;
                 card.appendChild(title);
-
+        
                 // Create description element
                 const description = document.createElement("p");
                 description.classList.add("service-description");
                 description.textContent = service.description;
                 card.appendChild(description);
-
+        
                 // Append card to container
                 container.appendChild(card);
             });
