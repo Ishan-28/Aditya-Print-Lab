@@ -7,6 +7,77 @@
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
+        /* Card container */
+        .service-container {
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+            margin: 0 auto; /* Center the container horizontally */
+            overflow-x: hidden;
+            display: flex; /* Use flexbox for centering */
+            justify-content: center; /* Center the flex items horizontally */
+        }
+
+        .card-wrapper {
+            display: flex;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            -webkit-overflow-scrolling: touch; /* For smooth scrolling on iOS */
+            padding-left: 20px; /* Added padding to move cards away from the left side */
+        }
+
+        .service-card {
+            overflow: hidden;
+            flex: 0 0 auto;
+            width: 250px; /* Adjusted width for smaller cards */
+            height: 345px; /* Adjusted height for smaller cards */
+            min-width: 200px; /* Adjusted min-width for smaller cards */
+            margin-right: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            scroll-snap-align: start;
+            transition: all 0.3s ease;
+            margin-bottom: 500px;
+            margin-top: 35px;
+        }
+
+        .service-card:last-child {
+            margin-right: 0;
+        }
+
+        /* Image */
+        .service-image {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+        }
+
+        /* Title */
+        .service-title {
+            font-size: 22px; /* Adjusted font size for smaller cards */
+            font-weight: bold;
+            margin: 10px 0;
+            text-align: center;
+        }
+
+        /* Description */
+        .service-description {
+            font-size: 14px; /* Adjusted font size for smaller cards */
+            margin: 0 10px 20px 10px; /* Adjusted margin for smaller cards */
+            text-align: justify;
+            height: 190px;
+            overflow: hidden;
+            transition: height 0.3s ease;
+            color: #363636;
+        }
+
+        /* Expand description on hover */
+        .service-card:hover{
+            width: 280px; /* Adjusted width on hover for smaller cards */
+            height: 400px;
+        }
+
         /* Footer styles */
         footer {
             background-color: #333;
@@ -189,6 +260,7 @@
             border-radius: 50%;
             display: inline-block;
             transition: background-color 0.6s ease;
+            margin-bottom: 40px;
         }
 
         .active, .dot:hover {
@@ -367,6 +439,7 @@
             padding: 0;
             overflow-x: hidden; /* Prevent horizontal scrolling */
         }
+
     </style>
 </head>
 <body>
@@ -453,6 +526,13 @@
             <textarea placeholder="Type your message here..." rows="4" cols="50"></textarea>
             <br>
             <button onclick="sendMessage()">Send</button>
+        </div>
+    </div>
+
+    <p class="service-title">Our Services</px>
+    <div class="service-container">
+        <div class="card-wrapper" id="cardWrapper">
+            <!-- Service cards will be dynamically added here -->
         </div>
     </div>
 
@@ -565,6 +645,50 @@
         function refreshHomePage() {
             location.reload();
         }
+
+        const services = [
+            { id: 1, name: "QR Stickers", description: "Get your own QR stickers for your business. These stickers can be used for various purposes such as product packaging, business cards, and more.", imageUrl: "src/service_src/qr-service.jpg" },
+            { id: 2, name: "Book Printing", description: "Get book printing service tailored to bring your words to life with precision and professionalism.", imageUrl: "src/service_src/book-service.jpg" },
+            { id: 3, name: "Poster Designing", description: "Elevate your message with captivating poster designs that stand out and leave a lasting impression.", imageUrl: "src/service_src/poster-service.jpg" },
+            { id: 4, name: "Software", description: "Unlock your business's full potential with custom software solutions tailored to your unique needs and objectives.", imageUrl: "src/service_src/software-service.jpg" },
+            { id: 5, name: "Stationary Items", description: "Enhance your workspace with our wide selection of high-quality stationary items, perfect for boosting productivity and organization.", imageUrl: "src/service_src/stationary-service.jpg" }
+        ];
+
+        // Function to generate service cards
+        function generateServiceCards() {
+            const cardWrapper = document.getElementById("cardWrapper");
+            services.forEach(service => {
+                // Create card div
+                const card = document.createElement("div");
+                card.classList.add("service-card");
+
+                // Create image element
+                const image = document.createElement("img");
+                image.src = service.imageUrl; // Use service-specific image URL
+                image.alt = "Service Image";
+                image.classList.add("service-image");
+                card.appendChild(image);
+
+                // Create title element
+                const title = document.createElement("h2");
+                title.classList.add("service-title");
+                title.textContent = service.name;
+                card.appendChild(title);
+
+                // Create description element
+                const description = document.createElement("p");
+                description.classList.add("service-description");
+                description.textContent = service.description;
+                card.appendChild(description);
+
+                // Append card to container
+                cardWrapper.appendChild(card);
+            });
+        }
+
+        // Call the function to generate service cards
+        generateServiceCards();
+
     </script>
 </body>
 </html>

@@ -6,76 +6,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <title>Service Card</title>
     <style>
-        .logo-text {
-            font-family: "Arial", sans-serif; /* Choose a suitable font family */
-            font-size: 28px; /* Adjust the font size as needed */
-            color: #1e7898; /* Choose a color that complements your design */
-            text-decoration: none; /* Remove underline */
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1); /* Add a subtle text shadow for depth */
-            letter-spacing: 1px; /* Adjust letter spacing for better readability */
-        }
-
-        .logo-text:hover {
-            color: #099ed8; /* Change color on hover for interactive effect */
-        }
-
-        h1 {
-            margin-left: 10px;
-            font-family: Arial, sans-serif;
-            color: #333;
-            border-radius: 5px;
-        }
-
-        .cart-icon {
-            float: right;
-            margin-top: 10px;
-            margin-right: 20px;
-            color: #099ed8;
-            font-size: 24px;
-            cursor: pointer;
-            position: relative; /* Ensure relative positioning for the animation */
-            transition: color 0.3s ease; /* Smooth transition for color change */
-        }
-
-        .cart-icon:hover::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 50px; /* Adjust the size of the circle as needed */
-            height: 50px; /* Adjust the size of the circle as needed */
-            background-color: rgba(0, 0, 0, 0.1); /* Darken the area */
-            border-radius: 50%; /* Create a circular shape */
-            z-index: -1; /* Ensure the circle is behind the icon */
-        }
-
-        /* Style for login text */
-        .login-text {
-            float: right;
-            margin-top: 10px;
-            margin-right: 10px;
-            color: #099ed8;
-            font-size: 18px;
-            cursor: pointer;
-            transition: transform 0.2s ease; /* Add transition for smooth animation */
-        }
-
-        .login-text:hover {
-            transform: scale(1.1); /* Scale up the button slightly on hover */
-        }
-
-        .line {
-            border-bottom: 1px solid #ccc;
-            margin-bottom: 20px;
-        }
-
-        body {
-            margin: 0;
-            font-family: Arial, Helvetica, sans-serif;
-            background-color: #f9f9f9;
-        }
-
         /* Top navigation */
         .topnav {
             overflow: hidden;
@@ -206,10 +136,10 @@
             padding-top: 30px;
             padding-bottom: 15px;
             text-align: center;
-            position: relative;
+            position: relative; /* Change position to relative */
             bottom: 0;
             width: 100%;
-            z-index: 999;
+            z-index: 999; /* Ensure footer stays above other content */
         }
 
         @media only screen and (min-width: 600px) {
@@ -285,7 +215,7 @@
             overflow: hidden;
             flex: 0 0 auto;
             width: 250px; /* Adjusted width for smaller cards */
-            height: 350px; /* Adjusted height for smaller cards */
+            height: 345px; /* Adjusted height for smaller cards */
             min-width: 200px; /* Adjusted min-width for smaller cards */
             margin-right: 20px;
             border: 1px solid #ccc;
@@ -293,6 +223,7 @@
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             scroll-snap-align: start;
             transition: all 0.3s ease;
+            margin-bottom: 100px;
         }
 
         .service-card:last-child {
@@ -352,7 +283,7 @@
         </div>
     </div>
 
-    <!-- <footer class="footer">
+    <footer class="footer">
         <div class="social-icons">
             <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
             <a href="#" class="social-icon"><i class="fab fa-linkedin"></i></a>
@@ -387,7 +318,7 @@
         <div class="footer-copyright">
             <p>&copy; 2024 Aditya Print Lab. All rights reserved.</p>
         </div>
-    </footer> -->
+    </footer>
 
     <!-- JavaScript code -->
     <script>
