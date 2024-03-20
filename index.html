@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aditya Print Lab</title>
-    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         /* Card container */
@@ -12,26 +11,26 @@
             position: relative;
             overflow: hidden;
             width: 100%;
-            margin: 0 auto; /* Center the container horizontally */
+            margin: 0 auto;
             overflow-x: hidden;
-            display: flex; /* Use flexbox for centering */
-            justify-content: center; /* Center the flex items horizontally */
+            display: flex;
+            justify-content: center;
         }
 
         .card-wrapper {
             display: flex;
             overflow-x: auto;
             scroll-snap-type: x mandatory;
-            -webkit-overflow-scrolling: touch; /* For smooth scrolling on iOS */
-            padding-left: 20px; /* Added padding to move cards away from the left side */
+            -webkit-overflow-scrolling: touch;
+            padding-left: 20px;
         }
 
         .service-card {
             overflow: hidden;
             flex: 0 0 auto;
-            width: 250px; /* Adjusted width for smaller cards */
-            height: 345px; /* Adjusted height for smaller cards */
-            min-width: 200px; /* Adjusted min-width for smaller cards */
+            width: 250px;
+            height: 345px;
+            min-width: 200px;
             margin-right: 20px;
             border: 1px solid #ccc;
             border-radius: 10px;
@@ -46,25 +45,22 @@
             margin-right: 0;
         }
 
-        /* Image */
         .service-image {
             width: 100%;
             height: auto;
             object-fit: cover;
         }
 
-        /* Title */
         .service-title {
-            font-size: 22px; /* Adjusted font size for smaller cards */
+            font-size: 22px;
             font-weight: bold;
             margin: 10px 0;
             text-align: center;
         }
 
-        /* Description */
         .service-description {
-            font-size: 14px; /* Adjusted font size for smaller cards */
-            margin: 0 10px 20px 10px; /* Adjusted margin for smaller cards */
+            font-size: 14px;
+            margin: 0 10px 20px 10px;
             text-align: justify;
             height: 190px;
             overflow: hidden;
@@ -72,9 +68,8 @@
             color: #363636;
         }
 
-        /* Expand description on hover */
         .service-card:hover{
-            width: 280px; /* Adjusted width on hover for smaller cards */
+            width: 280px;
             height: 400px;
         }
 
@@ -85,10 +80,10 @@
             padding-top: 30px;
             padding-bottom: 15px;
             text-align: center;
-            position: relative; /* Change position to relative */
+            position: relative;
             bottom: 0;
             width: 100%;
-            z-index: 999; /* Ensure footer stays above other content */
+            z-index: 999;
         }
 
         @media only screen and (min-width: 600px) {
@@ -102,16 +97,16 @@
         .footer a {
             color: #fff;
             text-decoration: none;
-            margin: 0 10px; /* Add margin between links */
+            margin: 0 10px;
         }
 
         .footer-nav {
-            margin-bottom: 20px; /* Add some space between sections */
+            margin-bottom: 20px;
             padding-top: 50px;
         }
 
         .footer-section {
-            margin-bottom: 10px; /* Add some space between sections */
+            margin-bottom: 10px;
             padding-top: 20px;
         }
 
@@ -145,22 +140,21 @@
             filter: brightness(55%);
         }
 
-        /* Text overlay */
         .text-overlay {
             position: absolute;
-            bottom: 10px; /* Adjust as needed */
-            left: 10px; /* Adjust as needed */
+            bottom: 10px;
+            left: 10px;
             color: white;
-            padding: 5px 10px; /* Adjust as needed */
+            padding: 5px 10px;
             border-radius: 5px;
             opacity: 0;
             transition: opacity 0.3s ease;
-            font-size: 30px; /* Default font size */
+            font-size: 30px;
         }
 
         @media only screen and (max-width: 600px) {
             .text-overlay {
-                font-size: 20px; /* Adjust font size for smaller screens */
+                font-size: 20px;
             }
         }
 
@@ -178,10 +172,9 @@
             max-width: 930px;
             position: relative;
             margin: auto;
-            overflow: hidden; /* Add overflow hidden to hide slides that are outside the container */
+            overflow: hidden;
         }
 
-        /* Sliding animation */
         @keyframes slideIn {
             from {
                 transform: translateX(100%);
@@ -201,18 +194,17 @@
         }
 
         .fade {
-            animation-duration: 1s; /* Adjust animation duration as needed */
+            animation-duration: 1s;
         }
 
         .fade-in {
-            animation-name: slideIn; /* Change animation name to slideIn */
+            animation-name: slideIn;
         }
 
         .fade-out {
-            animation-name: slideOut; /* Change animation name to slideOut */
+            animation-name: slideOut;
         }
 
-        /* Next & previous buttons */
         .prev, .next {
             cursor: pointer;
             position: absolute;
@@ -228,18 +220,16 @@
             user-select: none;
         }
 
-        /* Position the "next button" to the right */
         .next {
             right: 0;
             border-radius: 3px 0 0 3px;
         }
 
-        /* On hover, add a black background color with a little bit see-through */
         .prev:hover, .next:hover {
             background-color: rgba(0,0,0,0.8);
         }
 
-        /* Caption text */
+        /* This style is responsible for the caption text */
         .text {
             color: #f2f2f2;
             font-size: 15px;
@@ -250,7 +240,6 @@
             text-align: center;
         }
 
-        /* The dots/bullets/indicators */
         .dot {
             cursor: pointer;
             height: 15px;
@@ -267,27 +256,25 @@
             background-color: #717171;
         }
 
-        /* Fading animation */
         .fade {
-            animation-duration: 1s; /* Adjust animation duration as needed */
+            animation-duration: 1s;
         }
 
-        /* On smaller screens, decrease text size */
         @media only screen and (max-width: 300px) {
             .prev, .next,.text {font-size: 11px}
         }
 
         .logo-text {
-            font-family: "Arial", sans-serif; /* Choose a suitable font family */
-            font-size: 28px; /* Adjust the font size as needed */
-            color: #1e7898; /* Choose a color that complements your design */
-            text-decoration: none; /* Remove underline */
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1); /* Add a subtle text shadow for depth */
-            letter-spacing: 1px; /* Adjust letter spacing for better readability */
+            font-family: "Arial", sans-serif;
+            font-size: 28px;
+            color: #1e7898;
+            text-decoration: none;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+            letter-spacing: 1px;
         }
 
         .logo-text:hover {
-            color: #099ed8; /* Change color on hover for interactive effect */
+            color: #099ed8;
         }
 
         h1 {
@@ -310,8 +297,8 @@
         }
 
         .topnav a {
-            float: none; /* Remove float to center the items */
-            display: inline-block; /* Add this line to make the items display inline */
+            float: none;
+            display: inline-block;
             color: #f2f2f2;
             text-align: center;
             padding: 14px 16px;
@@ -330,7 +317,6 @@
             background-color: rgb(37, 150, 190);
         }
 
-        /* Style for cart icon */
         .cart-icon {
             float: right;
             margin-top: 10px;
@@ -338,8 +324,8 @@
             color: #099ed8;
             font-size: 24px;
             cursor: pointer;
-            position: relative; /* Ensure relative positioning for the animation */
-            transition: color 0.3s ease; /* Smooth transition for color change */
+            position: relative;
+            transition: color 0.3s ease;
         }
 
         .cart-icon:hover::before {
@@ -348,14 +334,14 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            width: 50px; /* Adjust the size of the circle as needed */
-            height: 50px; /* Adjust the size of the circle as needed */
-            background-color: rgba(0, 0, 0, 0.1); /* Darken the area */
-            border-radius: 50%; /* Create a circular shape */
-            z-index: -1; /* Ensure the circle is behind the icon */
+            width: 50px;
+            height: 50px;
+            background-color: rgba(0, 0, 0, 0.1);
+            border-radius: 50%;
+            z-index: -1;
         }
 
-        /* Style for login text */
+        /* This tyle is responsible for styling of login text */
         .login-text {
             float: right;
             margin-top: 10px;
@@ -363,11 +349,11 @@
             color: #099ed8;
             font-size: 18px;
             cursor: pointer;
-            transition: transform 0.2s ease; /* Add transition for smooth animation */
+            transition: transform 0.2s ease;
         }
 
         .login-text:hover {
-            transform: scale(1.1); /* Scale up the button slightly on hover */
+            transform: scale(1.1);
         }
 
         .line {
@@ -437,7 +423,7 @@
             height: 100%;
             margin: 0;
             padding: 0;
-            overflow-x: hidden; /* Prevent horizontal scrolling */
+            overflow-x: hidden;
         }
 
     </style>
@@ -445,13 +431,11 @@
 <body>
     <div class="topnav">
         <a class="active" href="index.html">Home</a>
-        <a href="shop.html">Shop</a> <!-- Link to Shopping page -->
+        <a href="shop.html">Shop</a>
         <a href="contact.html">Contact Us</a>
         <a href="about.html">About</a>
-        <!-- <a href="#faq">FAQs</a> -->
     </div>
 
-    <!-- Website name with icons -->
     <h1>
         <a href="index.html" class="logo-text">Aditya Print Lab</a>
         <span class="login-text" onclick="window.location.href='login.html'">Login</span>
@@ -463,31 +447,26 @@
     <div class="slideshow-container">
 
         <div class="mySlides fade">
-          <!-- <div class="numbertext">1 / 5</div> -->
           <img src="src/home-slides/img-1.jpg" style="width:100%">
           <div class="text-overlay">Say goodbye to generic covers and hello to tailor-made perfection with our comprehensive printing services.</div>
         </div>
         
         <div class="mySlides fade">
-          <!-- <div class="numbertext">2 / 5</div> -->
           <img src="src/home-slides/img-2.jpg" style="width:100%">
           <div class="text-overlay">Our state-of-the-art equipment ensures sharp detail, vibrant colors, and consistent results with every print.</div>
         </div>
         
         <div class="mySlides fade">
-          <!-- <div class="numbertext">3 / 5</div> -->
           <img src="src/home-slides/img-3.jpg" style="width:100%">
           <div class="text-overlay">From marketing campaigns to contactless transactions, our QR codes empower you to engage with your audience like never before.</div>
         </div>
 
         <div class="mySlides fade">
-            <!-- <div class="numbertext">4 / 5</div> -->
             <img src="src/home-slides/img-4.jpg" style="width:100%">
             <div class="text-overlay">From product labeling to asset tracking, we provide precision and reliability in every barcode produced.</div>
         </div>
 
         <div class="mySlides fade">
-            <!-- <div class="numbertext">5 / 5</div> -->
             <img src="src/home-slides/img-5.jpg" style="width:100%">
             <div class="text-overlay"> With a range of sizes, finishes, and customization options available, we cater to every need and budget.</div>
         </div>
@@ -505,16 +484,12 @@
           <span class="dot" onclick="currentSlide(4)"></span> 
           <span class="dot" onclick="currentSlide(5)"></span> 
         </div>
-        
-
-    <!-- User support icon -->
+        <!-- User support icon -->
     <div class="user-support" onclick="openSupport()">
         <i class="fas fa-question-circle"></i>
     </div>
 
-    <!-- Modal for support suggestions -->
     <div id="supportModal" class="modal">
-        <!-- Modal content -->
         <div class="modal-content">
             <span class="close" onclick="closeSupportModal()">&times;</span>
             <h2>Need help?</h2>
@@ -532,12 +507,10 @@
     <p class="service-title">Our Services</px>
     <div class="service-container">
         <div class="card-wrapper" id="cardWrapper">
-            <!-- Service cards will be dynamically added here -->
         </div>
     </div>
 
     <footer class="footer">
-        <!-- Social media icons -->
         <div class="social-icons">
             <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
             <a href="#" class="social-icon"><i class="fab fa-linkedin"></i></a>
@@ -546,7 +519,6 @@
             <a href="#" class="social-icon"><i class="fab fa-facebook"></i></a>
         </div>
 
-        <!-- Navigation links -->
         <div class="footer-nav">
             <nav>
                 <a href="index.html">Home</a> |
@@ -558,28 +530,23 @@
             </nav>
         </div>
 
-        <!-- Information links -->
         <div class="footer-section">
             <a href="#">Terms of Service</a> |
             <a href="#">Privacy Policy</a> |
             <a href="#">Customer Support</a>
         </div>
 
-        <!-- Google Maps location link -->
         <div class="footer-section">
             <a href="https://www.google.com/maps/place/48+h,+38,+Jai+Bhavani+Rd,+Parijat+Nagar,+Jai+Bhavani+Nagar,+N+2,+Cidco,+Aurangabad,+Maharashtra+431007/@19.8650405,75.3626834,17z/data=!3m1!4b1!4m9!1m2!2m1!1sS.NO+48,+H.No.+38,+Jai+Gajanan+Nagar,+Garkheda+area,+Chh.Sambhaji+Nagar-431005!3m5!1s0x3bdba2f507646da9:0xd95302b9d3aa2154!8m2!3d19.8650355!4d75.3675543!15sCk5TLk5PIDQ4LCBILk5vLiAzOCwgSmFpIEdhamFuYW4gTmFnYXIsIEdhcmtoZWRhIGFyZWEsIENoaC5TYW1iaGFqaSBOYWdhci00MzEwMDWSARBjb21wb3VuZF9zZWN0aW9u4AEA?entry=ttu" target="_blank">
                 <i class="fas fa-map-marker-alt"></i> Visit Our Main Office
             </a>
         </div>
 
-        <!-- Copyright notice -->
         <div class="footer-copyright">
             <p>&copy; 2024 Aditya Print Lab. All rights reserved.</p>
         </div>
     </footer>
     
-
-    <!-- Script to include Font Awesome icons -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"></script>
     <script>
         function toggleContact() {
@@ -598,12 +565,10 @@
         }
 
         function sendMessage() {
-            // Add your code to handle sending the message
             var message = document.querySelector("textarea").value;
             alert("Message sent: " + message);
         }
 
-        // Close the modal when clicked outside of it
         window.onclick = function(event) {
             var modal = document.getElementById("supportModal");
             if (event.target == modal) {
@@ -639,8 +604,8 @@
         }
 
         setInterval(function() {
-            plusSlides(1); // Call the plusSlides function with an argument of 1 to move to the next slide
-        }, 9000); // Change slides every 5 seconds (5000 milliseconds)
+            plusSlides(1);
+        }, 9000);
 
         function refreshHomePage() {
             location.reload();
@@ -654,41 +619,33 @@
             { id: 5, name: "Stationary Items", description: "Enhance your workspace with our wide selection of high-quality stationary items, perfect for boosting productivity and organization.", imageUrl: "src/service_src/stationary-service.jpg" }
         ];
 
-        // Function to generate service cards
         function generateServiceCards() {
             const cardWrapper = document.getElementById("cardWrapper");
             services.forEach(service => {
-                // Create card div
                 const card = document.createElement("div");
                 card.classList.add("service-card");
 
-                // Create image element
                 const image = document.createElement("img");
-                image.src = service.imageUrl; // Use service-specific image URL
+                image.src = service.imageUrl;
                 image.alt = "Service Image";
                 image.classList.add("service-image");
                 card.appendChild(image);
 
-                // Create title element
                 const title = document.createElement("h2");
                 title.classList.add("service-title");
                 title.textContent = service.name;
                 card.appendChild(title);
 
-                // Create description element
                 const description = document.createElement("p");
                 description.classList.add("service-description");
                 description.textContent = service.description;
                 card.appendChild(description);
 
-                // Append card to container
                 cardWrapper.appendChild(card);
             });
         }
 
-        // Call the function to generate service cards
         generateServiceCards();
-
     </script>
 </body>
 </html>
