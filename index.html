@@ -26,10 +26,6 @@
             text-align: left;
         }
 
-        .topnav c {
-            margin-top: 25px;
-        }
-
         .topnav b {
             font-family: "Arial", sans-serif;
             font-size: 28px;
@@ -116,7 +112,7 @@
 
         /* Styles for cart */
         .cart-icon {
-            margin-right: 30px;
+            margin-right: 100px;
             top: 50%;
             bottom: 30px;
             color: #099ed8;
@@ -147,7 +143,7 @@
             text-align: center;
             float: right;
             margin-right: 20px;
-            margin-top: -5px;
+            margin-top: -35px;
             color: white;
             font-size: 18px;
             cursor: pointer;
@@ -517,7 +513,7 @@
               <input type="text" placeholder="Search">
               <button type="submit">Search</button>
             </form>
-            <c href="cart.html" class="cart-icon"><i class="fas fa-shopping-cart"></i></a>
+            <span onclick="window.location.href='cart.html'" class="cart-icon"><i class="fas fa-shopping-cart"></i></span>
             <span class="login-text" onclick="window.location.href='login.html'">Login</span>
         </div>
     </div>
