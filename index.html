@@ -169,6 +169,7 @@
 
         /* Slideshow container */
         .slideshow-container {
+            /* margin-left: 100%; */
             max-width: 930px;
             position: relative;
             margin: auto;
@@ -292,29 +293,49 @@
 
         .topnav {
             overflow: hidden;
-            background-color: #333;
-            text-align: center;
+            text-align: left;
         }
 
         .topnav a {
+            font-family: "Courier New", monospace;
+            margin-top: 15px;
+            margin: 10px 10px;
             float: none;
             display: inline-block;
-            color: #f2f2f2;
+            color: #171515;
             text-align: center;
-            padding: 14px 16px;
+            padding: 4px 10px;
             text-decoration: none;
             font-size: 17px;
+            position: relative; /* Added */
         }
 
         .topnav a:hover {
-            background-color: #ddd;
             color: black;
         }
 
+        .topnav a::after { /* Added */
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: #171515;
+            visibility: hidden;
+            transform: scaleX(0);
+            transition: all 0.3s ease-in-out;
+        }
+
+        .topnav a:hover::after { /* Added */
+            visibility: visible;
+            transform: scaleX(1);
+        }
+
         .topnav a.active {
-            background-color: #1e7898;
-            color: white;
-            background-color: rgb(37, 150, 190);
+            color: #1a6b88;
+            border-radius: 150px;
+            background-color: #f9f9f9;
         }
 
         .cart-icon {
@@ -430,17 +451,18 @@
 </head>
 <body>
     <div class="topnav">
+        <a href="index.html" class="logo-text">Aditya Print Lab</a>
         <a class="active" href="index.html">Home</a>
         <a href="shop.html">Shop</a>
         <a href="contact.html">Contact Us</a>
         <a href="about.html">About</a>
-    </div>
-
-    <h1>
-        <a href="index.html" class="logo-text">Aditya Print Lab</a>
         <span class="login-text" onclick="window.location.href='login.html'">Login</span>
         <a href="cart.html" class="cart-icon"><i class="fas fa-shopping-cart"></i></a>
-    </h1>
+    </div>
+<!-- 
+    <h1>
+        
+    </h1> -->
 
     <h1 class="line"></h1>
 
