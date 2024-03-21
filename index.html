@@ -57,7 +57,7 @@
             color: black;
         }
 
-        .topnav a::after { /* Added */
+        .topnav a::after {
             content: '';
             position: absolute;
             width: 100%;
@@ -70,7 +70,7 @@
             transition: all 0.3s ease-in-out;
         }
 
-        .topnav a:hover::after { /* Added */
+        .topnav a:hover::after {
             visibility: visible;
             transform: scaleX(1);
         }
@@ -85,28 +85,35 @@
         .search-bar {
             flex-grow: 1;
             text-align: right;
-            margin-left: 65%;
+            margin-left:73%;
             margin-top: -55px;
+            position: relative;
         }
 
         .search-bar form {
             display: flex;
             align-items: center;
+            position: relative;
         }
 
         .search-bar input[type="text"] {
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
+            padding: 10px 35px;
+            background-color: rgb(237, 235, 235);
+            padding-right: 50px;
+            border: 1px solid #f8f8f8;
+            border-radius: 20px;
             margin-right: 10px;
         }
 
         .search-bar button {
-            padding: 10px 15px;
-            background-color: #000;
-            color: #fff;
+            margin-right: 355px;
+            position: absolute;
+            right: 0;
+            top: 0;
+            background: none;
+            padding: 10px 5px;
+            color: #0a0a0a;
             border: none;
-            border-radius: 4px;
             cursor: pointer;
         }
 
@@ -510,8 +517,8 @@
         <a href="about.html">About</a>
         <div class="search-bar">
             <form action="#">
-              <input type="text" placeholder="Search">
-              <button type="submit">Search</button>
+                <input type="text" placeholder="Search">
+                <button type="submit"><i class="fas fa-search"></i></button>
             </form>
             <span onclick="window.location.href='cart.html'" class="cart-icon"><i class="fas fa-shopping-cart"></i></span>
             <span class="login-text" onclick="window.location.href='login.html'">Login</span>
