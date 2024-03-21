@@ -7,76 +7,165 @@
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
-        /* Footer styles */
-        footer {
-            background-color: #333;
-            color: #fff;
-            padding-top: 30px;
-            padding-bottom: 15px;
-            text-align: center;
-            position: relative; /* Change position to relative */
-            bottom: 0;
-            width: 100%;
-            z-index: 999; /* Ensure footer stays above other content */
-        }
-
-        @media only screen and (min-width: 600px) {
-            footer {
-                position: relative;
-                bottom: auto;
-                width: auto;
-            }
-        }
-
-        .footer a {
-            color: #fff;
+        /* Logo style */
+        .logo-text {
+            font-family: "Arial", sans-serif;
+            font-size: 28px;
+            color: #1e7898;
             text-decoration: none;
-            margin: 0 10px; /* Add margin between links */
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+            letter-spacing: 1px;
         }
 
-        .footer-nav {
-            margin-bottom: 20px; /* Add some space between sections */
-            padding-top: 50px;
-        }
-
-        .footer-section {
-            margin-bottom: 10px; /* Add some space between sections */
-            padding-top: 20px;
-        }
-
-        .footer-content {
-            display: flex;
-            justify-content: space-around;
-            align-items: center;
-            text-decoration: none;
-        }
-
-        .footer a:hover {
+        .logo-text:hover {
             color: #099ed8;
         }
 
-        .social-media {
-            margin-bottom: 20px;
+        /* Styles for top navbar */
+        .topnav {
+            overflow: hidden;
+            text-align: left;
         }
 
-        .social-icon {
+        .topnav c {
+            margin-top: 25px;
+        }
+
+        .topnav b {
+            font-family: "Arial", sans-serif;
+            font-size: 28px;
+            margin-top: 1000px;
+            margin-right: 100px;
+            color: #061920;
+            text-decoration: none;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+            letter-spacing: 1px;
+            margin-left: 35px;
+            cursor: pointer;
+        }
+
+        .topnav a {
+            font-family: "Courier New", monospace;
+            margin-top: 15px;
+            margin: 25px 22px;
+            float: none;
+            display: inline-block;
+            color: #171515;
+            text-align: center;
+            padding: 4px 10px;
+            text-decoration: none;
+            font-size: 17px;
+            position: relative; /* Added */
+        }
+
+        .topnav a:hover {
+            color: black;
+        }
+
+        .topnav a::after { /* Added */
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: #171515;
+            visibility: hidden;
+            transform: scaleX(0);
+            transition: all 0.3s ease-in-out;
+        }
+
+        .topnav a:hover::after { /* Added */
+            visibility: visible;
+            transform: scaleX(1);
+        }
+
+        .topnav a.active {
+            color: #1a6b88;
+            border-radius: 150px;
+            background-color: #f9f9f9;
+        }
+
+                /* Style for search bar */
+                .search-bar {
+            flex-grow: 1;
+            text-align: right;
+            margin-left: 65%;
+            margin-top: -55px;
+        }
+
+        .search-bar form {
+            display: flex;
+            align-items: center;
+        }
+
+        .search-bar input[type="text"] {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            margin-right: 10px;
+        }
+
+        .search-bar button {
+            padding: 10px 15px;
+            background-color: #000;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        /* Styles for cart */
+         /* Styles for cart */
+         .cart-icon {
+            margin-right: 100px;
+            top: 50%;
+            bottom: 30px;
+            color: #099ed8;
             font-size: 24px;
-            color: white;
-            margin: 0 10px;
+            cursor: pointer;
+            position: relative;
             transition: color 0.3s ease;
         }
 
-        .social-icon:hover {
-            color: #1e7898;
+        .cart-icon:hover::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 50px;
+            height: 50px;
+            background-color: rgba(0, 0, 0, 0.1);
+            border-radius: 50%;
+            z-index: -1;
         }
 
-        @keyframes fadeInAnimation {
-            0% {
-                opacity: 0;
-            }
-            100% {
-                opacity: 1;
-            }
+        /* Styles for login button */
+        .login-text {
+            background-color: #2596be;
+            padding: 6px 6px;
+            border-radius: 5px;
+            text-align: center;
+            float: right;
+            margin-right: 20px;
+            margin-top: -35px;
+            color: white;
+            font-size: 18px;
+            cursor: pointer;
+            transition: transform 0.2s ease;
+        }
+
+        .login-text:hover {
+            transform: scale(1.1);
+            background-color: #1e7898;
+        }
+
+        /* Style for line below top navbar */
+        .line {
+            margin-top: 1px;
+            border-bottom: 1px solid #ccc;
+            margin-bottom: 20px;
         }
 
         /* Styles for ATC pop-up */
@@ -120,19 +209,6 @@
             background-color: #1e7898;
         }
 
-        .logo-text {
-            font-family: "Arial", sans-serif; /* Choose a suitable font family */
-            font-size: 28px; /* Adjust the font size as needed */
-            color: #1e7898; /* Choose a color that complements your design */
-            text-decoration: none; /* Remove underline */
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1); /* Add a subtle text shadow for depth */
-            letter-spacing: 1px; /* Adjust letter spacing for better readability */
-        }
-
-        .logo-text:hover {
-            color: #099ed8; /* Change color on hover for interactive effect */
-        }
-
         h1 {
             margin-left: 10px;
             font-family: Arial, sans-serif;
@@ -140,81 +216,10 @@
             border-radius: 5px;
         }
 
-        .cart-icon {
-            float: right;
-            margin-top: 10px;
-            margin-right: 20px;
-            color: #099ed8;
-            font-size: 24px;
-            cursor: pointer;
-            position: relative; /* Ensure relative positioning for the animation */
-            transition: color 0.3s ease; /* Smooth transition for color change */
-        }
-
-        .cart-icon:hover::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 50px; /* Adjust the size of the circle as needed */
-            height: 50px; /* Adjust the size of the circle as needed */
-            background-color: rgba(0, 0, 0, 0.1); /* Darken the area */
-            border-radius: 50%; /* Create a circular shape */
-            z-index: -1; /* Ensure the circle is behind the icon */
-        }
-
-        /* Style for login text */
-        .login-text {
-            float: right;
-            margin-top: 10px;
-            margin-right: 10px;
-            color: #099ed8;
-            font-size: 18px;
-            cursor: pointer;
-            transition: transform 0.2s ease; /* Add transition for smooth animation */
-        }
-
-        .login-text:hover {
-            transform: scale(1.1); /* Scale up the button slightly on hover */
-        }
-
-        .line {
-            border-bottom: 1px solid #ccc;
-            margin-bottom: 20px;
-        }
-
         body {
             margin: 0;
             font-family: Arial, Helvetica, sans-serif;
             background-color: #f9f9f9;
-        }
-
-        .topnav {
-            overflow: hidden;
-            background-color: #333;
-            text-align: center;
-        }
-
-        .topnav a {
-            float: none; /* Remove float to center the items */
-            display: inline-block; /* Add this line to make the items display inline */
-            color: #f2f2f2;
-            text-align: center;
-            padding: 14px 16px;
-            text-decoration: none;
-            font-size: 17px;
-        }
-
-        .topnav a:hover {
-            background-color: #ddd;
-            color: black;
-        }
-
-        .topnav a.active {
-            background-color: #1e7898;
-            color: white;
-            background-color: rgb(37, 150, 190);
         }
 
         /* Style for product cards */
@@ -311,21 +316,96 @@
         .add-to-cart-button:hover {
             background-color: #1e7898;
         }
+
+        /* Footer styles */
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding-top: 30px;
+            padding-bottom: 15px;
+            text-align: center;
+            position: relative; /* Change position to relative */
+            bottom: 0;
+            width: 100%;
+            z-index: 999; /* Ensure footer stays above other content */
+        }
+
+        @media only screen and (min-width: 600px) {
+            footer {
+                position: relative;
+                bottom: auto;
+                width: auto;
+            }
+        }
+
+        .footer a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 10px; /* Add margin between links */
+        }
+
+        .footer-nav {
+            margin-bottom: 20px; /* Add some space between sections */
+            padding-top: 50px;
+        }
+
+        .footer-section {
+            margin-bottom: 10px; /* Add some space between sections */
+            padding-top: 20px;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            color: #099ed8;
+        }
+
+        .social-media {
+            margin-bottom: 20px;
+        }
+
+        .social-icon {
+            font-size: 24px;
+            color: white;
+            margin: 0 10px;
+            transition: color 0.3s ease;
+        }
+
+        .social-icon:hover {
+            color: #1e7898;
+        }
+
+        @keyframes fadeInAnimation {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
     </style>
 </head>
 <body>
     <div class="topnav">
-        <a href="index.html">Home</a>
-        <a class="active" href="shop.html">Shop</a>
+        <b href="index.html" class="logo-text">Aditya Print Lab</b>
+        <a class="active" href="index.html">Home</a>
+        <a href="shop.html">Shop</a>
         <a href="contact.html">Contact Us</a>
         <a href="about.html">About</a>
-        <!-- <a href="#faq">FAQs</a> -->
+        <div class="search-bar">
+            <form action="#">
+              <input type="text" placeholder="Search">
+              <button type="submit">Search</button>
+            </form>
+            <span onclick="window.location.href='cart.html'" class="cart-icon"><i class="fas fa-shopping-cart"></i></span>
+            <span class="login-text" onclick="window.location.href='login.html'">Login</span>
+        </div>
     </div>
-    <h1>
-        <a href="index.html" class="logo-text">Aditya Print Lab</a>
-        <span class="login-text" onclick="window.location.href='login.html'">Login</span>
-        <a href="cart.html" class="cart-icon"><i class="fas fa-shopping-cart"></i></a>
-    </h1>
     <h1 class="line"></h1>
     <div id="product-section" class="product-section">
         <div id="popup" class="popup">
