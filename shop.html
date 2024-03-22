@@ -478,82 +478,73 @@
             background-color: #ffffff;
         }
 
-        /* Style for product cards */
+        /* Card container */
+        .product-container {
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+            margin: 0 auto;
+            overflow-x: hidden;
+            display: flex;
+            justify-content: center;
+        }
+
+        .card-wrapper {
+            display: flex;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            -webkit-overflow-scrolling: touch;
+            padding-left: 20px;
+        }
+
         .product-card {
+            overflow: hidden;
+            flex: 0 0 auto;
+            width: 250px;
+            height: 345px;
+            min-width: 200px;
+            margin-right: 20px;
             border: 1px solid #ccc;
-            border-radius: 5px;
-            padding: 10px;
-            margin: 10px;
-            width: 300px; /* Adjust the width as needed */
-            background-color: #f9f9f9;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            overflow: hidden; /* Ensure the card contents don't overflow */
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            scroll-snap-align: start;
+            transition: all 0.3s ease;
+            margin-bottom: 300px;
+            margin-top: 35px;
         }
 
-        .product-card img {
-            background-color: #f9f9f9;
-            float: left; /* Float the image to the left */
-            float: left; /* Float the image to the left */
-            margin-right: 10px; /* Add some margin to separate the image from text */
-            width: 100%; /* Adjust the width of the image */
-            height: auto; /* Maintain aspect ratio */
+        .product-card:last-child {
+            margin-right: 0;
         }
 
-        .product-section {
-            margin-top: 50px; /* Add some top margin to create space between the Home button and the product cards */
+        .product-image {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
         }
 
-        .product-card .product-details {
-            overflow: hidden; /* Ensure the text doesn't overflow */
-        }
-
-        .product-card h2 {
-            margin-top: 0;
-            margin-bottom: 5px; /* Add some space between the heading and other text */
-        }
-
-        .product-card p {
-            margin: 5px 0; /* Add some margin to the paragraphs */
-        }
-
-        .product-card button {
-            background-color: #099ed8;
-            color: white;
-            border: none;
-            padding: 5px 10px;
-            text-decoration: none;
-            display: inline-block;
-            font-size: 14px;
-            margin: 4px 2px;
-            cursor: pointer;
-            border-radius: 5px;
-            display: inline-block;
-            display: inline-block;
-            /* float: right; */
-        }
-
-        .product-card button:hover {
-            background-color: #1e7898;
-        }
-
-        .product-details {
-            padding: 10px;
-        }
-
-        .product-name {
+        .product-title {
+            font-size: 24px;
             font-weight: bold;
-            margin-top: 10px;
-            margin-bottom: 5px;
+            margin: 10px 0;
+            text-align: center;
         }
 
         .product-description {
-            margin-bottom: 10px;
+            font-size: 14px;
+            margin: 0 10px 20px 10px;
+            text-align: justify;
+            height: 190px;
+            overflow: hidden;
+            transition: height 0.3s ease;
+            color: #363636;
         }
 
-        .product-price {
-            font-weight: bold;
-            margin-bottom: 10px;
+        .product-card:hover{
+            width: 280px;
+            height: 400px;
         }
+
 
         .add-to-cart-button {
             background-color: #099ed8;
@@ -663,7 +654,10 @@
         </div>
     </div>
     <h1 class="line"></h1>
-    <div id="product-section" class="product-section">
+    <p class="product-title">Our Products</p>
+    <div class="product-container">
+        <div class="card-wrapper" id="cardWrapper"></div>
+    </div>
         <div id="popup" class="popup">
             <h2>Added to Cart</h2>
             <button onclick="redirectToCart()">View Cart</button>
@@ -744,86 +738,75 @@
         }
 
         // code1 data with image URLs
-    const products = {
-        1: {
-            Name: "QR Sticker",
-            Price: 20,
-            Description: "A customised QR Code sticker which stores data",
-            Image: "src/shop-img/qr.jpg"
-        },
-        2: {
-            Name: "Flex Board Holder",
-            Price: 1500,
-            Description: "A board that holds Flex",
-            Image: "src/shop-img/flex-board-holder.jpg"
-        },
-        3: {
-            Name: "Poster",
-            Price: 250,
-            Description: "A customised poster according to you",
-            Image: "src/shop-img/poster.jpg"
-        },
-        4: {
-            Name: "Wax Ribbon",
-            Price: 130,
-            Description: "A ribbon made using wax",
-            Image: "src/shop-img/wax-ribbon.jpg"
-        },
-        5: {
-            Name: "Book Printing",
-            Price: 500,
-            Description: "Printing of books",
-            Image: "src/shop-img/book-printing.jpg"
-        }
-    };
-
-    // Function to dynamically generate product cards
-    function generateProductCards() {
-        const productSection = document.getElementById("product-section");
-
-        // Loop through each product in products object
-        for (const productId in products) {
-            if (products.hasOwnProperty(productId)) {
-                const product = products[productId];
-
-                // Create product card elements
-                const productCard = document.createElement("div");
-                productCard.classList.add("product-card");
-
-                const productImage = document.createElement("img");
-                productImage.src = product.Image;
-                productImage.alt = "Product Image";
-                productCard.appendChild(productImage);
-
-                const productName = document.createElement("h2");
-                productName.textContent = product.Name;
-
-                const productDescription = document.createElement("p");
-                productDescription.textContent = product.Description;
-
-                const productPrice = document.createElement("p");
-                productPrice.textContent = "Price: ₹ " + product.Price.toFixed(2);
-
-                const addToCartButton = document.createElement("button");
-                addToCartButton.textContent = "Add to Cart";
-                addToCartButton.onclick = function () {
-                    addToCart(this);
-                };
-
-                // Append elements to product card
-                productCard.appendChild(productName);
-                productCard.appendChild(productDescription);
-                productCard.appendChild(productPrice);
-                productCard.appendChild(addToCartButton);
-
-                // Append product card to product section
-                productSection.appendChild(productCard);
+        const products = [
+            {
+                id: 1,
+                name: "QR Sticker",
+                price: 20,
+                description: "A customised QR Code sticker which stores data",
+                Image: "src/shop-img/qr.jpg"
+            },
+            {
+                id: 2,
+                name: "Flex Board Holder",
+                price: 1500,
+                description: "A board that holds Flex",
+                Image: "src/shop-img/flex-board-holder.jpg"
+            },
+            {
+                id: 3,
+                name: "Poster",
+                price: 250,
+                description: "A customised poster according to you",
+                Image: "src/shop-img/poster.jpg"
+            },
+            {
+                id: 4,
+                name: "Wax Ribbon",
+                price: 130,
+                description: "A ribbon made using wax",
+                Image: "src/shop-img/wax-ribbon.jpg"
+            },
+            {
+                id: 5,
+                name: "Book Printing",
+                price: 500,
+                description: "Printing of books",
+                Image: "src/shop-img/book-printing.jpg"
             }
-        }
-    }
+        ];
 
-    // Call the function to generate product cards when the page loads
-    window.onload = generateProductCards;
+        function generateProductCards() {
+            const cardWrapper = document.getElementById("cardWrapper");
+            products.forEach(product => {
+                const card = document.createElement("div");
+                card.classList.add("product-card");
+
+                const image = document.createElement("img");
+                image.src = product.Image;
+                image.alt = "Product Image";
+                image.classList.add("product-image");
+                card.appendChild(image);
+
+                const title = document.createElement("h2");
+                title.classList.add("product-title");
+                title.textContent = product.name;
+                card.appendChild(title);
+
+                const description = document.createElement("p");
+                description.classList.add("product-description");
+                description.textContent = product.description;
+                card.appendChild(description);
+
+                // const price = document.createElement("p");
+                // price.classList.add("service-price");
+                // title.textContent(price);
+
+                cardWrapper.appendChild(card);
+            });
+        }
+
+        generateProductCards();
     </script>
 </body>
 </html>

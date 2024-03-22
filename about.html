@@ -3,252 +3,65 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop</title>
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <title>Service Card</title>
     <style>
-        /* Top navigation */
-        .topnav {
-            overflow: hidden;
-            background-color: #333;
-            text-align: center;
-        }
-
-        .topnav a {
-            display: inline-block;
-            color: #f2f2f2;
-            text-align: center;
-            padding: 14px 16px;
-            text-decoration: none;
-            font-size: 17px;
-        }
-
-        .topnav a:hover {
-            background-color: #ddd;
-            color: black;
-        }
-
-        .topnav a.active {
-            background-color: #1e7898;
-            color: white;
-        }
-
-        /* Logo and login */
-        .logo-text {
-            font-family: "Arial", sans-serif;
-            font-size: 28px;
-            color: #1e7898;
-            text-decoration: none;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
-            letter-spacing: 1px;
-        }
-
-        .logo-text:hover {
-            color: #099ed8;
-        }
-
-        h1 {
-            margin-left: 10px;
-            font-family: Arial, sans-serif;
-            color: #333;
-            border-radius: 5px;
-        }
-
-        .cart-icon {
-            float: right;
-            margin-top: 10px;
-            margin-right: 20px;
-            color: #099ed8;
-            font-size: 24px;
-            cursor: pointer;
-            position: relative;
-            transition: color 0.3s ease;
-        }
-
-        .cart-icon:hover::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 50px;
-            height: 50px;
-            background-color: rgba(0, 0, 0, 0.1);
-            border-radius: 50%;
-            z-index: -1;
-        }
-
-        .login-text {
-            float: right;
-            margin-top: 10px;
-            margin-right: 10px;
-            color: #099ed8;
-            font-size: 18px;
-            cursor: pointer;
-            transition: transform 0.2s ease;
-        }
-
-        .login-text:hover {
-            transform: scale(1.1);
-        }
-
-        .line {
-            border-bottom: 1px solid #ccc;
-            margin-bottom: 20px;
-        }
-
-        body {
-            margin: 0;
-            font-family: Arial, Helvetica, sans-serif;
-            background-color: #f9f9f9;
-            overflow-x: hidden; /* Prevent horizontal scrolling */
-        }
-
-        .topnav {
-            overflow: hidden;
-            background-color: #333;
-            text-align: center;
-        }
-
-        .topnav a {
-            float: none;
-            display: inline-block;
-            color: #f2f2f2;
-            text-align: center;
-            padding: 14px 16px;
-            text-decoration: none;
-            font-size: 17px;
-        }
-
-        .topnav a:hover {
-            background-color: #ddd;
-            color: black;
-        }
-
-        .topnav a.active {
-            background-color: #1e7898;
-            color: white;
-            background-color: rgb(37, 150, 190);
-        }
-
-        footer {
-            background-color: #333;
-            color: #fff;
-            padding-top: 30px;
-            padding-bottom: 15px;
-            text-align: center;
-            position: relative; /* Change position to relative */
-            bottom: 0;
-            width: 100%;
-            z-index: 999; /* Ensure footer stays above other content */
-        }
-
-        @media only screen and (min-width: 600px) {
-            footer {
-                position: relative;
-                bottom: auto;
-                width: auto;
-            }
-        }
-
-        .footer a {
-            color: #fff;
-            text-decoration: none;
-            margin: 0 10px;
-        }
-
-        .footer-nav {
-            margin-bottom: 20px;
-            padding-top: 50px;
-        }
-
-        .footer-section {
-            margin-bottom: 10px;
-            padding-top: 20px;
-        }
-
-        .footer-content {
-            display: flex;
-            justify-content: space-around;
-            align-items: center;
-            text-decoration: none;
-        }
-
-        .footer a:hover {
-            color: #099ed8;
-        }
-
-        .social-media {
-            margin-bottom: 20px;
-        }
-
-        .social-icon {
-            font-size: 24px;
-            color: white;
-            margin: 0 10px;
-            transition: color 0.3s ease;
-        }
-
-        .social-icon:hover {
-            color: #1e7898;
-        }
-
         /* Card container */
-        .service-container {
+        .product-container {
             position: relative;
             overflow: hidden;
             width: 100%;
-            margin: 0 auto; /* Center the container horizontally */
+            margin: 0 auto;
             overflow-x: hidden;
-            display: flex; /* Use flexbox for centering */
-            justify-content: center; /* Center the flex items horizontally */
+            display: flex;
+            justify-content: center;
         }
 
         .card-wrapper {
             display: flex;
             overflow-x: auto;
             scroll-snap-type: x mandatory;
-            -webkit-overflow-scrolling: touch; /* For smooth scrolling on iOS */
-            padding-left: 20px; /* Added padding to move cards away from the left side */
+            -webkit-overflow-scrolling: touch;
+            padding-left: 20px;
         }
 
-        .service-card {
+        .product-card {
             overflow: hidden;
             flex: 0 0 auto;
-            width: 250px; /* Adjusted width for smaller cards */
-            height: 345px; /* Adjusted height for smaller cards */
-            min-width: 200px; /* Adjusted min-width for smaller cards */
+            width: 250px;
+            height: 345px;
+            min-width: 200px;
             margin-right: 20px;
             border: 1px solid #ccc;
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             scroll-snap-align: start;
             transition: all 0.3s ease;
-            margin-bottom: 100px;
+            margin-bottom: 300px;
+            margin-top: 35px;
         }
 
-        .service-card:last-child {
+        .product-card:last-child {
             margin-right: 0;
         }
 
-        /* Image */
-        .service-image {
+        .product-image {
             width: 100%;
             height: auto;
             object-fit: cover;
         }
 
-        /* Title */
-        .service-title {
-            font-size: 20px; /* Adjusted font size for smaller cards */
+        .product-title {
+            font-size: 24px;
             font-weight: bold;
             margin: 10px 0;
             text-align: center;
         }
 
-        /* Description */
-        .service-description {
-            font-size: 14px; /* Adjusted font size for smaller cards */
-            margin: 0 10px 20px 10px; /* Adjusted margin for smaller cards */
+        .product-description {
+            font-size: 14px;
+            margin: 0 10px 20px 10px;
             text-align: justify;
             height: 190px;
             overflow: hidden;
@@ -256,115 +69,121 @@
             color: #363636;
         }
 
-        /* Expand description on hover */
-        .service-card:hover{
-            width: 280px; /* Adjusted width on hover for smaller cards */
+        .product-card:hover{
+            width: 280px;
             height: 400px;
         }
+
     </style>
 </head>
 <body>
-    <div class="topnav">
-        <a href="index.html">Home</a>
-        <a href="shop.html">Shop</a>
-        <a href="contact.html">Contact Us</a>
-        <a class="active" href="about.html">About</a>
-    </div>
-    <h1>
-        <a href="index.html" class="logo-text">Aditya Print Lab</a>
-        <span class="login-text" onclick="window.location.href='login.html'">Login</span>
-        <a href="cart.html" class="cart-icon"><i class="fas fa-shopping-cart"></i></a>
-    </h1>
-    <h1 class="line"></h1>
-    <h1 class="service-title">Our Services</h1>
-    <div class="service-container">
-        <div class="card-wrapper" id="cardWrapper">
-            <!-- Service cards will be dynamically added here -->
-        </div>
+
+    <p class="product-title">Our Products</p>
+    <div class="product-container">
+        <div class="card-wrapper" id="cardWrapper"></div>
     </div>
 
-    <footer class="footer">
-        <div class="social-icons">
-            <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
-            <a href="#" class="social-icon"><i class="fab fa-linkedin"></i></a>
-            <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
-            <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
-            <a href="#" class="social-icon"><i class="fab fa-facebook"></i></a>
-        </div>
-
-        <div class="footer-nav">
-            <nav>
-                <a href="index.html">Home</a> |
-                <a href="about.html">About Us</a> |
-                <a href="#">Services</a> |
-                <a href="shop.html">Products</a> |
-                <a href="#">Blog</a> |
-                <a href="contact.html">Contact Us</a>
-            </nav>
-        </div>
-
-        <div class="footer-section">
-            <a href="#">Terms of Service</a> |
-            <a href="#">Privacy Policy</a> |
-            <a href="#">Customer Support</a>
-        </div>
-
-        <div class="footer-section">
-            <a href="https://www.google.com/maps/place/48+h,+38,+Jai+Bhavani+Rd,+Parijat+Nagar,+Jai+Bhavani+Nagar,+N+2,+Cidco,+Aurangabad,+Maharashtra+431007/@19.8650405,75.3626834,17z/data=!3m1!4b1!4m9!1m2!2m1!1sS.NO+48,+H.No.+38,+Jai+Gajanan+Nagar,+Garkheda+area,+Chh.Sambhaji+Nagar-431005!3m5!1s0x3bdba2f507646da9:0xd95302b9d3aa2154!8m2!3d19.8650355!4d75.3675543!15sCk5TLk5PIDQ4LCBILk5vLiAzOCwgSmFpIEdhamFuYW4gTmFnYXIsIEdhcmtoZWRhIGFyZWEsIENoaC5TYW1iaGFqaSBOYWdhci00MzEwMDWSARBjb21wb3VuZF9zZWN0aW9u4AEA?entry=ttu" target="_blank">
-                <i class="fas fa-map-marker-alt"></i> Visit Our Main Office
-            </a>
-        </div>
-
-        <div class="footer-copyright">
-            <p>&copy; 2024 Aditya Print Lab. All rights reserved.</p>
-        </div>
-    </footer>
-
-    <!-- JavaScript code -->
+    <!-- Script to include Font Awesome icons -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"></script>
     <script>
-        // Array of service objects with name, description, and image URL
-        const services = [
-            { id: 1, name: "QR Stickers", description: "Get your own QR stickers for your business. These stickers can be used for various purposes such as product packaging, business cards, and more.", imageUrl: "src/service_src/qr-service.jpg" },
-            { id: 2, name: "Book Printing", description: "Get book printing service tailored to bring your words to life with precision and professionalism.", imageUrl: "src/service_src/book-service.jpg" },
-            { id: 3, name: "Poster Designing", description: "Elevate your message with captivating poster designs that stand out and leave a lasting impression.", imageUrl: "src/service_src/poster-service.jpg" },
-            { id: 4, name: "Software", description: "Unlock your business's full potential with custom software solutions tailored to your unique needs and objectives.", imageUrl: "src/service_src/software-service.jpg" },
-            { id: 5, name: "Stationary Items", description: "Enhance your workspace with our wide selection of high-quality stationary items, perfect for boosting productivity and organization.", imageUrl: "src/service_src/stationary-service.jpg" }
+        function addToCart(button) {
+            // Get the product card element
+            var productCard = button.parentNode;
+
+            // Check if there are already items in the cart
+            var cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+
+            // Clone the product card
+            var clonedProductCard = productCard.cloneNode(true);
+
+            // Add the cloned product card to the cart items array
+            cartItems.push(clonedProductCard.outerHTML);
+
+            // Save the updated cart items back to local storage
+            localStorage.setItem('cartItems', JSON.stringify(cartItems));
+
+            var popup = document.getElementById("popup");
+            popup.style.display = "block";
+
+            // Hide the popup after 3 seconds (3000 milliseconds)
+            setTimeout(function() {
+                popup.style.display = 'none';
+            }, 3000);
+        }
+        function redirectToCart() {
+            window.location.href = "cart.html";
+        }
+
+        // code1 data with image URLs
+        const products = [
+            {
+                id: 1,
+                name: "QR Sticker",
+                price: 20,
+                description: "A customised QR Code sticker which stores data",
+                Image: "src/shop-img/qr.jpg"
+            },
+            {
+                id: 2,
+                name: "Flex Board Holder",
+                price: 1500,
+                description: "A board that holds Flex",
+                Image: "src/shop-img/flex-board-holder.jpg"
+            },
+            {
+                id: 3,
+                name: "Poster",
+                price: 250,
+                description: "A customised poster according to you",
+                Image: "src/shop-img/poster.jpg"
+            },
+            {
+                id: 4,
+                name: "Wax Ribbon",
+                price: 130,
+                description: "A ribbon made using wax",
+                Image: "src/shop-img/wax-ribbon.jpg"
+            },
+            {
+                id: 5,
+                name: "Book Printing",
+                price: 500,
+                description: "Printing of books",
+                Image: "src/shop-img/book-printing.jpg"
+            }
         ];
 
-        // Function to generate service cards
-        function generateServiceCards() {
+        function generateProductCards() {
             const cardWrapper = document.getElementById("cardWrapper");
-            services.forEach(service => {
-                // Create card div
+            products.forEach(product => {
                 const card = document.createElement("div");
-                card.classList.add("service-card");
+                card.classList.add("product-card");
 
-                // Create image element
                 const image = document.createElement("img");
-                image.src = service.imageUrl; // Use service-specific image URL
-                image.alt = "Service Image";
-                image.classList.add("service-image");
+                image.src = product.Image;
+                image.alt = "Product Image";
+                image.classList.add("product-image");
                 card.appendChild(image);
 
-                // Create title element
                 const title = document.createElement("h2");
-                title.classList.add("service-title");
-                title.textContent = service.name;
+                title.classList.add("product-title");
+                title.textContent = product.name;
                 card.appendChild(title);
 
-                // Create description element
                 const description = document.createElement("p");
-                description.classList.add("service-description");
-                description.textContent = service.description;
+                description.classList.add("product-description");
+                description.textContent = product.description;
                 card.appendChild(description);
 
-                // Append card to container
+                // const price = document.createElement("p");
+                // price.classList.add("service-price");
+                // title.textContent(price);
+
                 cardWrapper.appendChild(card);
             });
         }
 
-        // Call the function to generate service cards
-        generateServiceCards();
+        generateProductCards();
     </script>
 </body>
 </html>
