@@ -733,8 +733,13 @@
                 popup.style.display = 'none';
             }, 3000);
         }
-        function redirectToCart() {
-            window.location.href = "cart.html";
+
+        // function redirectToCart() {
+        //     window.location.href = "cart.html";
+        // }
+
+        function redirectToQRPage() {
+            window.location.href = "qr.html";
         }
 
         // code1 data with image URLs
@@ -797,6 +802,8 @@
                 description.classList.add("product-description");
                 description.textContent = product.description;
                 card.appendChild(description);
+
+                card.addEventListener("click", redirectToQRPage);
 
                 // const price = document.createElement("p");
                 // price.classList.add("service-price");
