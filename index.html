@@ -221,69 +221,6 @@
             height: 400px;
         }
 
-        /* Footer styles */
-        footer {
-            background-color: #333;
-            color: #fff;
-            padding-top: 30px;
-            padding-bottom: 15px;
-            text-align: center;
-            position: relative;
-            bottom: 0;
-            width: 100%;
-            z-index: 999;
-        }
-
-        @media only screen and (min-width: 600px) {
-            footer {
-                position: relative;
-                bottom: auto;
-                width: auto;
-            }
-        }
-
-        .footer a {
-            color: #fff;
-            text-decoration: none;
-            margin: 0 10px;
-        }
-
-        .footer-nav {
-            margin-bottom: 20px;
-            padding-top: 50px;
-        }
-
-        .footer-section {
-            margin-bottom: 10px;
-            padding-top: 20px;
-        }
-
-        .footer-content {
-            display: flex;
-            justify-content: space-around;
-            align-items: center;
-            text-decoration: none;
-        }
-
-        .footer a:hover {
-            color: #099ed8;
-        }
-
-        .social-media {
-            margin-bottom: 20px;
-        }
-
-        .social-icon {
-            font-size: 24px;
-            color: white;
-            margin: 0 10px;
-            transition: color 0.3s ease;
-        }
-
-        .social-icon:hover {
-            color: #1e7898;
-        }
-
         .mySlides:hover img {
             filter: brightness(55%);
         }
@@ -479,7 +416,7 @@
 
         .close:hover,
         .close:focus {
-            color: black;
+            color: rgb(0, 0, 0);
             text-decoration: none;
             cursor: pointer;
         }
@@ -489,6 +426,114 @@
             margin: 0;
             padding: 0;
             overflow-x: hidden;
+        }
+
+        body {
+            line-height: 1.5;
+            font-family: "Poppins", sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .container {
+            max-width: 1170px;
+            margin: auto;
+        }
+
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .footer {
+            background-color: #24262b;
+            padding: 70px 0;
+        }
+
+        .footer-col {
+            width: 25%;
+            padding: 0 15px;
+        }
+
+        .footer-col h4 {
+            font-size: 18px;
+            color: #ffffff;
+            text-transform: capitalize;
+            margin-bottom: 35px;
+            font-weight: 500;
+            position: relative;
+        }
+
+        .footer-col h4::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -10px;
+            background-color: rgb(19, 112, 206);
+            height: 2px;
+            box-sizing: border-box;
+            width: 50px;
+        }
+
+        .footer-col ul li:not(:last-child) {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a {
+            font-size: 16px;
+            text-transform: capitalize;
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 300;
+            color: #bbbbbb;
+            display: block;
+            transition: all 0.3s ease;
+        }
+
+        .footer-col ul li a:hover {
+            color: #ffffff;
+            padding-left: 8px;
+        }
+
+        .footer-col .social-links a {
+            display: inline-block;
+            height: 40px;
+            width: 40px;
+            background-color: rgba(255, 255, 255, 0.2);
+            margin: 0 10px 10px 0;
+            text-align: center;
+            line-height: 40px;
+            border-radius: 50%;
+            color: #ffffff;
+            transition: all 0.5s ease;
+        }
+
+        .footer-col .social-links a:hover {
+            color: #24262b;
+            background-color: #ffffff;
+        }
+
+
+        @media (max-width: 767px) {
+        .footer-col {
+            width: 50%;
+            margin-bottom: 30px;
+        }
+        }
+
+
+        @media (max-width: 574px) {
+        .footer-col {
+            width: 100%;
+        }
         }
 
     </style>
@@ -577,43 +622,51 @@
         <div class="card-wrapper" id="cardWrapper"></div>
     </div>
 
+
     <footer class="footer">
-        <div class="social-icons">
-            <a href="https://www.instagram.com/aditya_lakh23/" class="social-icon"><i class="fab fa-instagram"></i></a>
-            <a href="#" class="social-icon"><i class="fab fa-linkedin"></i></a>
-            <a href="https://twitter.com/adityaprintlab" class="social-icon"><i class="fab fa-twitter"></i></a>
-            <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
-            <a href="#" class="social-icon"><i class="fab fa-facebook"></i></a>
+        <div class="container">
+          <div class="row">
+            <div class="footer-col">
+              <h4>company</h4>
+              <ul>
+                <li><a href="#">about us</a></li>
+                <li><a href="#">our services</a></li>
+                <li><a href="#">privacy policy</a></li>
+              </ul>
+            </div>
+            <div class="footer-col">
+              <h4>get help</h4>
+              <ul>
+                <li><a href="#">FAQ</a></li>
+                <li><a href="#">shipping</a></li>
+                <li><a href="#">returns</a></li>
+                <li><a href="#">order status</a></li>
+                <li><a href="#">payment options</a></li>
+              </ul>
+            </div>
+            <div class="footer-col">
+              <h4>online shop</h4>
+              <ul>
+                <li><a href="#">watch</a></li>
+                <li><a href="#">bag</a></li>
+                <li><a href="#">shoes</a></li>
+                <li><a href="#">dress</a></li>
+              </ul>
+            </div>
+            <div class="footer-col">
+              <h4>follow us</h4>
+              <div class="social-links">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+              </div>
+            </div>
+          </div>
         </div>
+      </footer>
 
-        <div class="footer-nav">
-            <nav>
-                <a href="index.html">Home</a> |
-                <a href="about.html">About Us</a> |
-                <a href="#">Services</a> |
-                <a href="shop.html">Products</a> |
-                <a href="#">Blog</a> |
-                <a href="contact.html">Contact Us</a>
-            </nav>
-        </div>
 
-        <div class="footer-section">
-            <a href="#">Terms of Service</a> |
-            <a href="#">Privacy Policy</a> |
-            <a href="#">Customer Support</a>
-        </div>
-
-        <div class="footer-section">
-            <a href="https://www.google.com/maps/place/48+h,+38,+Jai+Bhavani+Rd,+Parijat+Nagar,+Jai+Bhavani+Nagar,+N+2,+Cidco,+Aurangabad,+Maharashtra+431007/@19.8650405,75.3626834,17z/data=!3m1!4b1!4m9!1m2!2m1!1sS.NO+48,+H.No.+38,+Jai+Gajanan+Nagar,+Garkheda+area,+Chh.Sambhaji+Nagar-431005!3m5!1s0x3bdba2f507646da9:0xd95302b9d3aa2154!8m2!3d19.8650355!4d75.3675543!15sCk5TLk5PIDQ4LCBILk5vLiAzOCwgSmFpIEdhamFuYW4gTmFnYXIsIEdhcmtoZWRhIGFyZWEsIENoaC5TYW1iaGFqaSBOYWdhci00MzEwMDWSARBjb21wb3VuZF9zZWN0aW9u4AEA?entry=ttu" target="_blank">
-                <i class="fas fa-map-marker-alt"></i> Visit Our Main Office
-            </a>
-        </div>
-
-        <div class="footer-copyright">
-            <p>&copy; 2024 Aditya Print Lab. All rights reserved.</p>
-        </div>
-    </footer>
-    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"></script>
     <script>
         function toggleContact() {
