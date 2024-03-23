@@ -3,12 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shop</title>
-    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>QR Sticker Details</title>
     <style>
         /* Styles for top navbar */
-        .topnav {
+       .topnav {
             overflow: hidden;
             text-align: left;
         }
@@ -87,7 +86,8 @@
             padding-right: 50px;
             border: 1px solid #f8f8f8;
             border-radius: 20px;
-            margin-right: 10px;
+            margin-top: -1px;
+            margin-right: 160px;
         }
 
         .search-bar button {
@@ -106,7 +106,8 @@
         .cart-icon {
             margin-right: 100px;
             top: 50%;
-            bottom: 35px;
+            bottom: -3px;
+            left: 375px;
             color: #099ed8;
             font-size: 24px;
             cursor: pointer;
@@ -148,8 +149,9 @@
 
         /* Style for line below top navbar */
         .line {
-            margin-top: -5px;
+            margin-top: 5px;
             border-bottom: 1px solid #ccc;
+            top: 100px;
             margin-bottom: 20px;
             margin-left: 0;
         }
@@ -424,216 +426,64 @@
             overflow-x: hidden;
         }
 
-        /* Styles for ATC pop-up */
-        .popup {
-            animation: fadeInAnimation ease 0.5s;
-            animation-iteration-count: 1;
-            animation-fill-mode: forwards;
-            display: none;
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
+        /* body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            padding: 20px;
+        } */
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
             background-color: #fff;
-            padding: 10px;
+            padding: 20px;
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            z-index: 9999;
-        }
-
-        .popup h2 {
-            margin-top: 0;
-            display: inline-block;
-            margin-right: 10px;
-        }
-
-        .popup button {
-            background-color: #099ed8;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            text-align: center;
-            text-decoration: none;
-            display: inline-block;
-            font-size: 14px;
-            margin-top: 10px;
-            cursor: pointer;
-            border-radius: 5px;
-            display: block;
-        }
-
-        .popup button:hover {
-            background-color: #1e7898;
+            margin-bottom: 200px;
         }
 
         h1 {
-            margin-left: 10px;
-            font-family: Arial, sans-serif;
+            text-align: center;
             color: #333;
-            border-radius: 5px;
         }
 
-        body {
-            margin: 0;
-            font-family: Arial, Helvetica, sans-serif;
-            background-color: #ffffff;
+        .product-details {
+            margin-bottom: 30px;
         }
 
-        /* Card container */
-        .product-container {
-            position: relative;
-            overflow: hidden;
-            width: 100%;
-            margin: 0 auto;
-            overflow-x: hidden;
-            display: flex;
-            justify-content: center;
-        }
-
-        .card-wrapper {
-            display: flex;
-            overflow-x: auto;
-            scroll-snap-type: x mandatory;
-            -webkit-overflow-scrolling: touch;
-            padding-left: 20px;
-        }
-
-        .product-card {
-            overflow: hidden;
-            flex: 0 0 auto;
-            width: 250px;
-            height: 345px;
-            min-width: 200px;
-            margin-right: 20px;
-            border: 1px solid #ccc;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            scroll-snap-align: start;
-            transition: all 0.3s ease;
-            margin-bottom: 300px;
-            margin-top: 35px;
-        }
-
-        .product-card:last-child {
-            margin-right: 0;
-        }
-
-        .product-image {
-            width: 100%;
-            height: auto;
-            object-fit: cover;
-        }
-
-        .product-title {
-            font-size: 24px;
-            font-weight: bold;
-            margin: 10px 0;
-            text-align: center;
-        }
-
-        .product-description {
-            font-size: 14px;
-            margin: 0 10px 20px 10px;
-            text-align: justify;
-            height: 190px;
-            overflow: hidden;
-            transition: height 0.3s ease;
-            color: #363636;
-        }
-
-        .product-card:hover{
-            width: 280px;
-            height: 400px;
-        }
-
-
-        .add-to-cart-button {
-            background-color: #099ed8;
-            color: white;
-            border: none;
-            padding: 8px 16px;
-            text-decoration: none;
-            font-size: 14px;
-            border-radius: 5px;
-            cursor: pointer;
-            position: absolute; /* Position the button absolutely */
-            bottom: 10px; /* Adjust the distance from the bottom */
-            right: 10px; /* Adjust the distance from the right */
-        }
-
-        .add-to-cart-button:hover {
-            background-color: #1e7898;
-        }
-
-        /* Footer styles */
-        footer {
-            background-color: #333;
-            color: #fff;
-            padding-top: 30px;
-            padding-bottom: 15px;
-            text-align: center;
-            position: relative; /* Change position to relative */
-            bottom: 0;
-            width: 100%;
-            z-index: 999; /* Ensure footer stays above other content */
-        }
-
-        @media only screen and (min-width: 600px) {
-            footer {
-                position: relative;
-                bottom: auto;
-                width: auto;
-            }
-        }
-
-        .footer a {
-            color: #fff;
-            text-decoration: none;
-            margin: 0 10px; /* Add margin between links */
-        }
-
-        .footer-nav {
-            margin-bottom: 20px; /* Add some space between sections */
-            padding-top: 50px;
-        }
-
-        .footer-section {
-            margin-bottom: 10px; /* Add some space between sections */
-            padding-top: 20px;
-        }
-
-        .footer-content {
-            display: flex;
-            justify-content: space-around;
-            align-items: center;
-            text-decoration: none;
-        }
-
-        .footer a:hover {
-            color: #099ed8;
-        }
-
-        .social-media {
+        .message-section, .link-section {
             margin-bottom: 20px;
         }
 
-        .social-icon {
-            font-size: 24px;
-            color: white;
-            margin: 0 10px;
-            transition: color 0.3s ease;
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
         }
 
-        .social-icon:hover {
-            color: #1e7898;
+        input[type="text"], textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-top: 5px;
         }
 
-        @keyframes fadeInAnimation {
-            0% {
-                opacity: 0;
-            }
-            100% {
-                opacity: 1;
-            }
+        textarea {
+            resize: vertical;
+        }
+
+        .btn-submit {
+            background-color: #099ed8;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .btn-submit:hover {
+            background-color: #1e7898;
         }
     </style>
 </head>
@@ -641,7 +491,7 @@
     <div class="topnav">
         <img href="index.html" src="src/logo/logo-2.jpg" alt="Aditya Print Lab">
         <a href="index.html">Home</a>
-        <a class="active" href="shop.html">Shop</a>
+        <a href="shop.html">Shop</a>
         <a href="contact.html">Contact Us</a>
         <a href="about.html">About</a>
         <div class="search-bar">
@@ -654,14 +504,22 @@
         </div>
     </div>
     <h1 class="line"></h1>
-    <p class="product-title">Our Products</p>
-    <div class="product-container">
-        <div class="card-wrapper" id="cardWrapper"></div>
-    </div>
-        <div id="popup" class="popup">
-            <h2>Added to Cart</h2>
-            <button onclick="redirectToCart()">View Cart</button>
+
+    <div class="container">
+        <h1>Wax Ribbon Details</h1>
+        
+        <div class="product-details">
+            <h2>Product: Wax Ribbon</h2>
+            <p>Description: A ribbon made using wax</p>
+            <p>Price: Rs. 130</p>
         </div>
+
+        <div class="message-section">
+            <label for="message">Enter your message regarding the making of the product (e.g. length of the wax ribbon)</label>
+            <textarea id="message" rows="5" placeholder="Type your message here..."></textarea>
+        </div>
+
+        <button class="btn-submit" onclick="submitDetails()">Submit</button>
     </div>
 
     <footer class="footer">
@@ -706,153 +564,20 @@
         </div>
     </footer>
 
-    <!-- Script to include Font Awesome icons -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"></script>
     <script>
-        function addToCart(button) {
-            // Get the product card element
-            var productCard = button.parentNode;
+        function submitDetails() {
+            // Fetch message and link values
+            const message = document.getElementById('message').value;
+            const link = document.getElementById('link').value;
 
-            // Check if there are already items in the cart
-            var cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+            // Here you can perform any further action with the submitted data, like sending it to a server or processing it in any way required
+            // For now, let's just log the values to the console
+            console.log("Message:", message);
+            console.log("Link:", link);
 
-            // Clone the product card
-            var clonedProductCard = productCard.cloneNode(true);
-
-            // Add the cloned product card to the cart items array
-            cartItems.push(clonedProductCard.outerHTML);
-
-            // Save the updated cart items back to local storage
-            localStorage.setItem('cartItems', JSON.stringify(cartItems));
-
-            var popup = document.getElementById("popup");
-            popup.style.display = "block";
-
-            // Hide the popup after 3 seconds (3000 milliseconds)
-            setTimeout(function() {
-                popup.style.display = 'none';
-            }, 3000);
+            // Optionally, you can display a confirmation message to the user
+            alert("Details submitted successfully!");
         }
-
-        // function redirectToCart() {
-        //     window.location.href = "cart.html";
-        // }
-
-        function redirectToQRPage() {
-            window.location.href = "qr.html";
-        }
-
-        function redirectToFlexBoardHolder() {
-            window.location.href = "flex-board-holder.html";
-        }
-
-        function redirectToPoster() {
-            window.location.href = "poster.html";
-        }
-
-        function redirectToWaxRibbon() {
-            window.location.href = "wax-ribbon.html";
-        }
-
-        function redirectToBookPrinting() {
-            window.location.href = "book-printing.html";
-        }
-
-        // code1 data with image URLs
-        const products = [
-            {
-                id: 1,
-                name: "QR Sticker",
-                price: 20,
-                description: "A customised QR Code sticker which stores data",
-                Image: "src/shop-img/qr.jpg"
-            },
-            {
-                id: 2,
-                name: "Flex Board Holder",
-                price: 1500,
-                description: "A board that holds Flex",
-                Image: "src/shop-img/flex-board-holder.jpg"
-            },
-            {
-                id: 3,
-                name: "Poster",
-                price: 250,
-                description: "A customised poster according to you",
-                Image: "src/shop-img/poster.jpg"
-            },
-            {
-                id: 4,
-                name: "Wax Ribbon",
-                price: 130,
-                description: "A ribbon made using wax",
-                Image: "src/shop-img/wax-ribbon.jpg"
-            },
-            {
-                id: 5,
-                name: "Book Printing",
-                price: 500,
-                description: "Printing of books",
-                Image: "src/shop-img/book-printing.jpg"
-            }
-        ];
-
-        function generateProductCards() {
-            const cardWrapper = document.getElementById("cardWrapper");
-            products.forEach(product => {
-                const card = document.createElement("div");
-                card.classList.add("product-card");
-
-                const image = document.createElement("img");
-                image.src = product.Image;
-                image.alt = "Product Image";
-                image.classList.add("product-image");
-                card.appendChild(image);
-
-                const title = document.createElement("h2");
-                title.classList.add("product-title");
-                title.textContent = product.name;
-                card.appendChild(title);
-
-                const description = document.createElement("p");
-                description.classList.add("product-description");
-                description.textContent = product.description;
-                card.appendChild(description);
-
-                // Attach click event listener to redirect based on product ID
-                card.addEventListener("click", function() {
-                    redirectToPage(product.id);
-                });
-
-                cardWrapper.appendChild(card);
-            });
-        }
-
-
-        // Function to redirect based on product ID
-        function redirectToPage(productId) {
-            switch (productId) {
-                case 1:
-                    redirectToQRPage();
-                    break;
-                case 2:
-                    redirectToFlexBoardHolder();
-                    break;
-                case 3:
-                    redirectToPoster();
-                    break;
-                case 4:
-                    redirectToWaxRibbon();
-                    break;
-                case 5:
-                    redirectToBookPrinting();
-                    break;
-                default:
-                    break;
-            }
-        }
-
-        generateProductCards();
     </script>
 </body>
 </html>

@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flex Board Holder Details</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        .product-details {
+            margin-bottom: 30px;
+        }
+
+        .message-section, .image-upload-section {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        input[type="text"], textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-top: 5px;
+        }
+
+        textarea {
+            resize: vertical;
+        }
+
+        .file-upload-container {
+            position: relative;
+            overflow: hidden;
+            display: inline-block;
+            margin-top: 8px;
+        }
+
+        .file-upload-button {
+            color: #fff;
+            background-color: #099ed8;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            display: flex;
+            align-items: center;
+        }
+
+        .file-upload-button:hover {
+            background-color: #1e7898;
+        }
+
+        .file-upload {
+            position: absolute;
+            left: 0;
+            top: 0;
+            opacity: 0;
+            cursor: pointer;
+            height: 100%;
+            width: 100%;
+        }
+
+        .file-upload-label {
+            font-size: 16px;
+            margin-left: 10px;
+            vertical-align: middle;
+        }
+
+        .file-upload-icon {
+            margin-right: 5px;
+        }
+
+        .remove-file-icon {
+            color: #999;
+            cursor: pointer;
+            margin-left: 5px;
+            display: none;
+        }
+
+        .remove-file-icon:hover {
+            color: #777;
+        }
+
+        .btn-submit {
+            background-color: #099ed8;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .btn-submit:hover {
+            background-color: #1e7898;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Flex Board Holder Details</h1>
+        
+        <div class="product-details">
+            <h2>Product: Flex Board Holder</h2>
+            <p>Description: A holder for flexible boards used in various applications</p>
+            <p>Price: Rs. 1500</p>
+        </div>
+
+        <div class="message-section">
+            <label for="message">Enter your message regarding the making of the product:</label>
+            <textarea id="message" rows="5" placeholder="Type your message here..."></textarea>
+        </div>
+
+        <div class="image-upload-section">
+            <label for="image">Upload an image for the QR code:</label>
+            <div class="file-upload-container">
+                <input type="file" id="image" class="file-upload" accept="image/*">
+                <button class="file-upload-button"><i class="fas fa-upload file-upload-icon"></i>Choose File<span class="file-upload-label"></span></button>
+                <i class="fas fa-times remove-file-icon" onclick="removeFile()"></i>
+            </div>
+        </div>
+
+        <button class="btn-submit" onclick="submitDetails()">Submit</button>
+    </div>
+
+    <script>
+        // Display selected file name
+        document.getElementById('image').addEventListener('change', function() {
+            const fileName = this.files[0].name;
+            document.querySelector('.file-upload-label').textContent = fileName;
+            document.querySelector('.remove-file-icon').style.display = 'inline'; // Show remove icon
+        });
+
+        // Remove uploaded file
+
+        function removeFile() {
+            const fileInput = document.getElementById('image');
+            fileInput.value = ''; // Clear the file input
+            const fileUploadLabel = document.querySelector('.file-upload-label');
+            fileUploadLabel.textContent = ''; // Clear the displayed file name
+            fileUploadLabel.style.display = 'none'; // Hide the file name label
+            const removeFileIcon = document.querySelector('.remove-file-icon');
+            removeFileIcon.style.display = 'none'; // Hide the remove icon
+        }
+
+        function submitDetails() {
+            // Fetch message and image values
+            const message = document.getElementById('message').value;
+            const image = document.getElementById('image').files[0];
+
+            // Here you can perform any further action with the submitted data, like sending it to a server or processing it in any way required
+            // For now, let's just log the values to the console
+            console.log("Message:", message);
+            console.log("Image File:", image);
+
+            // Optionally, you can display a confirmation message to the user
+            alert("Details submitted successfully!");
+        }
+    </script>
+</body>
+</html>

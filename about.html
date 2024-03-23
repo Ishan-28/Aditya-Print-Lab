@@ -7,183 +7,493 @@
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
-        /* Card container */
-        .product-container {
+        /* Styles for top navbar */
+       .topnav {
+            overflow: hidden;
+            text-align: left;
+        }
+
+        .topnav img {
+            margin-left: 20px;
+            margin-top: 10px;
+            margin-right: 200px;
+            height: 70px;
+            cursor: pointer;
+        }
+
+        .topnav a {
+            top: 50%;
+            font-family: "Trebuchet MS", Helvetica, sans-serif;
+            margin-top: 20px;
+            margin: 25px 22px;
+            margin-top: 20px;
+            margin-bottom: 0px;
+            float: none;
+            display: inline-block;
+            color: #171515;
+            text-align: center;
+            padding: 4px 10px;
+            text-decoration: none;
+            font-size: 17px;
             position: relative;
-            overflow: hidden;
+        }
+
+        .topnav a:hover {
+            color: black;
+        }
+
+        .topnav a::after {
+            content: '';
+            position: absolute;
             width: 100%;
-            margin: 0 auto;
-            overflow-x: hidden;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: #171515;
+            visibility: hidden;
+            transform: scaleX(0);
+            transition: all 0.3s ease-in-out;
+        }
+
+        .topnav a:hover::after {
+            visibility: visible;
+            transform: scaleX(1);
+        }
+
+        .topnav a.active {
+            color: #1a6b88;
+            border-radius: 150px;
+            background-color: #ffffff;
+        }
+
+        /* Style for search bar */
+        .search-bar {
+            flex-grow: 1;
+            text-align: right;
+            margin-left:73%;
+            margin-top: -55px;
+            position: relative;
+        }
+
+        .search-bar form {
             display: flex;
-            justify-content: center;
+            align-items: center;
+            position: relative;
         }
 
-        .card-wrapper {
-            display: flex;
-            overflow-x: auto;
-            scroll-snap-type: x mandatory;
-            -webkit-overflow-scrolling: touch;
-            padding-left: 20px;
+        .search-bar input[type="text"] {
+            padding: 10px 35px;
+            background-color: rgb(245, 244, 244);
+            padding-right: 50px;
+            border: 1px solid #f8f8f8;
+            border-radius: 20px;
+            margin-right: 10px;
         }
 
-        .product-card {
-            overflow: hidden;
-            flex: 0 0 auto;
-            width: 250px;
-            height: 345px;
-            min-width: 200px;
-            margin-right: 20px;
-            border: 1px solid #ccc;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            scroll-snap-align: start;
-            transition: all 0.3s ease;
-            margin-bottom: 300px;
-            margin-top: 35px;
+        .search-bar button {
+            margin-right: 355px;
+            position: absolute;
+            right: 0;
+            top: 0;
+            background: none;
+            padding: 10px 5px;
+            color: #0a0a0a;
+            border: none;
+            cursor: pointer;
         }
 
-        .product-card:last-child {
-            margin-right: 0;
-        }
-
-        .product-image {
-            width: 100%;
-            height: auto;
-            object-fit: cover;
-        }
-
-        .product-title {
+        /* Styles for cart */
+        .cart-icon {
+            margin-right: 100px;
+            top: 50%;
+            bottom: 35px;
+            color: #099ed8;
             font-size: 24px;
+            cursor: pointer;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        .cart-icon:hover::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 50px;
+            height: 50px;
+            background-color: rgba(0, 0, 0, 0.1);
+            border-radius: 50%;
+            z-index: -1;
+        }
+
+        /* Styles for login button */
+        .login-text {
+            background-color: #2596be;
+            padding: 6px 6px;
+            border-radius: 5px;
+            text-align: center;
+            margin-right: -635px;
+            margin-bottom: -30px;
+            color: white;
+            font-size: 18px;
+            cursor: pointer;
+            transition: transform 0.2s ease;
+        }
+
+        .login-text:hover {
+            transform: scale(1.1);
+            background-color: #1e7898;
+        }
+
+        .fas.fa-user-circle {
+            font-size: 33px;
+            float: right;
+            margin-top: 25px;
+            margin-right: 20px;
+        }
+
+
+        /* Style for line below top navbar */
+        .line {
+            margin-top: -5px;
+            border-bottom: 1px solid #ccc;
+            margin-bottom: 20px;
+            margin-left: 0;
+        }
+
+        /* Footer styles */
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding-top: 30px;
+            padding-bottom: 15px;
+            text-align: center;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+            z-index: 999;
+        }
+
+        @media only screen and (min-width: 600px) {
+            footer {
+                position: relative;
+                bottom: auto;
+                width: auto;
+            }
+        }
+
+        .footer a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+
+        .footer-nav {
+            margin-bottom: 20px;
+            padding-top: 50px;
+        }
+
+        .footer-section {
+            margin-bottom: 10px;
+            padding-top: 20px;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            color: #099ed8;
+        }
+
+        .social-media {
+            margin-bottom: 20px;
+        }
+
+        .social-icon {
+            font-size: 24px;
+            color: white;
+            margin: 0 10px;
+            transition: color 0.3s ease;
+        }
+
+        .social-icon:hover {
+            color: #1e7898;
+        }
+
+        .mySlides:hover img {
+            filter: brightness(55%);
+        }
+
+        .text-overlay {
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            font-size: 30px;
+        }
+
+        @media only screen and (max-width: 600px) {
+            .text-overlay {
+                font-size: 20px;
+            }
+        }
+
+        .mySlides:hover .text-overlay {
+            opacity: 1;
+        }
+
+        * {box-sizing: border-box}
+        body {font-family: Verdana, sans-serif; margin:0}
+        .mySlides {display: none}
+        img {vertical-align: middle;}
+
+        /* Slideshow container */
+        .slideshow-container {
+            /* margin-left: 100%; */
+            max-width: 930px;
+            position: relative;
+            margin: auto;
+            overflow: hidden;
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateX(100%);
+            }
+            to {
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideOut {
+            from {
+                transform: translateX(0);
+            }
+            to {
+                transform: translateX(-100%);
+            }
+        }
+
+        .fade {
+            animation-duration: 1s;
+        }
+
+        .fade-in {
+            animation-name: slideIn;
+        }
+
+        .fade-out {
+            animation-name: slideOut;
+        }
+
+        .prev, .next {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            width: auto;
+            padding: 16px;
+            margin-top: -22px;
+            color: white;
             font-weight: bold;
-            margin: 10px 0;
+            font-size: 30px;
+            transition: 0.6s ease;
+            border-radius: 0 3px 3px 0;
+            user-select: none;
+        }
+
+        .next {
+            right: 0;
+            border-radius: 3px 0 0 3px;
+        }
+
+        .prev:hover, .next:hover {
+            background-color: rgba(0,0,0,0.8);
+        }
+
+        /* This style is responsible for the caption text */
+        .text {
+            color: #f2f2f2;
+            font-size: 15px;
+            padding: 8px 12px;
+            position: absolute;
+            bottom: 8px;
+            width: 100%;
             text-align: center;
         }
 
-        .product-description {
-            font-size: 14px;
-            margin: 0 10px 20px 10px;
-            text-align: justify;
-            height: 190px;
-            overflow: hidden;
-            transition: height 0.3s ease;
-            color: #363636;
+        .dot {
+            cursor: pointer;
+            height: 15px;
+            width: 15px;
+            margin: 0 2px;
+            background-color: #bbb;
+            border-radius: 50%;
+            display: inline-block;
+            transition: background-color 0.6s ease;
+            margin-bottom: 40px;
         }
 
-        .product-card:hover{
-            width: 280px;
-            height: 400px;
+        .active, .dot:hover {
+            background-color: #717171;
+        }
+
+        .fade {
+            animation-duration: 1s;
+        }
+
+        @media only screen and (max-width: 300px) {
+            .prev, .next,.text {font-size: 11px}
+        }
+
+        h1 {
+            margin-left: 10px;
+            font-family: Arial, sans-serif;
+            color: #333;
+            border-radius: 5px;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #ffffff;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        .user-support {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            color: #2596be;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        .user-support:hover {
+            color: #1e7898;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.4);
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 20% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            border-radius: 5px;
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
         }
 
     </style>
 </head>
 <body>
-
-    <p class="product-title">Our Products</p>
-    <div class="product-container">
-        <div class="card-wrapper" id="cardWrapper"></div>
+    <div class="topnav">
+        <img href="index.html" src="src/logo/logo-2.jpg" alt="Aditya Print Lab">
+        <a href="index.html">Home</a>
+        <a href="shop.html">Shop</a>
+        <a href="contact.html">Contact Us</a>
+        <a class="active" href="about.html">About</a>
+        <div class="search-bar">
+            <form action="#">
+                <input type="text" placeholder="Search">
+                <button type="submit"><i class="fas fa-search"></i></button>
+            </form>
+            <span onclick="window.location.href='cart.html'" class="cart-icon"><i class="fas fa-shopping-cart"></i></span>
+            <button><span class="login-text" onclick="window.location.href='login.html'">Login</span></button>
+        </div>
     </div>
+    <h1 class="line"></h1>
 
-    <!-- Script to include Font Awesome icons -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"></script>
-    <script>
-        function addToCart(button) {
-            // Get the product card element
-            var productCard = button.parentNode;
+    
 
-            // Check if there are already items in the cart
-            var cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+    <footer class="footer">
+        <!-- Social media icons -->
+        <div class="social-icons">
+            <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-linkedin"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-facebook"></i></a>
+        </div>
 
-            // Clone the product card
-            var clonedProductCard = productCard.cloneNode(true);
+        <!-- Navigation links -->
+        <div class="footer-nav">
+            <nav>
+                <a href="index.html">Home</a> |
+                <a href="about.html">About Us</a> |
+                <a href="about.html">Services</a> |
+                <a href="shop.html">Products</a> |
+                <a href="#">Blog</a> |
+                <a href="contact.html">Contact Us</a>
+            </nav>
+        </div>
 
-            // Add the cloned product card to the cart items array
-            cartItems.push(clonedProductCard.outerHTML);
+        <!-- Information links -->
+        <div class="footer-section">
+            <a href="#">Terms of Service</a> |
+            <a href="#">Privacy Policy</a> |
+            <a href="#">Customer Support</a>
+        </div>
 
-            // Save the updated cart items back to local storage
-            localStorage.setItem('cartItems', JSON.stringify(cartItems));
+        <!-- Google Maps location link -->
+        <div class="footer-section">
+            <a href="https://www.google.com/maps/place/48+h,+38,+Jai+Bhavani+Rd,+Parijat+Nagar,+Jai+Bhavani+Nagar,+N+2,+Cidco,+Aurangabad,+Maharashtra+431007/@19.8650405,75.3626834,17z/data=!3m1!4b1!4m9!1m2!2m1!1sS.NO+48,+H.No.+38,+Jai+Gajanan+Nagar,+Garkheda+area,+Chh.Sambhaji+Nagar-431005!3m5!1s0x3bdba2f507646da9:0xd95302b9d3aa2154!8m2!3d19.8650355!4d75.3675543!15sCk5TLk5PIDQ4LCBILk5vLiAzOCwgSmFpIEdhamFuYW4gTmFnYXIsIEdhcmtoZWRhIGFyZWEsIENoaC5TYW1iaGFqaSBOYWdhci00MzEwMDWSARBjb21wb3VuZF9zZWN0aW9u4AEA?entry=ttu" target="_blank">
+                <i class="fas fa-map-marker-alt"></i> Visit Our Main Office
+            </a>
+        </div>
 
-            var popup = document.getElementById("popup");
-            popup.style.display = "block";
-
-            // Hide the popup after 3 seconds (3000 milliseconds)
-            setTimeout(function() {
-                popup.style.display = 'none';
-            }, 3000);
-        }
-        function redirectToCart() {
-            window.location.href = "cart.html";
-        }
-
-        // code1 data with image URLs
-        const products = [
-            {
-                id: 1,
-                name: "QR Sticker",
-                price: 20,
-                description: "A customised QR Code sticker which stores data",
-                Image: "src/shop-img/qr.jpg"
-            },
-            {
-                id: 2,
-                name: "Flex Board Holder",
-                price: 1500,
-                description: "A board that holds Flex",
-                Image: "src/shop-img/flex-board-holder.jpg"
-            },
-            {
-                id: 3,
-                name: "Poster",
-                price: 250,
-                description: "A customised poster according to you",
-                Image: "src/shop-img/poster.jpg"
-            },
-            {
-                id: 4,
-                name: "Wax Ribbon",
-                price: 130,
-                description: "A ribbon made using wax",
-                Image: "src/shop-img/wax-ribbon.jpg"
-            },
-            {
-                id: 5,
-                name: "Book Printing",
-                price: 500,
-                description: "Printing of books",
-                Image: "src/shop-img/book-printing.jpg"
-            }
-        ];
-
-        function generateProductCards() {
-            const cardWrapper = document.getElementById("cardWrapper");
-            products.forEach(product => {
-                const card = document.createElement("div");
-                card.classList.add("product-card");
-
-                const image = document.createElement("img");
-                image.src = product.Image;
-                image.alt = "Product Image";
-                image.classList.add("product-image");
-                card.appendChild(image);
-
-                const title = document.createElement("h2");
-                title.classList.add("product-title");
-                title.textContent = product.name;
-                card.appendChild(title);
-
-                const description = document.createElement("p");
-                description.classList.add("product-description");
-                description.textContent = product.description;
-                card.appendChild(description);
-
-                // const price = document.createElement("p");
-                // price.classList.add("service-price");
-                // title.textContent(price);
-
-                cardWrapper.appendChild(card);
-            });
-        }
-
-        generateProductCards();
-    </script>
+        <!-- Copyright notice -->
+        <div class="footer-copyright">
+            <p>&copy; 2024 Aditya Print Lab. All rights reserved.</p>
+        </div>
+    </footer>
 </body>
 </html>
