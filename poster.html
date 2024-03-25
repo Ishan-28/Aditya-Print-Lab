@@ -242,6 +242,7 @@
             line-height: 40px;
             border-radius: 50%;
             color: #ffffff;
+            margin-bottom: 35px;
             transition: all 0.5s ease;
         }
 
@@ -263,6 +264,33 @@
         .footer-col {
             width: 100%;
         }
+        }
+
+        .footer-col form input {
+            height: 45px;
+            width: 100%;
+            border: 1px solid #333;
+            border-radius: 3px;
+            padding-left: 10px;
+            margin-bottom: 10px;
+            background-color: #ffffff;
+            color: #000000;
+        }
+
+        .footer-col form input::placeholder {
+            color: #8e8e8e;
+        }
+
+        .footer-col form input[type="submit"] {
+            background-color: rgb(19, 112, 206);
+            color: #ffffff;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        .footer-col form input[type="submit"]:hover {
+            background-color: rgb(26, 108, 191);
         }
 
         .mySlides:hover img {
@@ -657,6 +685,11 @@
                 <a href="#"><i class="fab fa-linkedin-in"></i></a>
                 <a href="#"><i class="fab fa-youtube"></i></a>
               </div>
+              <h4>subscribe to our newsletter</h4>
+                <form action="input">
+                  <input type="email" placeholder="Email Address" required>
+                  <input type="submit" value="Subscribe">
+                </form>
             </div>
           </div>
         </div>
