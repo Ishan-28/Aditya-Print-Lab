@@ -197,7 +197,7 @@
 
         @media screen and (max-width: 601px) {
             .search-bar input[type="text"] {
-                padding: 10px 20px;
+                padding: 10px 200px;
                 background-color: rgb(245, 244, 244);
                 padding-right: 10px;
                 border: 1px solid #f8f8f8;
@@ -205,12 +205,27 @@
                 margin-right: 10px;
             }
         }
+
+        @media screen and (max-width: 601px) {
+            .search-bar button {
+            margin-right: 225px;
+            margin-top: 2px;
+            position: absolute;
+            right: 0;
+            top: 0;
+            background: none;
+            padding: 10px 5px;
+            color: #0a0a0a;
+            border: none;
+            cursor: pointer;
+        }
+        }
         
         .search-bar form {
             display: flex;
             align-items: center;
             position: relative;
-            margin-right: 100px;
+            margin-right: auto;
         }
 
         .search-bar input[type="text"] {
@@ -222,7 +237,22 @@
             margin-right: 10px;
         }
 
-        .search-bar button {
+        @media screen and (min-width: 601px) {
+            .search-bar button {
+                margin-right: 355px;
+                margin-top: 2px;
+                position: absolute;
+                right: 0;
+                top: 0;
+                background: none;
+                padding: 10px 5px;
+                color: #0a0a0a;
+                border: none;
+                cursor: pointer;
+            }
+        }
+
+        /* .search-bar button {
             margin-right: 355px;
             position: absolute;
             right: 0;
@@ -232,7 +262,7 @@
             color: #0a0a0a;
             border: none;
             cursor: pointer;
-        }
+        } */
 
         /* Styles for cart */
         .cart-icon {
@@ -838,12 +868,12 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"></script>
     <script>
-        function openNav() {
-            document.getElementById("mySidenav").style.width = "250px";
-        }
-
         function closeNav() {
             document.getElementById("mySidenav").style.width = "0";
+        }
+
+        function openNav() {
+            document.getElementById("mySidenav").style.width = "250px";
         }
 
         function toggleContact() {
