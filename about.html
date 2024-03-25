@@ -163,67 +163,7 @@
         }
 
         /* Footer styles */
-        footer {
-            background-color: #333;
-            color: #fff;
-            padding-top: 30px;
-            padding-bottom: 15px;
-            text-align: center;
-            position: relative;
-            bottom: 0;
-            width: 100%;
-            z-index: 999;
-        }
 
-        @media only screen and (min-width: 600px) {
-            footer {
-                position: relative;
-                bottom: auto;
-                width: auto;
-            }
-        }
-
-        .footer a {
-            color: #fff;
-            text-decoration: none;
-            margin: 0 10px;
-        }
-
-        .footer-nav {
-            margin-bottom: 20px;
-            padding-top: 50px;
-        }
-
-        .footer-section {
-            margin-bottom: 10px;
-            padding-top: 20px;
-        }
-
-        .footer-content {
-            display: flex;
-            justify-content: space-around;
-            align-items: center;
-            text-decoration: none;
-        }
-
-        .footer a:hover {
-            color: #099ed8;
-        }
-
-        .social-media {
-            margin-bottom: 20px;
-        }
-
-        .social-icon {
-            font-size: 24px;
-            color: white;
-            margin: 0 10px;
-            transition: color 0.3s ease;
-        }
-
-        .social-icon:hover {
-            color: #1e7898;
-        }
 
         .mySlides:hover img {
             filter: brightness(55%);
@@ -432,6 +372,182 @@
             overflow-x: hidden;
         }
 
+                /* Card container */
+                .service-container {
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+            margin: 0 auto;
+            overflow-x: hidden;
+            display: flex;
+            justify-content: center;
+        }
+
+        .card-wrapper {
+            display: flex;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            -webkit-overflow-scrolling: touch;
+            padding-left: 20px;
+        }
+
+        .service-card {
+            overflow: hidden;
+            flex: 0 0 auto;
+            width: 250px;
+            height: 345px;
+            min-width: 200px;
+            margin-right: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            scroll-snap-align: start;
+            transition: all 0.3s ease;
+            margin-bottom: 300px;
+            margin-top: 35px;
+        }
+
+        .service-card:last-child {
+            margin-right: 0;
+        }
+
+        .service-image {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+        }
+
+        .service-title {
+            font-size: 24px;
+            font-weight: bold;
+            margin: 10px 0;
+            text-align: center;
+        }
+
+        .service-description {
+            font-size: 14px;
+            margin: 0 10px 20px 10px;
+            text-align: justify;
+            height: 190px;
+            overflow: hidden;
+            transition: height 0.3s ease;
+            color: #363636;
+        }
+
+        .service-card:hover{
+            width: 280px;
+            height: 400px;
+        }
+
+        /* Footer Styles */
+        body {
+            line-height: 1.5;
+            font-family: "Poppins", sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .container {
+            max-width: 1170px;
+            margin: auto;
+        }
+
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .footer {
+            background-color: #24262b;
+            padding: 70px 0;
+        }
+
+        .footer-col {
+            width: 25%;
+            padding: 0 15px;
+        }
+
+        .footer-col h4 {
+            font-size: 18px;
+            color: #ffffff;
+            text-transform: capitalize;
+            margin-bottom: 35px;
+            font-weight: 500;
+            position: relative;
+        }
+
+        .footer-col h4::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -10px;
+            background-color: rgb(19, 112, 206);
+            height: 2px;
+            box-sizing: border-box;
+            width: 50px;
+        }
+
+        .footer-col ul li:not(:last-child) {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a {
+            font-size: 16px;
+            text-transform: capitalize;
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 300;
+            color: #bbbbbb;
+            display: block;
+            transition: all 0.3s ease;
+        }
+
+        .footer-col ul li a:hover {
+            color: #ffffff;
+            padding-left: 8px;
+        }
+
+        .footer-col .social-links a {
+            display: inline-block;
+            height: 40px;
+            width: 40px;
+            background-color: rgba(255, 255, 255, 0.2);
+            margin: 0 10px 10px 0;
+            text-align: center;
+            line-height: 40px;
+            border-radius: 50%;
+            color: #ffffff;
+            transition: all 0.5s ease;
+        }
+
+        .footer-col .social-links a:hover {
+            color: #24262b;
+            background-color: #ffffff;
+        }
+
+
+        @media (max-width: 767px) {
+        .footer-col {
+            width: 50%;
+            margin-bottom: 30px;
+        }
+        }
+
+
+        @media (max-width: 574px) {
+        .footer-col {
+            width: 100%;
+        }
+        }
+
     </style>
 </head>
 <body>
@@ -452,48 +568,91 @@
     </div>
     <h1 class="line"></h1>
 
-    
+    <p class="service-title">Our Services</p>
+    <div class="service-container">
+        <div class="card-wrapper" id="cardWrapper"></div>
+    </div>
 
     <footer class="footer">
-        <!-- Social media icons -->
-        <div class="social-icons">
-            <a href="https://www.instagram.com/aditya_lakh23/" class="social-icon"><i class="fab fa-instagram"></i></a>
-            <a href="#" class="social-icon"><i class="fab fa-linkedin"></i></a>
-            <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
-            <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
-            <a href="#" class="social-icon"><i class="fab fa-facebook"></i></a>
+        <div class="container">
+          <div class="row">
+            <div class="footer-col">
+              <h4>company</h4>
+              <ul>
+                <li><a href="#">about us</a></li>
+                <li><a href="#">our services</a></li>
+                <li><a href="#">privacy policy</a></li>
+              </ul>
+            </div>
+            <div class="footer-col">
+              <h4>get help</h4>
+              <ul>
+                <li><a href="#">FAQ</a></li>
+                <li><a href="#">shipping</a></li>
+                <li><a href="#">returns</a></li>
+                <li><a href="#">order status</a></li>
+                <li><a href="#">payment options</a></li>
+              </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Our products</h4>
+                <ul>
+                  <li><a href="qr.html">QR stickers</a></li>
+                  <li><a href="flex-board-holder.html">Flex board holder</a></li>
+                  <li><a href="poster.html">Poster</a></li>
+                  <li><a href="wax-ribbon.html">Wax ribbon</a></li>
+                  <li><a href="book-printing.html">Book printing</a></li>
+                </ul>
+              </div>
+            <div class="footer-col">
+              <h4>follow us</h4>
+              <div class="social-links">
+                <a href="https://twitter.com/adityaprintlab"><i class="fab fa-twitter"></i></a>
+                <a href="https://www.instagram.com/aditya_lakh23/"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+              </div>
+            </div>
+          </div>
         </div>
+      </footer>
 
-        <!-- Navigation links -->
-        <div class="footer-nav">
-            <nav>
-                <a href="index.html">Home</a> |
-                <a href="about.html">About Us</a> |
-                <a href="about.html">Services</a> |
-                <a href="shop.html">Products</a> |
-                <a href="#">Blog</a> |
-                <a href="contact.html">Contact Us</a>
-            </nav>
-        </div>
+      <script>
+                const services = [
+            { id: 1, name: "QR Stickers", description: "Get your own QR stickers for your business. These stickers can be used for various purposes such as product packaging, business cards, and more.", imageUrl: "src/service_src/qr-service.jpg" },
+            { id: 2, name: "Book Printing", description: "Get book printing service tailored to bring your words to life with precision and professionalism.", imageUrl: "src/service_src/book-service.jpg" },
+            { id: 3, name: "Poster Designing", description: "Elevate your message with captivating poster designs that stand out and leave a lasting impression.", imageUrl: "src/service_src/poster-service.jpg" },
+            { id: 4, name: "Software", description: "Unlock your business's full potential with custom software solutions tailored to your unique needs and objectives.", imageUrl: "src/service_src/software-service.jpg" },
+            { id: 5, name: "Stationary Items", description: "Enhance your workspace with our wide selection of high-quality stationary items, perfect for boosting productivity and organization.", imageUrl: "src/service_src/stationary-service.jpg" }
+        ];
 
-        <!-- Information links -->
-        <div class="footer-section">
-            <a href="#">Terms of Service</a> |
-            <a href="#">Privacy Policy</a> |
-            <a href="#">Customer Support</a>
-        </div>
+        function generateServiceCards() {
+            const cardWrapper = document.getElementById("cardWrapper");
+            services.forEach(service => {
+                const card = document.createElement("div");
+                card.classList.add("service-card");
 
-        <!-- Google Maps location link -->
-        <div class="footer-section">
-            <a href="https://www.google.com/maps/place/48+h,+38,+Jai+Bhavani+Rd,+Parijat+Nagar,+Jai+Bhavani+Nagar,+N+2,+Cidco,+Aurangabad,+Maharashtra+431007/@19.8650405,75.3626834,17z/data=!3m1!4b1!4m9!1m2!2m1!1sS.NO+48,+H.No.+38,+Jai+Gajanan+Nagar,+Garkheda+area,+Chh.Sambhaji+Nagar-431005!3m5!1s0x3bdba2f507646da9:0xd95302b9d3aa2154!8m2!3d19.8650355!4d75.3675543!15sCk5TLk5PIDQ4LCBILk5vLiAzOCwgSmFpIEdhamFuYW4gTmFnYXIsIEdhcmtoZWRhIGFyZWEsIENoaC5TYW1iaGFqaSBOYWdhci00MzEwMDWSARBjb21wb3VuZF9zZWN0aW9u4AEA?entry=ttu" target="_blank">
-                <i class="fas fa-map-marker-alt"></i> Visit Our Main Office
-            </a>
-        </div>
+                const image = document.createElement("img");
+                image.src = service.imageUrl;
+                image.alt = "Service Image";
+                image.classList.add("service-image");
+                card.appendChild(image);
 
-        <!-- Copyright notice -->
-        <div class="footer-copyright">
-            <p>&copy; 2024 Aditya Print Lab. All rights reserved.</p>
-        </div>
-    </footer>
+                const title = document.createElement("h2");
+                title.classList.add("service-title");
+                title.textContent = service.name;
+                card.appendChild(title);
+
+                const description = document.createElement("p");
+                description.classList.add("service-description");
+                description.textContent = service.description;
+                card.appendChild(description);
+
+                cardWrapper.appendChild(card);
+            });
+        }
+
+        generateServiceCards();
+      </script>
 </body>
 </html>
