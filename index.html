@@ -69,7 +69,7 @@
         /* New styles for side nav-bar */
         .sidenav {
             height: 100%;
-            width: 0;
+            width: 250px; /* Set width for mobile view */
             position: fixed;
             z-index: 1;
             top: 0;
@@ -100,23 +100,30 @@
             font-size: 36px;
             margin-left: 50px;
         }
-
+        
         @media screen and (max-height: 450px) {
             .sidenav {padding-top: 15px;}
             .sidenav a {font-size: 18px;}
         }
 
-        /* Hide primary menu components for mobile view */
-        @media screen and (max-width: 600px) {
-            .topnav a {
+        /* Hide side nav-bar by default for desktop view */
+        @media screen and (min-width: 601px) {
+            .sidenav {
                 display: none;
             }
         }
 
-        /* Adjust logo size for mobile view */
+       /* Hide specific components from top navigation bar for mobile view */
         @media screen and (max-width: 600px) {
-            .topnav img {
-                width: 50px;
+            .topnav a:not(.search-bar):not(.cart-icon):not(.login-text) {
+                display: none;
+            }
+        }
+
+        /* Hide menu icon in desktop mode */
+        @media screen and (min-width: 601px) {
+            .menu-icon {
+                display: none;
             }
         }
 
@@ -128,7 +135,14 @@
             margin-top: -55px;
             position: relative;
         }
-
+        /* Hide specific components from top navigation bar for mobile view */
+        @media screen and (max-width: 600px) {
+            .topnav .search-bar,
+            .topnav .cart-icon,
+            .topnav .login-text {
+                display: none;
+            }
+        }
         .search-bar form {
             display: flex;
             align-items: center;
@@ -618,68 +632,6 @@
             width: 100%;
         }
         }
-
-
-        /* New styles for side nav-bar */
-        .sidenav {
-            height: 100%;
-            width: 250px; /* Set width for mobile view */
-            position: fixed;
-            z-index: 1;
-            top: 0;
-            left: 0;
-            background-color: #111;
-            overflow-x: hidden;
-            transition: 0.5s;
-            padding-top: 60px;
-        }
-
-        .sidenav a {
-            padding: 8px 8px 8px 32px;
-            text-decoration: none;
-            font-size: 25px;
-            color: #818181;
-            display: block;
-            transition: 0.3s;
-        }
-
-        .sidenav a:hover {
-            color: #f1f1f1;
-        }
-
-        .sidenav .closebtn {
-            position: absolute;
-            top: 0;
-            right: 25px;
-            font-size: 36px;
-            margin-left: 50px;
-        }
-        
-        @media screen and (max-height: 450px) {
-            .sidenav {padding-top: 15px;}
-            .sidenav a {font-size: 18px;}
-        }
-
-        /* Hide side nav-bar by default for desktop view */
-        @media screen and (min-width: 601px) {
-            .sidenav {
-                display: none;
-            }
-        }
-
-       /* Hide specific components from top navigation bar for mobile view */
-        @media screen and (max-width: 600px) {
-            .topnav a:not(.search-bar):not(.cart-icon):not(.login-text) {
-                display: none;
-            }
-        }
-
-        /* Hide menu icon in desktop mode */
-        @media screen and (min-width: 601px) {
-            .menu-icon {
-                display: none;
-            }
-        }
     </style>
 </head>
 <body>
@@ -706,9 +658,9 @@
     <!-- Side nav-bar -->
     <div id="mySidenav" class="sidenav">
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-        <a href="cart.html">Your Cart</a>
         <a class="active" href="index.html">Home</a>
         <a href="shop.html">Shop</a>
+        <a href="cart.html">Your Cart</a>
         <a href="contact.html">Contact Us</a>
         <a href="about.html">About</a>
         <a href="login.html">Login</a>
