@@ -173,18 +173,42 @@
             margin-top: -55px;
             position: relative;
         }
+
         /* Hide specific components from top navigation bar for mobile view */
         @media screen and (max-width: 600px) {
-            .topnav .search-bar,
+            /* .topnav .search-bar, */
             .topnav .cart-icon,
             .topnav .login-text {
                 display: none;
             }
         }
+
+        @media screen and (max-width: 601px) {
+            .search-bar {
+                flex-grow: 1;
+                text-align: right;
+                margin-left: 45%;
+                margin-top: -50px;
+                position: relative;
+            }
+        }
+
+        @media screen and (max-width: 601px) {
+            .search-bar input[type="text"] {
+                padding: 10px 20px;
+                background-color: rgb(245, 244, 244);
+                padding-right: 50px;
+                border: 1px solid #f8f8f8;
+                border-radius: 20px;
+                margin-right: 10px;
+            }
+        }
+        
         .search-bar form {
             display: flex;
             align-items: center;
             position: relative;
+            margin-right: 100px;
         }
 
         .search-bar input[type="text"] {
