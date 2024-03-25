@@ -105,6 +105,20 @@
             .sidenav a {font-size: 18px;}
         }
 
+        /* Hide primary menu components for mobile view */
+        @media screen and (max-width: 600px) {
+            .topnav a {
+                display: none;
+            }
+        }
+
+        /* Adjust logo size for mobile view */
+        @media screen and (max-width: 600px) {
+            .topnav img {
+                width: 50px;
+            }
+        }
+
         /* Style for search bar */
         .search-bar {
             flex-grow: 1;
