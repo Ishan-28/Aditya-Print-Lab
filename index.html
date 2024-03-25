@@ -17,6 +17,7 @@
             margin-top: 10px;
             margin-right: 200px;
             height: 70px;
+            width: 150px !important;
             cursor: pointer;
         }
 
@@ -667,18 +668,18 @@
         }
 
        /* Hide specific components from top navigation bar for mobile view */
-@media screen and (max-width: 600px) {
-    .topnav a:not(.search-bar):not(.cart-icon):not(.login-text) {
-        display: none;
-    }
-}
+        @media screen and (max-width: 600px) {
+            .topnav a:not(.search-bar):not(.cart-icon):not(.login-text) {
+                display: none;
+            }
+        }
+
         /* Hide menu icon in desktop mode */
         @media screen and (min-width: 601px) {
             .menu-icon {
                 display: none;
             }
         }
-
     </style>
 </head>
 <body>
@@ -696,9 +697,9 @@
             <span onclick="window.location.href='cart.html'" class="cart-icon"><i class="fas fa-shopping-cart"></i></span>
             <button><span class="login-text" onclick="window.location.href='login.html'">Login</span></button>
         </div>
+
         <!-- Menu icon for mobile view -->
-<!-- Menu icon for mobile view -->
-<span class="menu-icon" style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
+        <span class="menu-icon" style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
 
     </div>
 
