@@ -155,73 +155,10 @@
 
         /* Style for line below top navbar */
         .line {
-            margin-top: -5px;
+            margin-top: 14px;
             border-bottom: 1px solid #ccc;
             margin-bottom: 20px;
             margin-left: 0;
-        }
-
-        /* Footer styles */
-        footer {
-            background-color: #333;
-            color: #fff;
-            padding-top: 30px;
-            padding-bottom: 15px;
-            text-align: center;
-            position: relative;
-            bottom: 0;
-            width: 100%;
-            z-index: 999;
-        }
-
-        @media only screen and (min-width: 600px) {
-            footer {
-                position: relative;
-                bottom: auto;
-                width: auto;
-            }
-        }
-
-        .footer a {
-            color: #fff;
-            text-decoration: none;
-            margin: 0 10px;
-        }
-
-        .footer-nav {
-            margin-bottom: 20px;
-            padding-top: 50px;
-        }
-
-        .footer-section {
-            margin-bottom: 10px;
-            padding-top: 20px;
-        }
-
-        .footer-content {
-            display: flex;
-            justify-content: space-around;
-            align-items: center;
-            text-decoration: none;
-        }
-
-        .footer a:hover {
-            color: #099ed8;
-        }
-
-        .social-media {
-            margin-bottom: 20px;
-        }
-
-        .social-icon {
-            font-size: 24px;
-            color: white;
-            margin: 0 10px;
-            transition: color 0.3s ease;
-        }
-
-        .social-icon:hover {
-            color: #1e7898;
         }
 
         .mySlides:hover img {
@@ -445,7 +382,7 @@
             margin-top:100px;
             margin-left: 180px;
             width: 100%;
-            background: rgb(236, 236, 236);
+            background: rgb(251, 251, 251);
             border-radius: 6px;
             padding: 20px 60px 30px 40px;
             box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
@@ -579,6 +516,115 @@
             margin-left: 0;
         }
         }
+
+        /* Footer styles */
+        body {
+            line-height: 1.5;
+            font-family: "Poppins", sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .container {
+            max-width: 1170px;
+            margin: auto;
+        }
+
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .footer {
+            background-color: #24262b;
+            padding: 70px 100px;
+        }
+
+        .footer-col {
+            width: 25%;
+            padding: 0 15px;
+        }
+
+        .footer-col h4 {
+            font-size: 18px;
+            color: #ffffff;
+            text-transform: capitalize;
+            margin-bottom: 35px;
+            font-weight: 500;
+            position: relative;
+        }
+
+        .footer-col h4::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -10px;
+            background-color: rgb(19, 112, 206);
+            height: 2px;
+            box-sizing: border-box;
+            width: 50px;
+        }
+
+        .footer-col ul li:not(:last-child) {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a {
+            font-size: 16px;
+            text-transform: capitalize;
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 300;
+            color: #bbbbbb;
+            display: block;
+            transition: all 0.3s ease;
+        }
+
+        .footer-col ul li a:hover {
+            color: #ffffff;
+            padding-left: 8px;
+        }
+
+        .footer-col .social-links a {
+            display: inline-block;
+            height: 40px;
+            width: 40px;
+            background-color: rgba(255, 255, 255, 0.2);
+            margin: 0 10px 10px 0;
+            text-align: center;
+            line-height: 40px;
+            border-radius: 50%;
+            color: #ffffff;
+            transition: all 0.5s ease;
+        }
+
+        .footer-col .social-links a:hover {
+            color: #24262b;
+            background-color: #ffffff;
+        }
+
+
+        @media (max-width: 767px) {
+        .footer-col {
+            width: 50%;
+            margin-bottom: 30px;
+        }
+        }
+
+
+        @media (max-width: 574px) {
+        .footer-col {
+            width: 100%;
+        }
+        }
     </style>
 </head>
 <body>
@@ -590,6 +636,8 @@
         <a href="about.html">About</a>
         <i class='fas fa-user-circle'></i>
     </div>
+    <h1 class="line"></h1>
+
     <div class="container">
       <div class="content">
         <div class="left-side">
@@ -629,5 +677,47 @@
         </div>
       </div>
     </div>
+    <footer class="footer">
+        <div class="footer-container">
+          <div class="row">
+            <div class="footer-col">
+              <h4>company</h4>
+              <ul>
+                <li><a href="#">about us</a></li>
+                <li><a href="#">our services</a></li>
+                <li><a href="#">privacy policy</a></li>
+              </ul>
+            </div>
+            <div class="footer-col">
+              <h4>get help</h4>
+              <ul>
+                <li><a href="#">FAQ</a></li>
+                <li><a href="#">shipping</a></li>
+                <li><a href="#">returns</a></li>
+                <li><a href="#">order status</a></li>
+                <li><a href="#">payment options</a></li>
+              </ul>
+            </div>
+            <div class="footer-col">
+              <h4>online shop</h4>
+              <ul>
+                <li><a href="#">watch</a></li>
+                <li><a href="#">bag</a></li>
+                <li><a href="#">shoes</a></li>
+                <li><a href="#">dress</a></li>
+              </ul>
+            </div>
+            <div class="footer-col">
+              <h4>follow us</h4>
+              <div class="social-links">
+                <a href="https://twitter.com/adityaprintlab"><i class="fab fa-twitter"></i></a>
+                <a href="https://www.instagram.com/aditya_lakh23/"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
   </body>
 </html>
