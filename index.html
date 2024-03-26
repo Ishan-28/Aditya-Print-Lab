@@ -12,14 +12,14 @@
             text-align: left;
         }
 
-        /* .topnav img {
+        .topnav img {
             margin-left: 20px;
             margin-top: 10px;
             margin-right: 200px;
             height: 70px;
             width: 150px !important;
             cursor: pointer;
-        } */
+        }
 
         .topnav a {
             top: 50%;
@@ -141,6 +141,15 @@
             margin-left: 50px;
             color: #ffffff; /* Change close button color */
         }
+
+        @media screen and (max-width: 601px) {
+            .fas.fa-user-circle {
+                font-size: 33px;
+                float: right;
+                margin-top: 25px;
+                margin-right: 20px;
+            }
+        }
         
         @media screen and (max-height: 450px) {
             .sidenav { padding-top: 15px; }
@@ -179,7 +188,7 @@
 
         /* Hide specific components from top navigation bar for mobile view */
         @media screen and (max-width: 600px) {
-            /* .topnav .search-bar, */
+            .topnav .search-bar,
             .topnav .cart-icon,
             .topnav .login-text {
                 display: none;
@@ -198,7 +207,7 @@
 
         @media screen and (max-width: 601px) {
             .search-bar input[type="text"] {
-                padding: 10px 100px; /* Adjust the padding to your desired width */
+                padding: 10px 100px;
                 background-color: rgb(245, 244, 244);
                 padding-right: 10px;
                 border: 1px solid #f8f8f8;
@@ -841,8 +850,8 @@
               <div class="social-links">
                 <a href="https://twitter.com/adityaprintlab"><i class="fab fa-twitter"></i></a>
                 <a href="https://www.instagram.com/aditya_lakh23/"><i class="fab fa-instagram"></i></a>
-                <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                <a href="#"><i class="fab fa-youtube"></i></a>
+                <a href="https://www.linkedin.com/in/aditya-lakhpati-7056182bb"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://youtube.com/@adityalakhpati23?si=2FYaetwkDDufi9dZ"><i class="fab fa-youtube"></i></a>
               </div>
               <h4>subscribe to our newsletter</h4>
               <form action="input">

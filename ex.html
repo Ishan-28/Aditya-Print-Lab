@@ -618,6 +618,67 @@
         }
         }
 
+
+        /* New styles for side nav-bar */
+        .sidenav {
+            height: 100%;
+            width: 250px; /* Set width for mobile view */
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            background-color: #111;
+            overflow-x: hidden;
+            transition: 0.5s;
+            padding-top: 60px;
+        }
+
+        .sidenav a {
+            padding: 8px 8px 8px 32px;
+            text-decoration: none;
+            font-size: 25px;
+            color: #818181;
+            display: block;
+            transition: 0.3s;
+        }
+
+        .sidenav a:hover {
+            color: #f1f1f1;
+        }
+
+        .sidenav .closebtn {
+            position: absolute;
+            top: 0;
+            right: 25px;
+            font-size: 36px;
+            margin-left: 50px;
+        }
+
+        @media screen and (max-height: 450px) {
+            .sidenav {padding-top: 15px;}
+            .sidenav a {font-size: 18px;}
+        }
+
+        /* Hide side nav-bar by default for desktop view */
+        @media screen and (min-width: 601px) {
+            .sidenav {
+                display: none;
+            }
+        }
+
+       /* Hide specific components from top navigation bar for mobile view */
+@media screen and (max-width: 600px) {
+    .topnav a:not(.search-bar):not(.cart-icon):not(.login-text) {
+        display: none;
+    }
+}
+        /* Hide menu icon in desktop mode */
+        @media screen and (min-width: 601px) {
+            .menu-icon {
+                display: none;
+            }
+        }
+
     </style>
 </head>
 <body>
@@ -636,7 +697,9 @@
             <button><span class="login-text" onclick="window.location.href='login.html'">Login</span></button>
         </div>
         <!-- Menu icon for mobile view -->
-        <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
+<!-- Menu icon for mobile view -->
+<span class="menu-icon" style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
+
     </div>
 
     <!-- Side nav-bar -->
