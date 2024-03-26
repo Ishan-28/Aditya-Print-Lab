@@ -65,6 +65,118 @@
             background-color: #ffffff;
         }
 
+        /* For mobile view */
+        @media screen and (max-width: 600px) {
+            .topnav img {
+                height: 50px;
+                width: 150px !important;
+                margin-left: -10px;
+                margin-right: -100px;
+                margin-top: 10px;
+            }
+        }
+
+        @media screen and (max-width: 601px) {
+            .line {
+                margin-top: 10px;
+                border-bottom: 1px solid #ccc;
+                margin-bottom: 20px;
+                margin-left: 0;
+            }
+        }
+
+        /* For desktop view */
+        @media screen and (min-width: 601px) {
+            .topnav img {
+                height: 70px;
+                width: auto !important; /* Reset width to auto for desktop view */
+            }
+        }
+
+        @media screen and (min-width: 601px) {
+            .line {
+                margin-top: -16px;
+                border-bottom: 1px solid #ccc;
+                margin-bottom: 20px;
+                margin-left: 0;
+            }
+        }
+
+        /* New styles for side nav-bar */
+        .sidenav {
+            height: 100%;
+            width: 200px; /* Set width for mobile view */
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            background-color: #111;
+            overflow-x: hidden;
+            transition: 0.5s;
+            padding-top: 50px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2); /* Add box shadow for depth */
+        }
+
+        .sidenav a {
+            padding: 16px 20px; /* Adjust padding for better spacing */
+            text-decoration: none;
+            font-size: 18px;
+            color: #ffffff;
+            display: block;
+            transition: 0.3s;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Add border bottom for separation */
+        }
+
+        .sidenav a:hover {
+            color: #f1f1f1;
+            background-color: rgba(255, 255, 255, 0.1); /* Add hover background color */
+        }
+
+        .sidenav .closebtn {
+            position: absolute;
+            top: 0;
+            right: 5px;
+            font-size: 33px;
+            margin-left: 50px;
+            margin-top: -15px;
+            color: #ffffff; /* Change close button color */
+        }
+
+        @media screen and (max-width: 601px) {
+            .fas.fa-user-circle {
+                font-size: 33px;
+                float: right;
+                margin-top: 25px;
+                margin-right: 20px;
+            }
+        }
+        
+        @media screen and (max-height: 450px) {
+            .sidenav { padding-top: 15px; }
+            .sidenav a { font-size: 16px; } /* Adjust font size for smaller screens */
+        }
+
+        /* Hide side nav-bar by default for desktop view */
+        @media screen and (min-width: 601px) {
+            .sidenav {
+                display: none;
+            }
+        }
+
+       /* Hide specific components from top navigation bar for mobile view */
+        @media screen and (max-width: 600px) {
+            .topnav a:not(.search-bar):not(.cart-icon):not(.login-text) {
+                display: none;
+            }
+        }
+
+        /* Hide menu icon in desktop mode */
+        @media screen and (min-width: 601px) {
+            .menu-icon {
+                display: none;
+            }
+        }
+
         /* Style for search bar */
         .search-bar {
             flex-grow: 1;
@@ -72,6 +184,51 @@
             margin-left:73%;
             margin-top: -55px;
             position: relative;
+        }
+
+        /* Hide specific components from top navigation bar for mobile view */
+        @media screen and (max-width: 600px) {
+            .topnav .search-bar,
+            .topnav .cart-icon,
+            .topnav .login-text {
+                display: none;
+            }
+        }
+
+        @media screen and (max-width: 601px) {
+            .search-bar {
+                flex-grow: 1;
+                text-align: right;
+                margin-left: 38%;
+                margin-top: -42px;
+                position: relative;
+            }
+        }
+
+        @media screen and (max-width: 601px) {
+            .search-bar input[type="text"] {
+                padding: 10px 100px;
+                background-color: rgb(245, 244, 244);
+                padding-right: 10px;
+                border: 1px solid #f8f8f8;
+                border-radius: 20px;
+                margin-right: 10px;
+            }
+        }
+
+        @media screen and (max-width: 601px) {
+            .search-bar button {
+                margin-right: 225px;
+                margin-top: 2px;
+                position: absolute;
+                right: 0;
+                top: 0;
+                background: none;
+                padding: 10px 5px;
+                color: #0a0a0a;
+                border: none;
+                cursor: pointer;
+            }
         }
 
         .search-bar form {
@@ -89,16 +246,18 @@
             margin-right: 10px;
         }
 
-        .search-bar button {
-            margin-right: 355px;
-            position: absolute;
-            right: 0;
-            top: 0;
-            background: none;
-            padding: 10px 5px;
-            color: #0a0a0a;
-            border: none;
-            cursor: pointer;
+        @media screen and (min-width: 601px) {
+            .search-bar button {
+                margin-right: 355px;
+                position: absolute;
+                right: 0;
+                top: 0;
+                background: none;
+                padding: 10px 5px;
+                color: #0a0a0a;
+                border: none;
+                cursor: pointer;
+            }
         }
 
         /* Styles for cart */
@@ -143,6 +302,10 @@
         .login-text:hover {
             transform: scale(1.1);
             background-color: #1e7898;
+        }
+
+        .active, .dot:hover {
+            background-color: #717171;
         }
 
         .fas.fa-user-circle {
@@ -658,6 +821,7 @@
 </head>
 <body>
     <div class="topnav">
+        <span class="menu-icon" style="font-size:50px;cursor:pointer;border-radius: 10px;" onclick="openNav()">&#9776;</span>
         <img href="index.html" src="src/logo/logo-2.jpg" alt="Aditya Print Lab">
         <a href="index.html">Home</a>
         <a href="shop.html">Shop</a>
@@ -665,6 +829,17 @@
         <a href="about.html">About</a>
         <i class='fas fa-user-circle'></i>
     </div>
+
+    <div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a href="index.html">Home</a>
+        <a href="shop.html">Shop</a>
+        <a href="cart.html">Your Cart</a>
+        <a class="active" href="contact.html">Contact Us</a>
+        <a href="about.html">About</a>
+        <a href="login.html">Login</a>
+    </div>
+
     <h1 class="line"></h1>
 
     <div class="container">
@@ -754,5 +929,16 @@
           </div>
         </div>
       </footer>
+
+      <script>
+        function closeNav() {
+            document.getElementById("mySidenav").style.width = "0";
+        }
+
+        function openNav() {
+            document.getElementById("mySidenav").style.width = "250px";
+        }
+      </script>
+
   </body>
 </html>
