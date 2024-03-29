@@ -49,6 +49,20 @@
             position: static;
         }
 
+        /* Hide the desktop logo on mobile view */
+        @media (max-width: 768px) {
+            .desktop-only {
+                display: none;
+            }
+        }
+
+        /* Hide the mobile logo on desktop view */
+        @media (min-width: 769px) {
+            .mobile-only {
+                display: none;
+            }
+        }
+
         .topnav a:hover {
             color: black;
         }
@@ -620,8 +634,9 @@
 <body>
     <div class="topnav">
         <a class="logo-link" href="index.html">
-            <img src="src/logo/logo-2.jpg" alt="Aditya Print Lab">
+            <img src="src/logo/logo-2.jpg" alt="Aditya Print Lab" class="desktop-only">
         </a>
+        <img href="index.html" src="src/logo/logo-2.jpg" alt="Aditya Print Lab" class="mobile-only">
         <a href="index.html">Home</a>
         <a class="active" href="shop.html">Shop</a>
         <a href="contact.html">Contact Us</a>
