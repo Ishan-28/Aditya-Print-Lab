@@ -38,6 +38,19 @@
             position: relative;
         }
 
+        .topnav a.logo-link {
+            top: auto;
+            margin: 0;
+            float: none;
+            display: inline;
+            color: inherit;
+            text-align: inherit;
+            padding: 0;
+            font-size: inherit;
+            position: static;
+        }
+
+
         .topnav a:hover {
             color: black;
         }
@@ -723,7 +736,9 @@
 <body>
     <div class="topnav">
         <span class="menu-icon" style="font-size:50px;cursor:pointer;border-radius: 10px;" onclick="openNav()">&#9776;</span>
-        <img href="index.html" src="src/logo/logo-2.jpg" alt="Aditya Print Lab">
+        <a class="logo-link" href="index.html">
+            <img src="src/logo/logo-2.jpg" alt="Aditya Print Lab">
+        </a>
         <a class="active" href="index.html">Home</a>
         <a href="shop.html">Shop</a>
         <a href="contact.html">Contact Us</a>
@@ -736,7 +751,7 @@
             <span onclick="window.location.href='cart.html'" class="cart-icon"><i class="fas fa-shopping-cart"></i></span>
             <button><span class="login-text" onclick="window.location.href='login.html'">Login</span></button>
         </div>
-    </div>
+    </div>    
 
     <div id="mySidenav" class="sidenav">
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
