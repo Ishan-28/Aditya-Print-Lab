@@ -50,14 +50,12 @@
             position: static;
         }
 
-        /* Hide the desktop logo on mobile view */
         @media (max-width: 768px) {
             .desktop-only {
                 display: none;
             }
         }
 
-        /* Hide the mobile logo on desktop view */
         @media (min-width: 769px) {
             .mobile-only {
                 display: none;
@@ -112,11 +110,10 @@
             }
         }
 
-        /* For desktop view */
         @media screen and (min-width: 601px) {
             .topnav img {
                 height: 70px;
-                width: auto !important; /* Reset width to auto for desktop view */
+                width: auto !important;
             }
         }
 
@@ -129,10 +126,9 @@
             }
         }
 
-        /* New styles for side nav-bar */
         .sidenav {
             height: 100%;
-            width: 200px; /* Set width for mobile view */
+            width: 200px;
             position: fixed;
             z-index: 1;
             top: 0;
@@ -141,22 +137,22 @@
             overflow-x: hidden;
             transition: 0.5s;
             padding-top: 50px;
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2); /* Add box shadow for depth */
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
         }
 
         .sidenav a {
-            padding: 16px 20px; /* Adjust padding for better spacing */
+            padding: 16px 20px;
             text-decoration: none;
             font-size: 18px;
             color: #ffffff;
             display: block;
             transition: 0.3s;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Add border bottom for separation */
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .sidenav a:hover {
             color: #f1f1f1;
-            background-color: rgba(255, 255, 255, 0.1); /* Add hover background color */
+            background-color: rgba(255, 255, 255, 0.1);
         }
 
         .sidenav .closebtn {
@@ -166,7 +162,7 @@
             font-size: 33px;
             margin-left: 50px;
             margin-top: -15px;
-            color: #ffffff; /* Change close button color */
+            color: #ffffff;
         }
 
         .sidenav a.login-option {
@@ -190,24 +186,21 @@
         
         @media screen and (max-height: 450px) {
             .sidenav { padding-top: 15px; }
-            .sidenav a { font-size: 16px; } /* Adjust font size for smaller screens */
+            .sidenav a { font-size: 16px; }
         }
 
-        /* Hide side nav-bar by default for desktop view */
         @media screen and (min-width: 601px) {
             .sidenav {
                 display: none;
             }
         }
 
-       /* Hide specific components from top navigation bar for mobile view */
         @media screen and (max-width: 600px) {
             .topnav a:not(.search-bar):not(.cart-icon):not(.login-text) {
                 display: none;
             }
         }
 
-        /* Hide menu icon in desktop mode */
         @media screen and (min-width: 601px) {
             .menu-icon {
                 display: none;
@@ -223,7 +216,6 @@
             position: relative;
         }
 
-        /* Hide specific components from top navigation bar for mobile view */
         @media screen and (max-width: 600px) {
             .topnav .search-bar,
             .topnav .cart-icon,
