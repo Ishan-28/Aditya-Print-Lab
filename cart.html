@@ -184,6 +184,16 @@
             color: #ffffff; /* Change close button color */
         }
 
+        .sidenav a.login-option {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .sidenav a.login-option i {
+            margin-left: 10px;
+        }
+
         .active, .dot:hover {
             background-color: #717171;
         }
@@ -557,13 +567,13 @@
     </div>
 
     <div id="mySidenav" class="sidenav">
+        <a href="login.html" class="login-option">Login <i class="fas fa-angle-right"></i></a>
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
         <a href="index.html">Home</a>
         <a href="shop.html">Shop</a>
         <a class="active" href="cart.html">Your Cart</a>
         <a href="contact.html">Contact Us</a>
         <a href="about.html">About</a>
-        <a href="login.html">Login</a>
     </div>
 
     <h1 class="line"></h1>
