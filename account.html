@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>User Account Dashboard</title>
+    <title>User Account </title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"> <!-- Font Awesome for icons -->
     <style>
         /* CSS Styles */
         body {
@@ -47,9 +48,6 @@
             margin-bottom: 20px;
             width: 80%;
             max-width: 600px;
-            p {
-                color: rgb(94, 94, 94);
-            }
         }
 
         h2 {
@@ -99,6 +97,28 @@
             width: calc(33% - 20px); /* Adjust width for three columns */
             max-width: 280px;
         }
+
+        .back-button {
+            margin-bottom: 20px;
+            margin-left: -1100px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #333;
+            color: #fff;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            text-decoration: none;
+        }
+
+        .back-button i {
+            font-size: 18px;
+        }
+
+        .back-button:hover {
+            background-color: #555;
+        }
     </style>
 </head>
 <body>
@@ -106,6 +126,11 @@
         <h1>User Account Dashboard</h1>
     </header>
     <main>
+        <!-- Back Button -->
+        <a href="#" class="back-button" onclick="goBack()">
+            <i class="fas fa-arrow-left"></i>
+        </a>
+
         <!-- User Profile Picture -->
         <img src="src/user-pfp/user-pic-2.jpeg" alt="Profile Picture" class="profile-picture">
 
@@ -121,7 +146,7 @@
                 <h2>Recent Orders</h2>
                 <p>Track, return or buy things again.</p>
                 <!-- Redirect Button to Orders Page -->
-                <a href="orders.html" class="redirect-button">
+                <a href="#" class="redirect-button">
                     <button>View Orders</button>
                 </a>
             </section>
@@ -132,7 +157,7 @@
                 <ul>
                     <li><a href="#">Your Addresses</a></li>
                     <li><a href="#">Payment Options</a></li>
-                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
                     <li><a href="#">Wallet</a></li>
                     <!-- Add more options as needed -->
                 </ul>
@@ -147,7 +172,9 @@
         </div>
     </main>
     <script>
-        // JavaScript Code (if any)
+        function goBack() {
+            window.history.back();
+        }
     </script>
 </body>
 </html>
