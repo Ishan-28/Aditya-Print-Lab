@@ -47,6 +47,9 @@
             margin-bottom: 20px;
             width: 80%;
             max-width: 600px;
+            p {
+                color: rgb(94, 94, 94);
+            }
         }
 
         h2 {
@@ -84,6 +87,18 @@
         a:hover {
             text-decoration: underline;
         }
+
+        /* Add this CSS for three-column layout */
+        .main-sections {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .account-info, .orders, .options, .contact {
+            width: calc(33% - 20px); /* Adjust width for three columns */
+            max-width: 280px;
+        }
     </style>
 </head>
 <body>
@@ -95,46 +110,41 @@
         <img src="src/user-pfp/user-pic-2.jpeg" alt="Profile Picture" class="profile-picture">
 
         <!-- Other Components -->
-        <section class="account-info">
-            <h2>Account Information</h2>
-            <p><strong>Name:</strong> John Doe</p>
-            <p><strong>Email:</strong> johndoe@example.com</p>
-            <p><strong>Subscription:</strong> Premium</p>
-            <button>Edit Account</button>
-        </section>
+        <div class="main-sections">
+            <section class="account-info">
+                <h2>Account Information</h2>
+                <p>Edit your name, phone number, address</p>
+                <button>Edit Details</button>
+            </section>
 
-        <section class="orders">
-            <h2>Recent Orders</h2>
-            <ul>
-                <li>Order #1234 - Product A - $50</li>
-                <li>Order #5678 - Product B - $75</li>
-                <li>Order #91011 - Product C - $100</li>
-            </ul>
-            <!-- Redirect Button to Orders Page -->
-            <a href="orders.html" class="redirect-button">
-                <button>View Orders</button>
-            </a>
-        </section>
+            <section class="orders">
+                <h2>Recent Orders</h2>
+                <p>Track, return or buy things again.</p>
+                <!-- Redirect Button to Orders Page -->
+                <a href="orders.html" class="redirect-button">
+                    <button>View Orders</button>
+                </a>
+            </section>
 
-        <!-- Account Options -->
-        <section class="options">
-            <h2>Account Options</h2>
-            <ul>
-                <li><a href="#">Your Addresses</a></li>
-                <li><a href="#">Payment Options</a></li>
-                <li><a href="#">Contact Us</a></li>
-                <li><a href="#">Wallet</a></li>
-                <!-- Add more options as needed -->
-            </ul>
-        </section>
+            <!-- Account Options -->
+            <section class="options">
+                <h2>Account Options</h2>
+                <ul>
+                    <li><a href="#">Your Addresses</a></li>
+                    <li><a href="#">Payment Options</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">Wallet</a></li>
+                    <!-- Add more options as needed -->
+                </ul>
+            </section>
 
-        <!-- Contact Information -->
-        <section class="contact">
-            <h2>Contact Information</h2>
-            <p><strong>Phone:</strong> +1 (123) 456-7890</p>
-            <p><strong>Email:</strong> info@example.com</p>
-            <button>Contact Support</button>
-        </section>
+            <!-- Contact Information -->
+            <section class="contact">
+                <h2>Contact Information</h2>
+                <p>Need help? Contact our support team.</p>
+                <button>Contact Support</button>
+            </section>
+        </div>
     </main>
     <script>
         // JavaScript Code (if any)
