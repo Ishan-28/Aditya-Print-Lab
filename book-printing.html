@@ -182,6 +182,18 @@
             margin-left: 0;
         }
 
+        .back-button {
+            color: #333;
+            font-size: 24px;
+            cursor: pointer;
+            margin-left: 10px;
+            margin-top: 10px;
+        }
+
+        .back-button:hover {
+            color: #555;
+        }
+
         /* Footer styles */
         body {
             line-height: 1.5;
@@ -761,6 +773,9 @@
 
     <div class="details-container">
         <div class="product-details">
+            <a href="#" class="back-button" onclick="goBack()">
+                <i class="fas fa-arrow-left"></i>
+            </a>
             <h2>Product: Book Printing</h2>
             <p>Description: Print book's pages.</p>
             <p>Price: Rs. 5000</p>
@@ -844,6 +859,10 @@
 
             // Optionally, you can display a confirmation message to the user
             alert("Details submitted successfully!");
+        }
+        // Function for sending the user to the previous page
+        function goBack() {
+            window.history.back();
         }
     </script>
 </body>
