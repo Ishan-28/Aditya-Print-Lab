@@ -711,8 +711,10 @@
     <h1 class="line"></h1>
 
     <div class="details-container">
+        <a href="#" class="back-button" onclick="goBack()">
+            <i class="fas fa-arrow-left"></i>
+        </a>
         <h1>QR Sticker Details</h1>
-        
         <div class="product-details">
             <h2>Product: QR Sticker</h2>
             <p>Description: A customised QR Code sticker which stores data</p>
@@ -795,6 +797,10 @@
 
             // Optionally, you can display a confirmation message to the user
             alert("Details submitted successfully!");
+        }
+        // Function for sending the user to the previous page
+        function goBack() {
+            window.history.back();
         }
     </script>
 </body>
