@@ -182,6 +182,18 @@
             margin-left: 0;
         }
 
+        .back-button {
+            color: #333;
+            font-size: 24px;
+            cursor: pointer;
+            margin-left: 10px;
+            margin-top: 10px;
+        }
+
+        .back-button:hover {
+            color: #555;
+        }
+
         /* Footer styles */
         body {
             line-height: 1.5;
@@ -609,8 +621,10 @@
     <h1 class="line"></h1>
 
     <div class="details-container">
+        <a href="#" class="back-button" onclick="goBack()">
+            <i class="fas fa-arrow-left"></i>
+        </a>
         <h1>Wax Ribbon Details</h1>
-        
         <div class="product-details">
             <h2>Product: Wax Ribbon</h2>
             <p>Description: A ribbon made using wax</p>
@@ -687,6 +701,10 @@
 
             // Optionally, you can display a confirmation message to the user
             alert("Details submitted successfully!");
+        }
+            // Function for sending the user to the previous page
+            function goBack() {
+                window.history.back();
         }
     </script>
 </body>
