@@ -547,8 +547,24 @@
             color: #333;
         }
 
+        .back-button {
+            color: #333;
+            font-size: 24px;
+            cursor: pointer;
+            margin-left: 10px;
+            margin-top: 10px;
+        }
+
+        .back-button:hover {
+            color: #555;
+        }
+
         .product-details {
             margin-bottom: 30px;
+        }
+
+        .product-details h1 {
+            text-align: center;
         }
 
         .message-section, .link-section {
@@ -654,7 +670,11 @@
 
     <div class="details-container">
         <div class="product-details">
-            <h2>Product: Flex Board Holder</h2>
+            <a href="#" class="back-button" onclick="goBack()">
+                <i class="fas fa-arrow-left"></i>
+            </a>
+            <h1>Product Details</h1>
+            <h2>Product name: Flex Board Holder</h2>
             <p>Description: A flex board holder.</p>
             <p>Price: Rs. 1500</p>
         </div>
@@ -736,6 +756,10 @@
 
             // Optionally, you can display a confirmation message to the user
             alert("Details submitted successfully!");
+        }
+        // Function for sending the user to the previous page
+        function goBack() {
+            window.history.back();
         }
     </script>
 </body>
