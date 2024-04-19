@@ -445,13 +445,13 @@
             width: 250px;
             height: 345px;
             min-width: 200px;
-            margin-right: 20px; /* This margin may be causing the overlap */
+            margin-right: 20px;
             border: 1px solid #ccc;
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             scroll-snap-align: start;
             transition: all 0.3s ease;
-            margin-bottom: 35px; /* Adjusted margin to avoid overlap */
+            margin-bottom: 235px;
             margin-top: 35px;
         }
 
@@ -463,6 +463,17 @@
             width: 100%;
             height: auto;
             object-fit: cover;
+        }
+        
+        .service-components h1 {
+            font-size: 40px;
+        }
+
+        .service-components h2 {
+            margin: 0 auto 10px;
+            width: 100px;
+            height: 2px;
+            background-color: #333;
         }
 
         .service-title {
@@ -940,8 +951,10 @@
         </div>
     </div>
 
-    <!-- <h1 class="line"></h1> -->
-    <p class="service-title">Our Services</p>
+    <div class="service-components">
+        <h1 class="service-title">Our Services</h1>
+        <h2 class="line"></h2>
+    </div>
     <div class="service-container">
         <div class="card-wrapper" id="cardWrapper"></div>
     </div>
