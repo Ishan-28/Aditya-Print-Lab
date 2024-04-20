@@ -31,13 +31,36 @@
             flex-direction: column;
             align-items: center;
         }
-
-        .payment-option {
-            background-color: #fff;
+        
+        .pay-opt {
+            background-color: #ffffff;
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             padding: 20px;
             margin-bottom: 20px;
+            width: 80%;
+            max-width: 600px;
+        }
+
+        .back-button {
+            color: #333;
+            font-size: 24px;
+            cursor: pointer;
+            margin-right: 500px;
+            margin-top: 10px;
+        }
+
+        .back-button:hover {
+            color: #555;
+        }
+
+        .payment-option {
+            background-color: #fcfcfc;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-bottom: 20px;
+            margin-left: 40px;
             width: 80%;
             max-width: 600px;
             display: flex;
@@ -85,62 +108,69 @@
         <h1>Payment Options</h1>
     </header>
     <main>
-        <div class="payment-options">
-            <section class="payment-option" onclick="togglePayment(this)">
-                <i class="fab fa-cc-visa"></i>
-                <div>
-                    <h2>Credit Card</h2>
-                    <ul>
-                        <li>Visa</li>
-                        <li>Mastercard</li>
-                        <li>American Express</li>
-                        <!-- Add more credit card options as needed -->
-                    </ul>
-                </div>
-                <i class="fas fa-chevron-right arrow"></i>
-            </section>
+        <div class="pay-opt">
+            <!-- Back Button -->
+            <a href="#" class="back-button" onclick="goBack()">
+                <i class="fas fa-arrow-left"></i>
+            </a>
 
-            <section class="payment-option" onclick="togglePayment(this)">
-                <i class="fab fa-cc-mastercard"></i>
-                <div>
-                    <h2>Debit Card</h2>
-                    <ul>
-                        <li>Visa</li>
-                        <li>Mastercard</li>
-                        <li>RuPay</li>
-                        <!-- Add more debit card options as needed -->
-                    </ul>
-                </div>
-                <i class="fas fa-chevron-right arrow"></i>
-            </section>
+            <div class="payment-options">
+                <section class="payment-option" onclick="togglePayment(this)">
+                    <i class="fab fa-cc-visa"></i>
+                    <div>
+                        <h2>Credit Card</h2>
+                        <ul>
+                            <li>Visa</li>
+                            <li>Mastercard</li>
+                            <li>American Express</li>
+                            <!-- Add more credit card options as needed -->
+                        </ul>
+                    </div>
+                    <i class="fas fa-chevron-right arrow"></i>
+                </section>
 
-            <section class="payment-option" onclick="togglePayment(this)">
-                <i class="fas fa-university"></i>
-                <div>
-                    <h2>Net Banking</h2>
-                    <ul>
-                        <li>ICICI Bank</li>
-                        <li>HDFC Bank</li>
-                        <li>SBI Bank</li>
-                        <!-- Add more net banking options as needed -->
-                    </ul>
-                </div>
-                <i class="fas fa-chevron-right arrow"></i>
-            </section>
+                <section class="payment-option" onclick="togglePayment(this)">
+                    <i class="fab fa-cc-mastercard"></i>
+                    <div>
+                        <h2>Debit Card</h2>
+                        <ul>
+                            <li>Visa</li>
+                            <li>Mastercard</li>
+                            <li>RuPay</li>
+                            <!-- Add more debit card options as needed -->
+                        </ul>
+                    </div>
+                    <i class="fas fa-chevron-right arrow"></i>
+                </section>
 
-            <section class="payment-option" onclick="togglePayment(this)">
-                <i class="fab fa-google-pay"></i>
-                <div>
-                    <h2>UPI</h2>
-                    <ul>
-                        <li>Google Pay</li>
-                        <li>PhonePe</li>
-                        <li>Paytm</li>
-                        <!-- Add more UPI options as needed -->
-                    </ul>
-                </div>
-                <i class="fas fa-chevron-right arrow"></i>
-            </section>
+                <section class="payment-option" onclick="togglePayment(this)">
+                    <i class="fas fa-university"></i>
+                    <div>
+                        <h2>Net Banking</h2>
+                        <ul>
+                            <li>ICICI Bank</li>
+                            <li>HDFC Bank</li>
+                            <li>SBI Bank</li>
+                            <!-- Add more net banking options as needed -->
+                        </ul>
+                    </div>
+                    <i class="fas fa-chevron-right arrow"></i>
+                </section>
+
+                <section class="payment-option" onclick="togglePayment(this)">
+                    <i class="fab fa-google-pay"></i>
+                    <div>
+                        <h2>UPI</h2>
+                        <ul>
+                            <li>Google Pay</li>
+                            <li>PhonePe</li>
+                            <li>Paytm</li>
+                            <!-- Add more UPI options as needed -->
+                        </ul>
+                    </div>
+                    <i class="fas fa-chevron-right arrow"></i>
+                </section>
+            </div>
         </div>
     </main>
     <script>
@@ -156,6 +186,10 @@
                 subPayment.style.display = 'none';
                 arrow.style.transform = 'none'; // Reset arrow rotation
             }
+        }
+        // JavaScript Function to go back to the previous page
+        function goBack() {
+            window.history.back();
         }
     </script>
 </body>
