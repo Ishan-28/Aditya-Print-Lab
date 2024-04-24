@@ -303,7 +303,6 @@
             z-index: -1;
         }
 
-        /* Styles for login button */
         .login-text {
             background-color: #2596be;
             padding: 6px 6px;
@@ -675,54 +674,6 @@
             list-style: none;
         }
         
-        /* .hero-image {
-            background-image: url("src/home-slides/hero-image.jpg");
-            background-size: cover;
-            background-position: center;
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: white;
-            text-align: center;
-            font-family: Arial, sans-serif;
-            font-size: 30px;
-            font-weight: bold;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-        }
-
-        .hero-text {
-            background-color: rgba(0, 0, 0, 0.5);
-            padding: 50px 20px;
-            border-radius: 10px;
-        }
-
-        .hero-text h1 {
-            font-size: 50px;
-            margin: 10px;
-        }
-
-        .hero-text p {
-            font-size: 20px;
-            margin: 10px;
-        }
-
-        .hero-text button {
-            background-color: #333;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 20px;
-            margin-top: 10px;
-        }
-
-        .hero-text button:hover {
-            background-color: #555;
-        } */
-
-        /* Footer Styles */
         .footer {
             background-color: #24262b;
             padding: 70px 0;
@@ -933,12 +884,6 @@
     <div class="service-container">
         <div class="card-wrapper" id="cardWrapper"></div>
     </div>
-    
-    <!-- <div class="hero-text">
-        <h1>Aditya Print Lab</h1>
-        <p>Printing services that cater to your every need</p>
-        <button onclick="window.location.href='shop.html'">Shop Now</button>
-    </div> -->
 
     <footer class="footer">
         <div class="container">
@@ -1053,6 +998,7 @@
         slides[slideIndex - 1].style.display = "block";
         slides[slideIndex - 1].style.animationName = "slideIn";
         dots[slideIndex - 1].className += " active";
+
 
         let prevIndex = slideIndex - 2;
         if (prevIndex < 0) {
