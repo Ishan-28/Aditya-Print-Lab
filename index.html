@@ -90,7 +90,6 @@
             background-color: #ffffff;
         }
 
-        /* For mobile view */
         @media screen and (max-width: 600px) {
             .topnav img {
                 height: auto;
@@ -121,7 +120,6 @@
             .line {
                 margin-top: -16px;
                 border-bottom: 1px solid #ccc;
-                /* margin-bottom: 20px; */
                 margin-left: 0;
             }
         }
@@ -198,7 +196,6 @@
             }
         }
 
-        /* Style for search bar */
         .search-bar {
             flex-grow: 1;
             text-align: right;
@@ -251,7 +248,6 @@
             }
         }
 
-        /* Style for search bar */
             .search-bar form {
             display: flex;
             align-items: center;
@@ -283,7 +279,6 @@
             }
         }
 
-        /* Styles for cart */
         .cart-icon {
             margin-right: 100px;
             top: 50%;
@@ -333,10 +328,8 @@
         .mySlides {display: none}
         img {vertical-align: middle;}
 
-        /* Slideshow container */
         .slideshow-container {
-            height: 80%;    /* Responsible for the height of the container */
-            /* max-width: 930px; */
+            height: 80%;
             position: relative;
             margin: auto;
             overflow: hidden;
@@ -349,10 +342,9 @@
 
        .fade {
             animation-duration: 1s;
-            animation-fill-mode: both; /* This ensures that both the start and end states of the animation are applied */
+            animation-fill-mode: both;
         }
 
-        /* This styles are responsible for the sliding effect */
         @keyframes slideIn {
             from {
                 transform: translateX(100%);
@@ -379,7 +371,6 @@
             filter: brightness(55%);
         }
 
-        /* This style is responsible for the caption text */
         .text {
             color: #f2f2f2;
             font-size: 15px;
@@ -412,7 +403,6 @@
             opacity: 1;
         }
 
-        /* Card container */
         .service-container {
             position: relative;
             z-index: 1;
@@ -568,14 +558,6 @@
         .prev:hover, .next:hover {
             background-color: rgba(0,0,0,0.8);
         }
-
-        /* not working for mobile view */
-        /* @media screen and (min-width: 601px) {
-            .text {
-                font-size: 1px;
-                color: black;
-            }
-        } */
 
         @media only screen and (max-width: 300px) {
             .prev, .next,.text {font-size: 11px}
@@ -788,7 +770,6 @@
 
         .footer-col ul li a:hover {
             color: #ffffff;
-            /* padding-left: 8px; */
         }
 
         .footer-col .social-links a {
@@ -926,9 +907,6 @@
           <span class="dot" onclick="currentSlide(5)"></span> 
         </div>
 
-
-
-        <!-- User support icon -->
     <div class="user-support" onclick="openSupport()">
         <i class="fas fa-question-circle"></i>
     </div>
@@ -1076,7 +1054,6 @@
         slides[slideIndex - 1].style.animationName = "slideIn";
         dots[slideIndex - 1].className += " active";
 
-        // Determine the index of the previous slide
         let prevIndex = slideIndex - 2;
         if (prevIndex < 0) {
             prevIndex = slides.length - 1;
