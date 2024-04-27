@@ -581,10 +581,9 @@
             margin-top:100px;
             margin-left: 180px;
             width: 100%;
-            background: rgb(230, 230, 230);
             border-radius: 6px;
             padding: 20px 60px 30px 40px;
-            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+            /* box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2); */
         }
         .container .content {
             display: flex;
@@ -679,7 +678,9 @@
             transition: all 0.3s ease;
         }
         .button input[type="button"]:hover {
-            background: #000000;
+            background: #f2f2f2;
+            color: #000000;
+            border: 1px solid #000000;
         }
 
         @media (max-width: 950px) {
@@ -919,7 +920,7 @@
               <input type="text" placeholder="Enter your email" />
             </div>
             <div class="input-box message-box">
-              <textarea placeholder="Enter your message"></textarea>
+              <textarea placeholder="Enter your message.."></textarea>
             </div>
             <div class="button">
               <input type="button" value="Send Now" />
