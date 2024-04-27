@@ -33,7 +33,7 @@ Contributions are welcome! If you have any suggestions, enhancements, or bug fix
 
 ## Contact
 
-For any inquiries or support, please contact us at [email@example.com](mailto:deshpandeishan75@gmail.com).
+For any inquiries or support, please contact us at [deshpandeishan74@gmail.com](mailto:deshpandeishan75@gmail.com).
 
 ## License
 
