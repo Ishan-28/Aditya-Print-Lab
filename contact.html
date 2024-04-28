@@ -744,9 +744,14 @@
         }
 
         .footer {
-            margin-top: 400px;
             background-color: #24262b;
-            padding: 70px 100px;
+            padding: 70px 0;
+        }
+
+        @media (max-width: 767px) {
+            .footer {
+                margin-top: 300px;
+            }
         }
 
         .footer-col {
@@ -791,7 +796,6 @@
 
         .footer-col ul li a:hover {
             color: #ffffff;
-            padding-left: 8px;
         }
 
         .footer-col .social-links a {
@@ -804,28 +808,13 @@
             line-height: 40px;
             border-radius: 50%;
             color: #ffffff;
-            margin-bottom: 35px;
             transition: all 0.5s ease;
+            margin-bottom: 35px;
         }
 
         .footer-col .social-links a:hover {
             color: #24262b;
             background-color: #ffffff;
-        }
-
-
-        @media (max-width: 767px) {
-        .footer-col {
-            width: 50%;
-            margin-bottom: 30px;
-        }
-        }
-
-
-        @media (max-width: 574px) {
-        .footer-col {
-            width: 100%;
-        }
         }
 
         .footer-col form input {
@@ -840,7 +829,7 @@
         }
 
         .footer-col form input::placeholder {
-            color: #8e8e8e;
+        color: #8e8e8e;
         }
 
         .footer-col form input[type="submit"] {
@@ -855,13 +844,18 @@
             background-color: rgb(26, 108, 191);
         }
 
-        /* Mobile view setting */
-        @media screen and (max-width: 600px) {
-            .container {
-                height: 850px;
+        @media (max-width: 767px) {
+            .footer-col {
+                width: 50%;
+                margin-bottom: 30px;
             }
         }
 
+        @media (max-width: 574px) {
+            .footer-col {
+                width: 100%;
+            }
+        }
     </style>
 </head>
 <body>
