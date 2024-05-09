@@ -6,7 +6,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <title>QR Sticker Details</title>
     <style>
-        /* Styles for top navbar */
        .topnav {
             overflow: hidden;
             text-align: left;
@@ -49,14 +48,12 @@
             position: static;
         }
 
-        /* Hide the desktop logo on mobile view */
         @media (max-width: 768px) {
             .desktop-only {
                 display: none;
             }
         }
 
-        /* Hide the mobile logo on desktop view */
         @media (min-width: 769px) {
             .mobile-only {
                 display: none;
@@ -91,7 +88,6 @@
             background-color: #ffffff;
         }
 
-        /* Style for search bar */
         .search-bar {
             flex-grow: 1;
             text-align: right;
@@ -154,7 +150,6 @@
             z-index: -1;
         }
 
-        /* Styles for login button */
         .login-text {
             background-color: #2596be;
             padding: 6px 6px;
@@ -173,7 +168,6 @@
             background-color: #1e7898;
         }
 
-        /* Style for line below top navbar */
         .line {
             margin-top: 5px;
             border-bottom: 1px solid #ccc;
@@ -182,7 +176,6 @@
             margin-left: 0;
         }
 
-        /* Footer styles */
         body {
             line-height: 1.5;
             font-family: "Poppins", sans-serif;
@@ -255,7 +248,6 @@
 
         .footer-col ul li a:hover {
             color: #ffffff;
-            /* padding-left: 8px; */
         }
 
         .footer-col .social-links a {
@@ -322,7 +314,6 @@
         .mySlides {display: none}
         img {vertical-align: middle;}
 
-        /* Slideshow container */
         .slideshow-container {
             /* margin-left: 100%; */
             max-width: 930px;
@@ -742,7 +733,7 @@
             <input type="text" id="link" placeholder="Paste link here...">
         </div>
 
-        <button class="btn-submit" onclick="submitDetails()">Submit</button>
+        <button class="btn-submit" onclick="submitDetails()">Add to Cart</button>
     </div>
 
     <footer class="footer">
@@ -797,19 +788,15 @@
 
     <script>
         function submitDetails() {
-            // Fetch message and link values
             const message = document.getElementById('message').value;
             const link = document.getElementById('link').value;
 
-            // Here you can perform any further action with the submitted data, like sending it to a server or processing it in any way required
-            // For now, let's just log the values to the console
             console.log("Message:", message);
             console.log("Link:", link);
 
-            // Optionally, you can display a confirmation message to the user
             alert("Details submitted successfully!");
         }
-        // Function for sending the user to the previous page
+        // Send uder to the previous page
         function goBack() {
             window.history.back();
         }
