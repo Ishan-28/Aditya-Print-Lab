@@ -733,7 +733,7 @@
             <input type="text" id="link" placeholder="Paste link here...">
         </div>
 
-        <button class="btn-submit" onclick="submitDetails()">Add to Cart</button>
+        <button class="btn-submit" onclick="showMessage()">Add to Cart</button>
     </div>
 
     <footer class="footer">
@@ -794,11 +794,30 @@
             console.log("Message:", message);
             console.log("Link:", link);
 
-            alert("Details submitted successfully!");
+            // alert("Details submitted successfully!");
         }
-        // Send uder to the previous page
+        // Send user to the previous page
         function goBack() {
             window.history.back();
+        }
+
+        function showMessage() {
+            var messageBox = document.createElement("div");
+            messageBox.textContent = "Details have recorded successfully";
+            messageBox.style.backgroundColor = "skyblue";
+            messageBox.style.color = "black";
+            messageBox.style.padding = "10px 20px";
+            messageBox.style.position = "fixed";
+            messageBox.style.bottom = "20px";
+            messageBox.style.left = "50%";
+            messageBox.style.transform = "translateX(-50%)";
+            messageBox.style.borderRadius = "5px";
+            messageBox.style.zIndex = "9999";
+            document.body.appendChild(messageBox);
+
+            setTimeout(function() {
+                messageBox.style.display = "none";
+            }, 3000);
         }
     </script>
 </body>
