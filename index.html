@@ -327,11 +327,23 @@
         .mySlides {display: none}
         img {vertical-align: middle;}
 
-        .slideshow-container {
-            height: 80%;
-            position: relative;
-            margin: auto;
-            overflow: hidden;
+        @media only screen and (min-width: 600px) {
+            .slideshow-container {
+                height: 80%;
+                position: relative;
+                margin: auto;
+                overflow: hidden;
+            }
+        }
+
+        @media only screen and (max-width: 600px) {
+            .slideshow-container {
+                height: 80%;
+                position: relative;
+                margin: auto;
+                overflow: hidden;
+                margin-bottom: -300px;
+            }
         }
 
         .slideshow-container .slide-img {
@@ -486,16 +498,32 @@
             height: 400px;
         }
 
-        .dot {
-            cursor: pointer;
-            height: 15px;
-            width: 15px;
-            margin: 0 2px;
-            background-color: #bbb;
-            border-radius: 50%;
-            display: inline-block;
-            transition: background-color 0.6s ease;
-            margin-bottom: 40px;
+        @media only screen and (min-width: 600px) {
+            .dot {
+                cursor: pointer;
+                height: 15px;
+                width: 15px;
+                background-color: #bbb;
+                border-radius: 50%;
+                display: inline-block;
+                transition: background-color 0.6s ease;
+                margin-bottom: 40px;
+                margin: 0 2px;
+            }
+        }
+
+        @media only screen and (max-width: 600px) {
+            .dot {
+                cursor: pointer;
+                height: 15px;
+                width: 15px;
+                background-color: #bbb;
+                border-radius: 50%;
+                display: inline-block;
+                transition: background-color 0.6s ease;
+                margin-bottom: 40px;
+                margin: 0 2px;
+            }
         }
 
         .active, .dot:hover {
