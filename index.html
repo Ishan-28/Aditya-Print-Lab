@@ -128,7 +128,7 @@
             height: 100%;
             width: 200px;
             position: fixed;
-            z-index: 1;
+            z-index: 3;
             top: 0;
             left: 0;
             background-color: #111;
@@ -439,65 +439,6 @@
             padding-left: 20px;
         }
 
-        .service-card {
-            overflow: hidden;
-            flex: 0 0 auto;
-            width: 250px;
-            height: 345px;
-            min-width: 200px;
-            margin-right: 20px;
-            border: 1px solid #ccc;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            scroll-snap-align: start;
-            transition: all 0.3s ease;
-            margin-bottom: 235px;
-            margin-top: 35px;
-        }
-
-        .service-card:last-child {
-            margin-right: 0;
-        }
-
-        .service-image {
-            width: 100%;
-            height: auto;
-            object-fit: cover;
-        }
-        
-        .service-components h1 {
-            font-size: 40px;
-        }
-
-        .service-components h2 {
-            margin: 0 auto 10px;
-            width: 100px;
-            height: 2px;
-            background-color: #333;
-        }
-
-        .service-title {
-            font-size: 24px;
-            font-weight: bold;
-            margin: 10px 0;
-            text-align: center;
-        }
-
-        .service-description {
-            font-size: 14px;
-            margin: 0 10px 20px 10px;
-            text-align: justify;
-            height: 190px;
-            overflow: hidden;
-            transition: height 0.3s ease;
-            color: #363636;
-        }
-
-        .service-card:hover{
-            width: 280px;
-            height: 400px;
-        }
-
         @media only screen and (min-width: 600px) {
             .dot {
                 cursor: pointer;
@@ -668,6 +609,65 @@
             color: rgb(0, 0, 0);
             text-decoration: none;
             cursor: pointer;
+        }
+
+        .service-card {
+            overflow: hidden;
+            flex: 0 0 auto;
+            width: 250px;
+            height: 345px;
+            min-width: 200px;
+            margin-right: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            scroll-snap-align: start;
+            transition: all 0.3s ease;
+            margin-bottom: 235px;
+            margin-top: 35px;
+        }
+
+        .service-card:last-child {
+            margin-right: 0;
+        }
+
+        .service-image {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+        }
+        
+        .service-components h1 {
+            font-size: 40px;
+        }
+
+        .service-components h2 {
+            margin: 0 auto 10px;
+            width: 100px;
+            height: 2px;
+            background-color: #333;
+        }
+
+        .service-title {
+            font-size: 24px;
+            font-weight: bold;
+            margin: 10px 0;
+            text-align: center;
+        }
+
+        .service-description {
+            font-size: 14px;
+            margin: 0 10px 20px 10px;
+            text-align: justify;
+            height: 190px;
+            overflow: hidden;
+            transition: height 0.3s ease;
+            color: #363636;
+        }
+
+        .service-card:hover{
+            width: 280px;
+            height: 400px;
         }
 
         html, body {
