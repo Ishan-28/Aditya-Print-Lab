@@ -1,6 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <style>
+        #map {
+            top: 100px;
+            left: 175px;
+            height: 700px;
+            width: 75%;
+        }
+    </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -938,6 +947,9 @@
         </div>
       </div>
     </div>
+
+    <div id="map"></div>
+
     <footer class="footer">
         <div class="footer-container">
           <div class="row">
@@ -985,7 +997,7 @@
             </div>
           </div>
         </div>
-      </footer>
+    </footer>
 
       <script>
         function closeNav() {
@@ -996,6 +1008,21 @@
             document.getElementById("mySidenav").style.width = "200px";
         }
       </script>
+
+        <!-- Leaflet Map Section -->
+        <!-- <div id="map"></div> -->
+        <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+        <script>
+            var map = L.map('map').setView([19.85035, 75.32266], 19);
+
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+            }).addTo(map);
+
+            L.marker([19.85035, 75.32266]).addTo(map)
+                .bindPopup('A pretty CSS3 popup.<br> Easily customizable.')
+                .openPopup();
+        </script>
 
   </body>
 </html>
